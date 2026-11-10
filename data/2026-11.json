@@ -1,0 +1,5420 @@
+{
+ "_readme": {
+  "about": "本の手帖の候補データ。Claudeが調査日時点でAmazon.co.jpとメルカリを確認した結果。",
+  "price": "Amazon.co.jpの新品価格（税込）",
+  "size": "Amazon商品ページの寸法をmmに換算（h=高さ, w=幅, t=厚さ）。weight_g=重量",
+  "mercari.sold_prices": "メルカリ「売り切れ」検索の結果のうち、書名が一致した商品の価格（＝実際に売れた価格）。検索結果は最大120件まで、売れた時期は未確認",
+  "mercari.on_sale_prices": "メルカリ「出品中」検索で書名が一致した商品の価格（＝競合の出品価格。売れた価格ではない）",
+  "usefulness/demand": "Claudeによる実務有用性・需要の続きやすさの評価（1〜5）"
+ },
+ "month": "2026-11",
+ "label": "2026年11月の調査",
+ "researched_at": "2026-11-10",
+ "window": {
+  "from": "2026-08-10",
+  "to": "2026-11-10"
+ },
+ "notes": [
+  "候補の母集団：Amazon.co.jp「コンピュータ・IT」「ビジネス・経済」の新着ランキング・売れ筋ランキング（各1〜2ページ）に載った本のうち、対象期間に発売されたIT・ビジネス書。",
+  "メルカリは内蔵ブラウザで「売り切れ」「出品中」を書名で検索し、書名が一致したものだけ数えています（旧版・別の本・セット売りは除外）。",
+  "発売直後（11月第1週発売など）の本は、まだ中古が出回っておらず売却実績0件になりやすい点に注意。",
+  "年度版（〜2027など）は翌年版が出ると相場が大きく下がるため、早めに読んで売る前提です。"
+ ],
+ "books": [
+  {
+   "isbn": "481564568X",
+   "asin": "481564568X",
+   "title": "この1冊でしっかりわかる Claudeの教科書",
+   "author": "AI Evo Project (著)",
+   "publisher": "SBクリエイティブ",
+   "release_date": "2026-08-26",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "生成AI"
+   ],
+   "genre_ok": true,
+   "price": 2310,
+   "price_note": "",
+   "pages": 240,
+   "amazon_rank": 182,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 15.7,
+    "weight_g": 370
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Claudeの教科書 この1冊でしっかりわかる",
+    "sold_count": 69,
+    "sold_prices": [
+     1999,
+     1200,
+     1600,
+     2100,
+     1800,
+     1980,
+     1800,
+     1800,
+     2000,
+     2000,
+     1800,
+     1900,
+     2100,
+     1900,
+     1800,
+     1900,
+     1980,
+     1880,
+     2200,
+     1900,
+     2000,
+     1900,
+     1980,
+     1950,
+     1950,
+     1600,
+     1490,
+     2000,
+     2000,
+     2000,
+     2000,
+     1800,
+     2180,
+     2110,
+     2000,
+     2000,
+     2000,
+     1800,
+     1980,
+     2090,
+     1800,
+     2200,
+     1980,
+     1900,
+     2000,
+     2000,
+     2000,
+     2000,
+     1900,
+     1980,
+     1980,
+     1490,
+     2000,
+     2310,
+     2000,
+     2180,
+     2099,
+     2200,
+     2080,
+     1800,
+     2310,
+     1500,
+     2100,
+     1800,
+     1999,
+     1900,
+     2000,
+     2200,
+     1900
+    ],
+    "sold_median": 1980,
+    "on_sale_count": 4,
+    "on_sale_min": 2000,
+    "on_sale_prices": [
+     2000,
+     2060,
+     2200,
+     9323
+    ],
+    "sold_items": [
+     {
+      "id": "m17546267494",
+      "name": "この1冊でしっかりわかる Claudeの教科書",
+      "price": 1999
+     },
+     {
+      "id": "m20514449550",
+      "name": "この1冊でしっかりわかる Claudeの教科書",
+      "price": 1200
+     },
+     {
+      "id": "m45926766484",
+      "name": "この1冊でしっかりわかる Claudeの教科書",
+      "price": 1600
+     },
+     {
+      "id": "m78820158556",
+      "name": "【新刊】この1冊でしっかりわかる Claudeの教科書 AI Evo Proje",
+      "price": 2100
+     },
+     {
+      "id": "m82168653993",
+      "name": "この1冊でしっかりわかる Claudeの教科書",
+      "price": 1800
+     },
+     {
+      "id": "m28273233616",
+      "name": "この1冊でしっかりわかる Claudeの教科書",
+      "price": 1980
+     },
+     {
+      "id": "m27459009237",
+      "name": "この1冊でしっかりわかる Claudeの教科書",
+      "price": 1800
+     },
+     {
+      "id": "m11223720231",
+      "name": "この1冊でしっかりわかる Claudeの教科書",
+      "price": 1800
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Claude%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Claude%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     80,
+     4
+    ]
+   },
+   "usefulness": 4,
+   "demand": 3,
+   "comment": "Claudeの全体像を押さえる入門書。売却実績が多く値崩れしにくいが、AI本は改訂版が出ると下がりやすい。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/481564568X"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297159392",
+   "asin": "4297159392",
+   "title": "［みのるん式］ビジネスパーソンのためのClaude Code仕事術",
+   "author": "御田 稔 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-09-24",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "業務効率化"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 296,
+   "amazon_rank": 255,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 15.0,
+    "weight_g": 400
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "みのるん Claude Code仕事術",
+    "sold_count": 57,
+    "sold_prices": [
+     1800,
+     1900,
+     1850,
+     1970,
+     2000,
+     1900,
+     1880,
+     1980,
+     1900,
+     1480,
+     2000,
+     2080,
+     1980,
+     1990,
+     1900,
+     2180,
+     2000,
+     1500,
+     2099,
+     2100,
+     2100,
+     2099,
+     2000,
+     2100,
+     2100,
+     2100,
+     1800,
+     2150,
+     2000,
+     2100,
+     2000,
+     2150,
+     2000,
+     2100,
+     2080,
+     2150,
+     2250,
+     2280,
+     2220,
+     2190,
+     2100,
+     2300,
+     2200,
+     2100,
+     2200,
+     2130,
+     2200,
+     2200,
+     2099,
+     2180,
+     2100,
+     2080,
+     2200,
+     2000,
+     1900,
+     2050,
+     2300
+    ],
+    "sold_median": 2099,
+    "on_sale_count": 4,
+    "on_sale_min": 2300,
+    "on_sale_prices": [
+     2300,
+     2420,
+     2350,
+     9711
+    ],
+    "sold_items": [
+     {
+      "id": "m64286753348",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術",
+      "price": 1800
+     },
+     {
+      "id": "m90891397664",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術",
+      "price": 1900
+     },
+     {
+      "id": "m95389990977",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術",
+      "price": 1850
+     },
+     {
+      "id": "m95343387304",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術",
+      "price": 1970
+     },
+     {
+      "id": "m62321342451",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術　未使用",
+      "price": 2000
+     },
+     {
+      "id": "m66883068978",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術",
+      "price": 1900
+     },
+     {
+      "id": "m78321543371",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術",
+      "price": 1880
+     },
+     {
+      "id": "m19137638121",
+      "name": "[みのるん式]ビジネスパーソンのためのClaude Code仕事術",
+      "price": 1980
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%81%BF%E3%81%AE%E3%82%8B%E3%82%93%20Claude%20Code%E4%BB%95%E4%BA%8B%E8%A1%93&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%81%BF%E3%81%AE%E3%82%8B%E3%82%93%20Claude%20Code%E4%BB%95%E4%BA%8B%E8%A1%93&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     94,
+     5
+    ]
+   },
+   "usefulness": 4,
+   "demand": 3,
+   "comment": "非エンジニア向けClaude Code活用。中古の流通量が多く相場が安定。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297159392"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%BF%E3%81%AE%E3%82%8B%E3%82%93%20Claude%20Code%E4%BB%95%E4%BA%8B%E8%A1%93&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%BF%E3%81%AE%E3%82%8B%E3%82%93%20Claude%20Code%E4%BB%95%E4%BA%8B%E8%A1%93&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296071610",
+   "asin": "4296071610",
+   "title": "Claude活用大全　AIと共に学び働き遊ぶ実践ガイド",
+   "author": "アクセンチュア Anthropic ビジネスグループ (編集)",
+   "publisher": "日経BP",
+   "release_date": "2026-08-21",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "生成AI"
+   ],
+   "genre_ok": true,
+   "price": 2860,
+   "price_note": "",
+   "pages": 392,
+   "amazon_rank": 479,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 27.0,
+    "weight_g": 500
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Claude活用大全",
+    "sold_count": 53,
+    "sold_prices": [
+     2550,
+     2400,
+     2550,
+     2450,
+     2460,
+     2400,
+     2500,
+     2500,
+     2860,
+     2500,
+     2300,
+     2300,
+     2599,
+     2350,
+     2350,
+     2580,
+     2400,
+     2350,
+     2200,
+     2350,
+     2000,
+     2300,
+     2300,
+     2300,
+     2350,
+     2540,
+     2480,
+     2500,
+     2220,
+     2400,
+     2599,
+     2550,
+     2300,
+     1000,
+     2088,
+     2300,
+     2000,
+     2500,
+     2600,
+     1500,
+     2600,
+     2390,
+     2500,
+     2299,
+     2480,
+     2699,
+     2300,
+     2600,
+     2300,
+     2580,
+     2680,
+     2580,
+     2100
+    ],
+    "sold_median": 2400,
+    "on_sale_count": 3,
+    "on_sale_min": 2580,
+    "on_sale_prices": [
+     2580,
+     8346,
+     10536
+    ],
+    "sold_items": [
+     {
+      "id": "m71549185872",
+      "name": "Claude活用大全 AIと共に学び働き遊ぶ実践ガイド",
+      "price": 2550
+     },
+     {
+      "id": "m69946521208",
+      "name": "Claude活用大全 AIと共に学び働き遊ぶ実践ガイド",
+      "price": 2400
+     },
+     {
+      "id": "m42978286014",
+      "name": "Claude活用大全 AIと共に学び働き遊ぶ実践ガイド",
+      "price": 2550
+     },
+     {
+      "id": "m19097142676",
+      "name": "Claude活用大全 AIと共に学び働き遊ぶ実践ガイド",
+      "price": 2450
+     },
+     {
+      "id": "m88232943709",
+      "name": "Claude活用大全 AIと共に学び働き遊ぶ実践ガイド",
+      "price": 2460
+     },
+     {
+      "id": "m66445352048",
+      "name": "AIと共に学び働き遊ぶ Claude 活用大全",
+      "price": 2400
+     },
+     {
+      "id": "m87446844336",
+      "name": "Claude活用大全 AIと共に学び働き遊ぶ実践ガイド",
+      "price": 2500
+     },
+     {
+      "id": "m86362755165",
+      "name": "Claude活用大全 AIと共に学び働き遊ぶ実践ガイド",
+      "price": 2500
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Claude%E6%B4%BB%E7%94%A8%E5%A4%A7%E5%85%A8&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Claude%E6%B4%BB%E7%94%A8%E5%A4%A7%E5%85%A8&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     111,
+     10
+    ]
+   },
+   "usefulness": 4,
+   "demand": 3,
+   "comment": "Claude活用の網羅本。定価が高めで相場も2,500円前後を維持。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296071610"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%E6%B4%BB%E7%94%A8%E5%A4%A7%E5%85%A8&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%E6%B4%BB%E7%94%A8%E5%A4%A7%E5%85%A8&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4815643113",
+   "asin": "4815643113",
+   "title": "Claude Code実践入門 [生成AI深掘りガイド]",
+   "author": "Oikon (著), 前川 蒼 (著)",
+   "publisher": "SBクリエイティブ",
+   "release_date": "2026-08-14",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "開発"
+   ],
+   "genre_ok": true,
+   "price": 3300,
+   "price_note": "",
+   "pages": 336,
+   "amazon_rank": 603,
+   "size": {
+    "h": 233.0,
+    "w": 182.0,
+    "t": 19.7,
+    "weight_g": 680
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Claude Code実践入門 生成AI深掘りガイド",
+    "sold_count": 78,
+    "sold_prices": [
+     2680,
+     2450,
+     2780,
+     2900,
+     2600,
+     2500,
+     2650,
+     2200,
+     2700,
+     2700,
+     2800,
+     2777,
+     2300,
+     2800,
+     2800,
+     2850,
+     2333,
+     2900,
+     2500,
+     2500,
+     2400,
+     2700,
+     2700,
+     2525,
+     2980,
+     2500,
+     2399,
+     2690,
+     2899,
+     2855,
+     2600,
+     2800,
+     2900,
+     2800,
+     2780,
+     2780,
+     2700,
+     2800,
+     2600,
+     2900,
+     2800,
+     2890,
+     2480,
+     2790,
+     2400,
+     2850,
+     3000,
+     2680,
+     2880,
+     2800,
+     2700,
+     2600,
+     2800,
+     2900,
+     2500,
+     2850,
+     2700,
+     2800,
+     3200,
+     2780,
+     2455,
+     2799,
+     3000,
+     2800,
+     2500,
+     3100,
+     2800,
+     3100,
+     2600,
+     2780,
+     2500,
+     2850,
+     2800,
+     2200,
+     2999,
+     2900,
+     2699,
+     2877
+    ],
+    "sold_median": 2780.0,
+    "on_sale_count": 6,
+    "on_sale_min": 2600,
+    "on_sale_prices": [
+     2799,
+     2600,
+     2900,
+     2699,
+     2800,
+     11570
+    ],
+    "sold_items": [
+     {
+      "id": "m28605894399",
+      "name": "Claude Code 実践入門 生成AI深掘りガイド",
+      "price": 2680
+     },
+     {
+      "id": "m37017610759",
+      "name": "Claude Code実践入門 [生成AI深掘りガイド]",
+      "price": 2450
+     },
+     {
+      "id": "m65267998040",
+      "name": "Claude Code実践入門 [生成AI深掘りガイド]",
+      "price": 2780
+     },
+     {
+      "id": "m58817705847",
+      "name": "Claude Code実践入門 [生成AI深掘りガイド]",
+      "price": 2900
+     },
+     {
+      "id": "m67338460252",
+      "name": "Claude Code実践入門 [生成AI深掘りガイド]",
+      "price": 2600
+     },
+     {
+      "id": "m29872310900",
+      "name": "Claude Code実践入門 [生成AI深掘りガイド]",
+      "price": 2500
+     },
+     {
+      "id": "m44591166197",
+      "name": "Claude Code実践入門 [生成AI深掘りガイド]",
+      "price": 2650
+     },
+     {
+      "id": "m20366599654",
+      "name": "【裁断済】Claude Code実践入門 [生成AI深掘りガイド]",
+      "price": 2200
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Claude%20Code%E5%AE%9F%E8%B7%B5%E5%85%A5%E9%96%80%20%E7%94%9F%E6%88%90AI%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Claude%20Code%E5%AE%9F%E8%B7%B5%E5%85%A5%E9%96%80%20%E7%94%9F%E6%88%90AI%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     100,
+     12
+    ]
+   },
+   "usefulness": 5,
+   "demand": 4,
+   "comment": "エンジニア向けClaude Code解説。需要が強く維持率が高い。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4815643113"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%20Code%E5%AE%9F%E8%B7%B5%E5%85%A5%E9%96%80%20%E7%94%9F%E6%88%90AI%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%20Code%E5%AE%9F%E8%B7%B5%E5%85%A5%E9%96%80%20%E7%94%9F%E6%88%90AI%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297157888",
+   "asin": "4297157888",
+   "title": "プロフェッショナルAI駆動開発〜確率論から決定論へ AIの揺らぎを制御する開発フレームワーク〜",
+   "author": "松本 淳太郎 (著), サカモト (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-08-27",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "開発"
+   ],
+   "genre_ok": true,
+   "price": 2970,
+   "price_note": "",
+   "pages": 288,
+   "amazon_rank": 897,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 18.0,
+    "weight_g": 370
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "プロフェッショナルAI駆動開発",
+    "sold_count": 41,
+    "sold_prices": [
+     2578,
+     2500,
+     2000,
+     2300,
+     2500,
+     2100,
+     2600,
+     2600,
+     2500,
+     1900,
+     2500,
+     2000,
+     2000,
+     1880,
+     2500,
+     1980,
+     2500,
+     2500,
+     2500,
+     2500,
+     2400,
+     1416,
+     2400,
+     2500,
+     2550,
+     2300,
+     2500,
+     2700,
+     2400,
+     2400,
+     2400,
+     2200,
+     2600,
+     2300,
+     2200,
+     1700,
+     2100,
+     2100,
+     2400,
+     2299,
+     2350
+    ],
+    "sold_median": 2400,
+    "on_sale_count": 3,
+    "on_sale_min": 2570,
+    "on_sale_prices": [
+     2570,
+     2700,
+     10884
+    ],
+    "sold_items": [
+     {
+      "id": "m34712075241",
+      "name": "プロフェッショナルAI駆動開発～確率論から決定論へ",
+      "price": 2500
+     },
+     {
+      "id": "m39908420747",
+      "name": "プロフェッショナルAI駆動開発～確率論から決定論へ",
+      "price": 2000
+     },
+     {
+      "id": "m72290083335",
+      "name": "プロフェッショナルAI駆動開発～確率論から決定論へ",
+      "price": 2300
+     },
+     {
+      "id": "m63301194017",
+      "name": "プロフェッショナルAI駆動開発～確率論から決定論へ",
+      "price": 2500
+     },
+     {
+      "id": "m63322409204",
+      "name": "プロフェッショナルAI駆動開発～確率論から決定論へ",
+      "price": 2100
+     },
+     {
+      "id": "m78463347033",
+      "name": "プロフェッショナルAI駆動開発～確率論から決定論へ",
+      "price": 2600
+     },
+     {
+      "id": "m35883992698",
+      "name": "プロフェッショナルAI駆動開発～確率論から決定論へ",
+      "price": 2600
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%ABAI%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%ABAI%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     70,
+     32
+    ]
+   },
+   "usefulness": 5,
+   "demand": 4,
+   "comment": "AI駆動開発の方法論。PM・開発者どちらにも実務的。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297157888"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%ABAI%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%ABAI%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297160072",
+   "asin": "4297160072",
+   "title": "知識ゼロから試せる　21のハッキング体験で学ぶWebセキュリティ",
+   "author": "左門 至峰 (著), SATOKI（辻 知希） (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-11-06",
+   "in_window": true,
+   "genres": [
+    "セキュリティ",
+    "Web"
+   ],
+   "genre_ok": true,
+   "price": 3520,
+   "price_note": "",
+   "pages": 384,
+   "amazon_rank": 333,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 20.0,
+    "weight_g": 450
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "21のハッキング体験で学ぶWebセキュリティ",
+    "sold_count": 1,
+    "sold_prices": [
+     2890
+    ],
+    "sold_median": 2890,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m12443823467",
+      "name": "21のハッキング体験で学ぶWebセキュリティ",
+      "price": 2890
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=21%E3%81%AE%E3%83%8F%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E4%BD%93%E9%A8%93%E3%81%A7%E5%AD%A6%E3%81%B6Web%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=21%E3%81%AE%E3%83%8F%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E4%BD%93%E9%A8%93%E3%81%A7%E5%AD%A6%E3%81%B6Web%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3&status=on_sale",
+    "note": "発売11/6で売り切れは1件のみ（別の本1件は除外）",
+    "raw_hits": [
+     37,
+     56
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "11/6発売で中古はまだ少ない。セキュリティ本は需要が長続きしやすい。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297160072"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=21%E3%81%AE%E3%83%8F%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E4%BD%93%E9%A8%93%E3%81%A7%E5%AD%A6%E3%81%B6Web%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=21%E3%81%AE%E3%83%8F%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E4%BD%93%E9%A8%93%E3%81%A7%E5%AD%A6%E3%81%B6Web%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297160773",
+   "asin": "4297160773",
+   "title": "データ セキュリティ入門　―技術・法律・心理から考える　データ保護の設計と運用",
+   "author": "堀 百花 (著), 中原 隆雅 (監修), やまぱん！ (その他) & 0 その他",
+   "publisher": "技術評論社",
+   "release_date": "2026-11-06",
+   "in_window": true,
+   "genres": [
+    "セキュリティ",
+    "データ"
+   ],
+   "genre_ok": true,
+   "price": 3520,
+   "price_note": "",
+   "pages": 272,
+   "amazon_rank": 923,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 16.0,
+    "weight_g": 410
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "データセキュリティ入門 堀",
+    "sold_count": 2,
+    "sold_prices": [
+     3000,
+     3000
+    ],
+    "sold_median": 3000.0,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m63107503152",
+      "name": "データ セキュリティ入門 ―技術・法律・心理から考える データ保護の設計と運用",
+      "price": 3000
+     },
+     {
+      "id": "m45838323328",
+      "name": "データ セキュリティ入門 ―技術・法律・心理から考える データ保護の設計と運用",
+      "price": 3000
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%85%A5%E9%96%80%20%E5%A0%80&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%85%A5%E9%96%80%20%E5%A0%80&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     33,
+     59
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "11/6発売。売却実績はまだ少数。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297160773"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%85%A5%E9%96%80%20%E5%A0%80&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%85%A5%E9%96%80%20%E5%A0%80&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4798198196",
+   "asin": "4798198196",
+   "title": "PM教科書 PMP完全攻略テキスト PMBOK第8版対応／模擬試験180問掲載／PMP資格 プロジェクトマネジメント・プロフェッショナル (EXAMPRESS)",
+   "author": "鈴木 安而 (著), PMアソシエイツ株式会社 (著), 株式会社NTTデータユニバーシティ (監修) & 0 その他",
+   "publisher": "翔泳社",
+   "release_date": "2026-10-30",
+   "in_window": true,
+   "genres": [
+    "資格",
+    "PM"
+   ],
+   "genre_ok": true,
+   "price": 4950,
+   "price_note": "",
+   "pages": 664,
+   "amazon_rank": 1027,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 18.0,
+    "weight_g": 660
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "PMP完全攻略テキスト 第8版",
+    "sold_count": 9,
+    "sold_prices": [
+     3580,
+     4150,
+     3980,
+     3600,
+     3999,
+     3890,
+     3900,
+     3950,
+     3250
+    ],
+    "sold_median": 3900,
+    "on_sale_count": 3,
+    "on_sale_min": 3800,
+    "on_sale_prices": [
+     3800,
+     3990,
+     4260
+    ],
+    "sold_items": [
+     {
+      "id": "m13158402296",
+      "name": "【美品】最新版 PM教科書 PMP完全攻略テキスト PMBOK 第8版対応 新刊",
+      "price": 3580
+     },
+     {
+      "id": "m70213041537",
+      "name": "PMP完全攻略テキスト PMBOKガイド第8版対応",
+      "price": 4150
+     },
+     {
+      "id": "m87847072039",
+      "name": "PM教科書 PMP完全攻略テキスト PMBOKガイド第8版対応",
+      "price": 3980
+     },
+     {
+      "id": "m53848146142",
+      "name": "【新品・新刊】PM教科書 PMP完全攻略テキスト PMBOK 第8版対応",
+      "price": 3600
+     },
+     {
+      "id": "m39196022499",
+      "name": "【第8版対応】PM教科書 PMP完全攻略テキスト PMBOKガイド　新品",
+      "price": 3999
+     },
+     {
+      "id": "m80443845450",
+      "name": "PM教科書 PMP完全攻略テキスト PMBOKガイド第8版対応",
+      "price": 3890
+     },
+     {
+      "id": "m91373892943",
+      "name": "PMP完全攻略テキスト PMBOKガイド第8版対応",
+      "price": 3900
+     },
+     {
+      "id": "m73811741971",
+      "name": "PM教科書 PMP完全攻略テキスト PMBOKガイド第8版対応",
+      "price": 3950
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=PMP%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC8%E7%89%88&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=PMP%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC8%E7%89%88&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     54,
+     41
+    ]
+   },
+   "usefulness": 5,
+   "demand": 5,
+   "comment": "PMBOK第8版対応のPMP定番テキスト。受験需要で長く売れる。PM業務に直結。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4798198196"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=PMP%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC8%E7%89%88&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=PMP%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC8%E7%89%88&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4295025992",
+   "asin": "4295025992",
+   "title": "1週間でサイバーセキュリティの基礎が学べる本 (1週間で基礎が学べる本)",
+   "author": "ディジタルグロースアカデミア (著), 株式会社ラック 倉持 浩明 (監修)",
+   "publisher": "インプレス",
+   "release_date": "2026-11-05",
+   "in_window": true,
+   "genres": [
+    "セキュリティ",
+    "入門"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 224,
+   "amazon_rank": 1009,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 14.0,
+    "weight_g": 310
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "1週間でサイバーセキュリティの基礎が学べる本",
+    "sold_count": 2,
+    "sold_prices": [
+     1650,
+     1600
+    ],
+    "sold_median": 1625.0,
+    "on_sale_count": 6,
+    "on_sale_min": 1680,
+    "on_sale_prices": [
+     1680,
+     2000,
+     2300,
+     2100,
+     1980,
+     2155
+    ],
+    "sold_items": [
+     {
+      "id": "m87405691642",
+      "name": "2026年最新刊☆1週間でサイバーセキュリティの基礎が学べる本",
+      "price": 1650
+     },
+     {
+      "id": "m48122604804",
+      "name": "1週間でサイバーセキュリティの基礎が学べる本",
+      "price": 1600
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=1%E9%80%B1%E9%96%93%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%8C%E5%AD%A6%E3%81%B9%E3%82%8B%E6%9C%AC&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=1%E9%80%B1%E9%96%93%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%8C%E5%AD%A6%E3%81%B9%E3%82%8B%E6%9C%AC&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     49,
+     48
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "入門書。定価が安めで手取りも小さい。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4295025992"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=1%E9%80%B1%E9%96%93%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%8C%E5%AD%A6%E3%81%B9%E3%82%8B%E6%9C%AC&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=1%E9%80%B1%E9%96%93%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%8C%E5%AD%A6%E3%81%B9%E3%82%8B%E6%9C%AC&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4815643083",
+   "asin": "4815643083",
+   "title": "この1冊でしっかりわかる ChatGPTの教科書",
+   "author": "佐倉井 理冴 (著)",
+   "publisher": "SBクリエイティブ",
+   "release_date": "2026-09-19",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "生成AI"
+   ],
+   "genre_ok": true,
+   "price": 2310,
+   "price_note": "",
+   "pages": 240,
+   "amazon_rank": 1021,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 15.7,
+    "weight_g": 370
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "ChatGPTの教科書 この1冊でしっかりわかる",
+    "sold_count": 33,
+    "sold_prices": [
+     2000,
+     1999,
+     1300,
+     1890,
+     1700,
+     1800,
+     1980,
+     1980,
+     2000,
+     1980,
+     1910,
+     1999,
+     1900,
+     1980,
+     1900,
+     1900,
+     1750,
+     950,
+     1900,
+     1700,
+     1900,
+     1780,
+     1900,
+     1780,
+     1799,
+     1500,
+     1799,
+     1900,
+     980,
+     1400,
+     1700,
+     1980,
+     1800
+    ],
+    "sold_median": 1900,
+    "on_sale_count": 1,
+    "on_sale_min": 9216,
+    "on_sale_prices": [
+     9216
+    ],
+    "sold_items": [
+     {
+      "id": "m73570537763",
+      "name": "この1冊でしっかりわかる ChatGPTの教科書",
+      "price": 2000
+     },
+     {
+      "id": "m49791826766",
+      "name": "この1冊でしっかりわかる ChatGPTの教科書",
+      "price": 1999
+     },
+     {
+      "id": "m28169687102",
+      "name": "この1冊でしっかりわかる ChatGPTの教科書",
+      "price": 1300
+     },
+     {
+      "id": "m67618136012",
+      "name": "この1冊でしっかりわかる ChatGPTの教科書",
+      "price": 1890
+     },
+     {
+      "id": "m90712305139",
+      "name": "★この1冊でしっかりわかるChatGPTの教科書★",
+      "price": 1700
+     },
+     {
+      "id": "m33400758666",
+      "name": "この1冊でしっかりわかる ChatGPTの教科書",
+      "price": 1800
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=ChatGPT%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=ChatGPT%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=on_sale",
+    "note": "同シリーズの旧版が混ざっている可能性あり（書名が同じ）",
+    "raw_hits": [
+     86,
+     22
+    ]
+   },
+   "usefulness": 3,
+   "demand": 2,
+   "comment": "ChatGPT入門。類書が多く値崩れしやすい。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4815643083"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=ChatGPT%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=ChatGPT%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%20%E3%81%93%E3%81%AE1%E5%86%8A%E3%81%A7%E3%81%97%E3%81%A3%E3%81%8B%E3%82%8A%E3%82%8F%E3%81%8B%E3%82%8B&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4295025879",
+   "asin": "4295025879",
+   "title": "ひとりビジネスのためのAIエージェント活用術　爆速でタスクを片付ける！「最強チーム」のつくり方",
+   "author": "池田 朋弘 (著), スギノ ハルカ (著)",
+   "publisher": "インプレス",
+   "release_date": "2026-10-16",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "業務効率化"
+   ],
+   "genre_ok": true,
+   "price": 2200,
+   "price_note": "",
+   "pages": 304,
+   "amazon_rank": 1065,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 19.0,
+    "weight_g": 450
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "ひとりビジネスのためのAIエージェント活用術",
+    "sold_count": 28,
+    "sold_prices": [
+     1800,
+     2099,
+     1998,
+     1800,
+     2000,
+     1590,
+     1850,
+     1780,
+     2000,
+     1850,
+     1650,
+     1850,
+     1980,
+     2010,
+     1900,
+     1900,
+     1750,
+     1800,
+     2000,
+     1980,
+     1850,
+     1766,
+     1680,
+     1980,
+     1850,
+     2100,
+     1800,
+     1810
+    ],
+    "sold_median": 1850.0,
+    "on_sale_count": 2,
+    "on_sale_min": 2100,
+    "on_sale_prices": [
+     2100,
+     2279
+    ],
+    "sold_items": [
+     {
+      "id": "m16776837272",
+      "name": "ひとりビジネスのためのAIエージェント活用術 池田朋弘 一読のみ",
+      "price": 1800
+     },
+     {
+      "id": "m45289929787",
+      "name": "【新品】ひとりビジネスのためのAIエージェント活用術",
+      "price": 2099
+     },
+     {
+      "id": "m54680482551",
+      "name": "ひとりビジネスのためのAIエージェント活用術",
+      "price": 1998
+     },
+     {
+      "id": "m11599353078",
+      "name": "ひとりビジネスのためのAIエージェント活用術",
+      "price": 1800
+     },
+     {
+      "id": "m30777963864",
+      "name": "ひとりビジネスのためのAIエージェント活用術",
+      "price": 2000
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%81%B2%E3%81%A8%E3%82%8A%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEAI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%B4%BB%E7%94%A8%E8%A1%93&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%81%B2%E3%81%A8%E3%82%8A%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEAI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%B4%BB%E7%94%A8%E8%A1%93&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     75,
+     27
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "AIエージェント活用の実践本。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4295025879"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%B2%E3%81%A8%E3%82%8A%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEAI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%B4%BB%E7%94%A8%E8%A1%93&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%B2%E3%81%A8%E3%82%8A%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEAI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%B4%BB%E7%94%A8%E8%A1%93&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4814401809",
+   "asin": "4814401809",
+   "title": "データ指向アプリケーションデザイン 第2版 ―信頼性、拡張性、保守性の高い分散システム設計の原理",
+   "author": "Martin Kleppmann (著), Chris Riccomini (著), 斉藤 太郎 (翻訳) & 0 その他",
+   "publisher": "オライリー・ジャパン",
+   "release_date": "2026-11-05",
+   "in_window": true,
+   "genres": [
+    "開発",
+    "アーキテクチャ"
+   ],
+   "genre_ok": true,
+   "price": null,
+   "price_note": "Amazon本体の新品在庫なし（マーケットプレイス 新品・中古 ¥6,930〜）。Amazon価格として扱わず確認不可",
+   "pages": 664,
+   "amazon_rank": 2601,
+   "size": {
+    "h": 240.0,
+    "w": 190.0,
+    "t": 35.0,
+    "weight_g": 980
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "データ指向アプリケーションデザイン 第2版",
+    "sold_count": 4,
+    "sold_prices": [
+     6599,
+     6400,
+     4200,
+     6930
+    ],
+    "sold_median": 6499.5,
+    "on_sale_count": 3,
+    "on_sale_min": 4200,
+    "on_sale_prices": [
+     6400,
+     4200,
+     6930
+    ],
+    "sold_items": [
+     {
+      "id": "m54993710920",
+      "name": "[新品未裁断品]「データ指向アプリケーションデザイン第2版 」",
+      "price": 6599
+     },
+     {
+      "id": "2JZCqjDeFvs2vagcBaMwVF",
+      "name": "【中古】データ指向アプリケーションデザイン 第2版（ショップ）",
+      "price": 6400
+     },
+     {
+      "id": "m60988514040",
+      "name": "【裁断済】 データ指向アプリケーションデザイン 第2版",
+      "price": 4200
+     },
+     {
+      "id": "2JZ99JtQj3ecnRrRu3VD5N",
+      "name": "【新品】データ指向アプリケーションデザイン 第2版（ショップ）",
+      "price": 6930
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E6%8C%87%E5%90%91%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%20%E7%AC%AC2%E7%89%88&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E6%8C%87%E5%90%91%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%20%E7%AC%AC2%E7%89%88&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     96,
+     37
+    ]
+   },
+   "usefulness": 5,
+   "demand": 5,
+   "comment": "定番「DDIA」の第2版。厚さ3.5cmでネコポス不可。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4814401809"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E6%8C%87%E5%90%91%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%20%E7%AC%AC2%E7%89%88&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%87%E3%83%BC%E3%82%BF%E6%8C%87%E5%90%91%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%20%E7%AC%AC2%E7%89%88&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297160099",
+   "asin": "4297160099",
+   "title": "ゼロからわかる Claude Code業務エージェントの教科書～チャットAIの次は仕事を任せるAI",
+   "author": "にゃんた (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-11-06",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "業務効率化"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 304,
+   "amazon_rank": 2260,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 22.0,
+    "weight_g": 490
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Claude Code業務エージェントの教科書",
+    "sold_count": 0,
+    "sold_prices": [],
+    "sold_median": null,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Claude%20Code%E6%A5%AD%E5%8B%99%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Claude%20Code%E6%A5%AD%E5%8B%99%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     80,
+     14
+    ]
+   },
+   "usefulness": 4,
+   "demand": 3,
+   "comment": "11/6発売。売却実績はまだ確認できず。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297160099"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%20Code%E6%A5%AD%E5%8B%99%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%20Code%E6%A5%AD%E5%8B%99%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297159554",
+   "asin": "4297159554",
+   "title": "Claude AI活用 最強の教科書",
+   "author": "西 俊明 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-10-27",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "生成AI"
+   ],
+   "genre_ok": true,
+   "price": 2200,
+   "price_note": "",
+   "pages": 256,
+   "amazon_rank": 2283,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 15.0,
+    "weight_g": 330
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Claude AI活用 最強の教科書",
+    "sold_count": 18,
+    "sold_prices": [
+     1500,
+     1830,
+     1780,
+     1880,
+     1790,
+     1790,
+     1850,
+     1800,
+     1900,
+     1550,
+     1880,
+     1800,
+     1750,
+     1880,
+     1780,
+     1880,
+     1850,
+     1980
+    ],
+    "sold_median": 1815.0,
+    "on_sale_count": 3,
+    "on_sale_min": 1760,
+    "on_sale_prices": [
+     1760,
+     1777,
+     1980
+    ],
+    "sold_items": [
+     {
+      "id": "m67615378236",
+      "name": "Claude AI活用 最強の教科書",
+      "price": 1500
+     },
+     {
+      "id": "m83326878301",
+      "name": "Claude AI活用 最強の教科書",
+      "price": 1830
+     },
+     {
+      "id": "m43490268311",
+      "name": "Claude AI活用 最強の教科書",
+      "price": 1880
+     },
+     {
+      "id": "m69517939233",
+      "name": "Claude AI活用 最強の教科書",
+      "price": 1790
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Claude%20AI%E6%B4%BB%E7%94%A8%20%E6%9C%80%E5%BC%B7%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Claude%20AI%E6%B4%BB%E7%94%A8%20%E6%9C%80%E5%BC%B7%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     77,
+     13
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "Claude活用の入門書。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297159554"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%20AI%E6%B4%BB%E7%94%A8%20%E6%9C%80%E5%BC%B7%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Claude%20AI%E6%B4%BB%E7%94%A8%20%E6%9C%80%E5%BC%B7%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296207334",
+   "asin": "4296207334",
+   "title": "サイバーレジリエンスの教科書",
+   "author": "釜山 公徳 (著)",
+   "publisher": "日経BP",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "セキュリティ",
+    "経営"
+   ],
+   "genre_ok": true,
+   "price": 3520,
+   "price_note": "",
+   "pages": 272,
+   "amazon_rank": 3081,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 22.0,
+    "weight_g": 400
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "サイバーレジリエンスの教科書",
+    "sold_count": 3,
+    "sold_prices": [
+     2850,
+     3000,
+     2750
+    ],
+    "sold_median": 2850,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m47920265551",
+      "name": "サイバーレジリエンスの教科書",
+      "price": 2850
+     },
+     {
+      "id": "m95602137933",
+      "name": "サイバーレジリエンスの教科書",
+      "price": 3000
+     },
+     {
+      "id": "m50499958214",
+      "name": "サイバーレジリエンスの教科書 釜山公徳",
+      "price": 2750
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B8%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%B9%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B8%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%B9%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     21,
+     71
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "サイバーレジリエンス。経営・PM視点でも役立つ。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296207334"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B8%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%B9%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B8%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%B9%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297159473",
+   "asin": "4297159473",
+   "title": "ALL for AI――プロダクトマネージャーの新しい武器［生成AI］の使い方",
+   "author": "宮田 善孝 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "PM"
+   ],
+   "genre_ok": true,
+   "price": 3960,
+   "price_note": "",
+   "pages": 432,
+   "amazon_rank": 3396,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 21.0,
+    "weight_g": 480
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "ALL for AI プロダクトマネージャー",
+    "sold_count": 5,
+    "sold_prices": [
+     2980,
+     3500,
+     2800,
+     3200,
+     3600
+    ],
+    "sold_median": 3200,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m67584457857",
+      "name": "ALL for AI――プロダクトマネージャーの新しい武器[生成AI]の使い方",
+      "price": 2980
+     },
+     {
+      "id": "m74929343077",
+      "name": "ALL for AI プロダクトマネージャーの新しい武器",
+      "price": 3500
+     },
+     {
+      "id": "m79956855090",
+      "name": "ALL for AI――プロダクトマネージャーの新しい武器[生成AI]の使い方",
+      "price": 2800
+     },
+     {
+      "id": "m98004164186",
+      "name": "ALL for AI――プロダクトマネージャーの新しい武器[生成AI]の使い方",
+      "price": 3200
+     },
+     {
+      "id": "m48731584649",
+      "name": "ALL for AI――プロダクトマネージャーの新しい武器[生成AI]の使い方",
+      "price": 3600
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=ALL%20for%20AI%20%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=ALL%20for%20AI%20%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     53,
+     37
+    ]
+   },
+   "usefulness": 5,
+   "demand": 4,
+   "comment": "プロダクトマネージャー向け生成AI活用。定価が高く中古も高値。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297159473"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=ALL%20for%20AI%20%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=ALL%20for%20AI%20%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297160331",
+   "asin": "4297160331",
+   "title": "AI×アーキテクト〜『複雑性・不確実性』を構造で受け止める〜",
+   "author": "元木 大介 (著), 熊井 悠 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-10-27",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "アーキテクチャ"
+   ],
+   "genre_ok": true,
+   "price": 2860,
+   "price_note": "",
+   "pages": 288,
+   "amazon_rank": 4242,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 19.0,
+    "weight_g": 380
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "AI×アーキテクト",
+    "sold_count": 8,
+    "sold_prices": [
+     1560,
+     1950,
+     980,
+     2800,
+     1300,
+     1480,
+     1700,
+     1280
+    ],
+    "sold_median": 1520.0,
+    "on_sale_count": 13,
+    "on_sale_min": 1280,
+    "on_sale_prices": [
+     1280,
+     1800,
+     1299,
+     1900,
+     2000,
+     2000,
+     2380,
+     1500,
+     2150,
+     1980,
+     2180,
+     2899,
+     3283
+    ],
+    "sold_items": [
+     {
+      "id": "m67187863880",
+      "name": "AI×アーキテクト～『複雑性・不確実性』を構造で受け止める～",
+      "price": 1560
+     },
+     {
+      "id": "m72437353298",
+      "name": "AI×アーキテクト～『複雑性・不確実性』を構造で受け止める～",
+      "price": 1950
+     },
+     {
+      "id": "m93778536728",
+      "name": "AI×アーキテクト～『複雑性・不確実性』を構造で受け止める～",
+      "price": 980
+     },
+     {
+      "id": "m30214328659",
+      "name": "AI×アーキテクト～『複雑性・不確実性』を構造で受け止める～",
+      "price": 2800
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=AI%C3%97%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%88&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=AI%C3%97%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%88&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     120,
+     118
+    ]
+   },
+   "usefulness": 4,
+   "demand": 3,
+   "comment": "AI時代のアーキテクト論。出品が多く競合大。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297160331"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=AI%C3%97%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%88&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=AI%C3%97%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%88&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4798195014",
+   "asin": "4798195014",
+   "title": "野蛮なアジャイル ［サイボウズ発！］組織の常識を覆した反骨のスクラム実践記",
+   "author": "天野 祐介 (著)",
+   "publisher": "翔泳社",
+   "release_date": "2026-10-19",
+   "in_window": true,
+   "genres": [
+    "開発",
+    "アジャイル"
+   ],
+   "genre_ok": true,
+   "price": 2860,
+   "price_note": "",
+   "pages": 272,
+   "amazon_rank": 4344,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 18.0,
+    "weight_g": 330
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "野蛮なアジャイル",
+    "sold_count": 2,
+    "sold_prices": [
+     2222,
+     2300
+    ],
+    "sold_median": 2261.0,
+    "on_sale_count": 2,
+    "on_sale_min": 2200,
+    "on_sale_prices": [
+     2200,
+     2200
+    ],
+    "sold_items": [
+     {
+      "id": "m20167531331",
+      "name": "野蛮なアジャイル サイボウズ発！組織の常識を覆した反骨のスクラム実践記",
+      "price": 2222
+     },
+     {
+      "id": "m88161509630",
+      "name": "野蛮なアジャイル サイボウズ発！組織の常識を覆した反骨のスクラム実践記",
+      "price": 2300
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E9%87%8E%E8%9B%AE%E3%81%AA%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E9%87%8E%E8%9B%AE%E3%81%AA%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     4,
+     4
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "サイボウズのスクラム実践記。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4798195014"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E9%87%8E%E8%9B%AE%E3%81%AA%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E9%87%8E%E8%9B%AE%E3%81%AA%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4814401736",
+   "asin": "4814401736",
+   "title": "詳解 Active Directory & Windowsインフラ・ペネトレーションテスト ―Microsoft環境における攻撃手法から検知・修復までを体系的に学ぶ実践ガイド",
+   "author": "Denis Isakov (著), Ruslan Sayfiev (監修), 石川 朝久 (翻訳), 北原 憲 (翻訳) & 1 その他",
+   "publisher": "オライリー・ジャパン",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "セキュリティ",
+    "インフラ"
+   ],
+   "genre_ok": true,
+   "price": 5280,
+   "price_note": "",
+   "pages": 392,
+   "amazon_rank": 6116,
+   "size": {
+    "h": 240.0,
+    "w": 190.0,
+    "t": 25.0,
+    "weight_g": 610
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Active Directory ペネトレーションテスト",
+    "sold_count": 2,
+    "sold_prices": [
+     4800,
+     4999
+    ],
+    "sold_median": 4899.5,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m58786798417",
+      "name": "Active Directory&Windowsインフラ・ペネトレーションテスト",
+      "price": 4800
+     },
+     {
+      "id": "m41248477124",
+      "name": "詳解ActiveDirectory&Windowsインフラペネトレーションテスト",
+      "price": 4999
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Active%20Directory%20%E3%83%9A%E3%83%8D%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Active%20Directory%20%E3%83%9A%E3%83%8D%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     2,
+     3
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "専門性が高く出品が少ない。O'Reilly判(24×19cm)で封筒はギリギリ。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4814401736"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Active%20Directory%20%E3%83%9A%E3%83%8D%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Active%20Directory%20%E3%83%9A%E3%83%8D%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4785732814",
+   "asin": "4785732814",
+   "title": "AIガバナンスで会社を強くする──AI活用のルールと仕組みのつくり方",
+   "author": "福岡真之介 (著)",
+   "publisher": "商事法務",
+   "release_date": "2026-11-02",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "ガバナンス"
+   ],
+   "genre_ok": true,
+   "price": 3630,
+   "price_note": "",
+   "pages": 256,
+   "amazon_rank": 6787,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 16.0,
+    "weight_g": 340
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "AIガバナンスで会社を強くする",
+    "sold_count": 0,
+    "sold_prices": [],
+    "sold_median": null,
+    "on_sale_count": 1,
+    "on_sale_min": 2700,
+    "on_sale_prices": [
+     2700
+    ],
+    "sold_items": [],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=AI%E3%82%AC%E3%83%90%E3%83%8A%E3%83%B3%E3%82%B9%E3%81%A7%E4%BC%9A%E7%A4%BE%E3%82%92%E5%BC%B7%E3%81%8F%E3%81%99%E3%82%8B&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=AI%E3%82%AC%E3%83%90%E3%83%8A%E3%83%B3%E3%82%B9%E3%81%A7%E4%BC%9A%E7%A4%BE%E3%82%92%E5%BC%B7%E3%81%8F%E3%81%99%E3%82%8B&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     21,
+     65
+    ]
+   },
+   "usefulness": 4,
+   "demand": 3,
+   "comment": "AIガバナンス。売却実績はまだ確認できず。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4785732814"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=AI%E3%82%AC%E3%83%90%E3%83%8A%E3%83%B3%E3%82%B9%E3%81%A7%E4%BC%9A%E7%A4%BE%E3%82%92%E5%BC%B7%E3%81%8F%E3%81%99%E3%82%8B&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=AI%E3%82%AC%E3%83%90%E3%83%8A%E3%83%B3%E3%82%B9%E3%81%A7%E4%BC%9A%E7%A4%BE%E3%82%92%E5%BC%B7%E3%81%8F%E3%81%99%E3%82%8B&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297160293",
+   "asin": "4297160293",
+   "title": "バックエンドの知識地図",
+   "author": "山田 顕人 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-11-04",
+   "in_window": true,
+   "genres": [
+    "開発",
+    "バックエンド"
+   ],
+   "genre_ok": true,
+   "price": 2640,
+   "price_note": "",
+   "pages": 224,
+   "amazon_rank": 7247,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 14.0,
+    "weight_g": 340
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "バックエンドの知識地図",
+    "sold_count": 2,
+    "sold_prices": [
+     2000,
+     2000
+    ],
+    "sold_median": 2000.0,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m73371098108",
+      "name": "バックエンドの知識地図",
+      "price": 2000
+     },
+     {
+      "id": "m69528763938",
+      "name": "ゆ*ん様 バックエンドの知識地図",
+      "price": 2000
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E3%81%AE%E7%9F%A5%E8%AD%98%E5%9C%B0%E5%9B%B3&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E3%81%AE%E7%9F%A5%E8%AD%98%E5%9C%B0%E5%9B%B3&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     23,
+     26
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "バックエンド全体像の入門。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297160293"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E3%81%AE%E7%9F%A5%E8%AD%98%E5%9C%B0%E5%9B%B3&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E3%81%AE%E7%9F%A5%E8%AD%98%E5%9C%B0%E5%9B%B3&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297159511",
+   "asin": "4297159511",
+   "title": "これならわかる！ ディープラーニングG検定（ジェネラリスト） いちばんやさしい合格の教科書",
+   "author": "リブロワークス (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-11-02",
+   "in_window": true,
+   "genres": [
+    "資格",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 3080,
+   "price_note": "",
+   "pages": 384,
+   "amazon_rank": 7961,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 20.0,
+    "weight_g": 480
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "これならわかる ディープラーニングG検定 いちばんやさしい合格の教科書",
+    "sold_count": 5,
+    "sold_prices": [
+     2180,
+     2000,
+     2080,
+     2200,
+     2080
+    ],
+    "sold_median": 2080,
+    "on_sale_count": 2,
+    "on_sale_min": 2580,
+    "on_sale_prices": [
+     2800,
+     2580
+    ],
+    "sold_items": [
+     {
+      "id": "m13450704993",
+      "name": "これならわかる！ ディープラーニングG検定 いちばんやさしい合格の教科書",
+      "price": 2180
+     },
+     {
+      "id": "m74429873327",
+      "name": "これならわかる！ディープラーニングＧ検定いちばんやさしい合格の教科書",
+      "price": 2000
+     },
+     {
+      "id": "m16277529061",
+      "name": "新品 これならわかる！ ディープラーニングG検定 いちばんやさしい合格の教科書",
+      "price": 2080
+     },
+     {
+      "id": "m13109512249",
+      "name": "最新刊　これならわかる! ディープラーニングG検定　いちばんやさしい合格の教科書",
+      "price": 2200
+     },
+     {
+      "id": "m44292973615",
+      "name": "26年11月新品 G検定いちばんやさしい合格の教科書",
+      "price": 2080
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%AA%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%20%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0G%E6%A4%9C%E5%AE%9A%20%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E5%90%88%E6%A0%BC%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%AA%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%20%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0G%E6%A4%9C%E5%AE%9A%20%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E5%90%88%E6%A0%BC%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     49,
+     30
+    ]
+   },
+   "usefulness": 3,
+   "demand": 4,
+   "comment": "G検定テキスト。試験需要あり。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297159511"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%AA%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%20%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0G%E6%A4%9C%E5%AE%9A%20%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E5%90%88%E6%A0%BC%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%AA%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%20%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0G%E6%A4%9C%E5%AE%9A%20%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E5%90%88%E6%A0%BC%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4798197459",
+   "asin": "4798197459",
+   "title": "深層学習教科書 ディープラーニング G検定（ジェネラリスト）合格問題集／【厳選450問超！】分かりやすい解説・要点整理・初学者に最適！ (EXAMPRESS)",
+   "author": "神津 友武 (監修), デロイト トーマツ ディープスクエア株式会社 (著)",
+   "publisher": "翔泳社",
+   "release_date": "2026-10-28",
+   "in_window": true,
+   "genres": [
+    "資格",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 2750,
+   "price_note": "",
+   "pages": 376,
+   "amazon_rank": 2922,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 18.0,
+    "weight_g": 480
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "深層学習教科書 G検定 合格問題集",
+    "sold_count": 4,
+    "sold_prices": [
+     2100,
+     1880,
+     1900,
+     2200
+    ],
+    "sold_median": 2000.0,
+    "on_sale_count": 2,
+    "on_sale_min": 2280,
+    "on_sale_prices": [
+     2500,
+     2280
+    ],
+    "sold_items": [
+     {
+      "id": "m94215564876",
+      "name": "深層学習教科書 ディープラーニング G検定（ジェネラリスト）合格問題集",
+      "price": 2100
+     },
+     {
+      "id": "m10977368269",
+      "name": "26年10月発売新品 G検定合格問題集 定番「白本」シリーズ",
+      "price": 1880
+     },
+     {
+      "id": "m64094935069",
+      "name": "新品 深層学習教科書 ディープラーニング G検定 合格問題集 厳選450問超",
+      "price": 1900
+     },
+     {
+      "id": "m65389112355",
+      "name": "深層学習教科書 ディープラーニング G検定（ジェネラリスト）合格問題集",
+      "price": 2200
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92%E6%95%99%E7%A7%91%E6%9B%B8%20G%E6%A4%9C%E5%AE%9A%20%E5%90%88%E6%A0%BC%E5%95%8F%E9%A1%8C%E9%9B%86&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92%E6%95%99%E7%A7%91%E6%9B%B8%20G%E6%A4%9C%E5%AE%9A%20%E5%90%88%E6%A0%BC%E5%95%8F%E9%A1%8C%E9%9B%86&status=on_sale",
+    "note": "別の本（最強の合格問題集）やセット売りは除外",
+    "raw_hits": [
+     120,
+     27
+    ]
+   },
+   "usefulness": 3,
+   "demand": 4,
+   "comment": "G検定問題集。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4798197459"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92%E6%95%99%E7%A7%91%E6%9B%B8%20G%E6%A4%9C%E5%AE%9A%20%E5%90%88%E6%A0%BC%E5%95%8F%E9%A1%8C%E9%9B%86&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92%E6%95%99%E7%A7%91%E6%9B%B8%20G%E6%A4%9C%E5%AE%9A%20%E5%90%88%E6%A0%BC%E5%95%8F%E9%A1%8C%E9%9B%86&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297160110",
+   "asin": "4297160110",
+   "title": "Amazon Bedrock実践ガイド 〜RAGとAIエージェントで進める業務効率化",
+   "author": "神野 雄大 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-11-04",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "クラウド"
+   ],
+   "genre_ok": true,
+   "price": 3300,
+   "price_note": "",
+   "pages": 352,
+   "amazon_rank": 8978,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 20.0,
+    "weight_g": 450
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Amazon Bedrock実践ガイド",
+    "sold_count": 0,
+    "sold_prices": [],
+    "sold_median": null,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Amazon%20Bedrock%E5%AE%9F%E8%B7%B5%E3%82%AC%E3%82%A4%E3%83%89&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Amazon%20Bedrock%E5%AE%9F%E8%B7%B5%E3%82%AC%E3%82%A4%E3%83%89&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     52,
+     30
+    ]
+   },
+   "usefulness": 5,
+   "demand": 3,
+   "comment": "Bedrock実践。クラウドインテグレーションの実務に直結。売却実績はまだ確認できず。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297160110"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Amazon%20Bedrock%E5%AE%9F%E8%B7%B5%E3%82%AC%E3%82%A4%E3%83%89&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Amazon%20Bedrock%E5%AE%9F%E8%B7%B5%E3%82%AC%E3%82%A4%E3%83%89&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4065447224",
+   "asin": "4065447224",
+   "title": "基盤モデルのための強化学習 (KS情報科学専門書)",
+   "author": "和地 瞭良 (著)",
+   "publisher": "講談社",
+   "release_date": "2026-10-22",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "専門書"
+   ],
+   "genre_ok": true,
+   "price": 3080,
+   "price_note": "",
+   "pages": 208,
+   "amazon_rank": 4012,
+   "size": {
+    "h": 210.0,
+    "w": 150.0,
+    "t": 15.0,
+    "weight_g": 280
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "基盤モデルのための強化学習",
+    "sold_count": 1,
+    "sold_prices": [
+     1120
+    ],
+    "sold_median": 1120,
+    "on_sale_count": 1,
+    "on_sale_min": 2800,
+    "on_sale_prices": [
+     2800
+    ],
+    "sold_items": [
+     {
+      "id": "m85650269208",
+      "name": "基盤モデルのための強化学習",
+      "price": 1120
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E5%9F%BA%E7%9B%A4%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E5%BC%B7%E5%8C%96%E5%AD%A6%E7%BF%92&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E5%9F%BA%E7%9B%A4%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E5%BC%B7%E5%8C%96%E5%AD%A6%E7%BF%92&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     29,
+     30
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "専門書。中古の流通が少ない。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4065447224"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%9F%BA%E7%9B%A4%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E5%BC%B7%E5%8C%96%E5%AD%A6%E7%BF%92&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%9F%BA%E7%9B%A4%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E5%BC%B7%E5%8C%96%E5%AD%A6%E7%BF%92&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4065447208",
+   "asin": "4065447208",
+   "title": "イラストで学ぶ 自然言語処理 大規模言語モデルへの最短コース (KS情報科学専門書)",
+   "author": "李 凌寒 (著)",
+   "publisher": "講談社",
+   "release_date": "2026-10-22",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "専門書"
+   ],
+   "genre_ok": true,
+   "price": 3300,
+   "price_note": "",
+   "pages": 256,
+   "amazon_rank": 9224,
+   "size": {
+    "h": 210.0,
+    "w": 150.0,
+    "t": 16.0,
+    "weight_g": 340
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "イラストで学ぶ 自然言語処理",
+    "sold_count": 1,
+    "sold_prices": [
+     2400
+    ],
+    "sold_median": 2400,
+    "on_sale_count": 1,
+    "on_sale_min": 3000,
+    "on_sale_prices": [
+     3000
+    ],
+    "sold_items": [
+     {
+      "id": "m19930190786",
+      "name": "イラストで学ぶ 自然言語処理 大規模言語モデルへの最短コース",
+      "price": 2400
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%81%A7%E5%AD%A6%E3%81%B6%20%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%81%A7%E5%AD%A6%E3%81%B6%20%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     16,
+     30
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "NLP入門の専門書。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4065447208"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%81%A7%E5%AD%A6%E3%81%B6%20%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%81%A7%E5%AD%A6%E3%81%B6%20%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4297160455",
+   "asin": "4297160455",
+   "title": "モデル予測制御のソフトウェア設計と実装──Pythonによるモデル化・検証とC++ライブラリ開発",
+   "author": "新帯 俊信 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-11-09",
+   "in_window": true,
+   "genres": [
+    "開発",
+    "制御"
+   ],
+   "genre_ok": true,
+   "price": 3520,
+   "price_note": "",
+   "pages": 296,
+   "amazon_rank": 10530,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 19.0,
+    "weight_g": 390
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "モデル予測制御のソフトウェア設計と実装",
+    "sold_count": 0,
+    "sold_prices": [],
+    "sold_median": null,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%87%E3%83%AB%E4%BA%88%E6%B8%AC%E5%88%B6%E5%BE%A1%E3%81%AE%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A8%AD%E8%A8%88%E3%81%A8%E5%AE%9F%E8%A3%85&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%87%E3%83%AB%E4%BA%88%E6%B8%AC%E5%88%B6%E5%BE%A1%E3%81%AE%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A8%AD%E8%A8%88%E3%81%A8%E5%AE%9F%E8%A3%85&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     18,
+     30
+    ]
+   },
+   "usefulness": 2,
+   "demand": 2,
+   "comment": "専門性が高くニッチ。売却実績はまだ確認できず。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4297160455"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%87%E3%83%AB%E4%BA%88%E6%B8%AC%E5%88%B6%E5%BE%A1%E3%81%AE%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A8%AD%E8%A8%88%E3%81%A8%E5%AE%9F%E8%A3%85&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%87%E3%83%AB%E4%BA%88%E6%B8%AC%E5%88%B6%E5%BE%A1%E3%81%AE%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A8%AD%E8%A8%88%E3%81%A8%E5%AE%9F%E8%A3%85&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "429715725X",
+   "asin": "429715725X",
+   "title": "実践TypeScriptバックエンド開発 —— データと関数によるドメインモデリングで堅牢性を高める (エンジニア選書)",
+   "author": "木村 彰宏 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-10-26",
+   "in_window": true,
+   "genres": [
+    "開発",
+    "TypeScript"
+   ],
+   "genre_ok": true,
+   "price": 3520,
+   "price_note": "",
+   "pages": 376,
+   "amazon_rank": 16128,
+   "size": {
+    "h": 230.0,
+    "w": 182.0,
+    "t": 22.0,
+    "weight_g": 620
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "実践TypeScriptバックエンド開発",
+    "sold_count": 1,
+    "sold_prices": [
+     2610
+    ],
+    "sold_median": 2610,
+    "on_sale_count": 1,
+    "on_sale_min": 2610,
+    "on_sale_prices": [
+     2610
+    ],
+    "sold_items": [
+     {
+      "id": "m44048899765",
+      "name": "実践TypeScriptバックエンド開発 ―― データと関数 裁断済み",
+      "price": 2610
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E5%AE%9F%E8%B7%B5TypeScript%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E9%96%8B%E7%99%BA&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E5%AE%9F%E8%B7%B5TypeScript%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E9%96%8B%E7%99%BA&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     60,
+     30
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "TypeScriptでのドメインモデリング。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/429715725X"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%AE%9F%E8%B7%B5TypeScript%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E9%96%8B%E7%99%BA&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%AE%9F%E8%B7%B5TypeScript%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E9%96%8B%E7%99%BA&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296221205",
+   "asin": "4296221205",
+   "title": "ChatGPT Work 新世代仕事術 AIエージェント化したChatGPTをフル活用",
+   "author": "中村 俊也 (著)",
+   "publisher": "日経BP",
+   "release_date": "2026-11-06",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "業務効率化"
+   ],
+   "genre_ok": true,
+   "price": 2640,
+   "price_note": "",
+   "pages": 244,
+   "amazon_rank": 6450,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 20.0,
+    "weight_g": 360
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "ChatGPT Work 新世代仕事術",
+    "sold_count": 1,
+    "sold_prices": [
+     2100
+    ],
+    "sold_median": 2100,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m54141537803",
+      "name": "ChatGPT Work 新世代仕事術 中村俊也",
+      "price": 2100
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=ChatGPT%20Work%20%E6%96%B0%E4%B8%96%E4%BB%A3%E4%BB%95%E4%BA%8B%E8%A1%93&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=ChatGPT%20Work%20%E6%96%B0%E4%B8%96%E4%BB%A3%E4%BB%95%E4%BA%8B%E8%A1%93&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     30,
+     30
+    ]
+   },
+   "usefulness": 3,
+   "demand": 2,
+   "comment": "ChatGPT仕事術。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296221205"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=ChatGPT%20Work%20%E6%96%B0%E4%B8%96%E4%BB%A3%E4%BB%95%E4%BA%8B%E8%A1%93&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=ChatGPT%20Work%20%E6%96%B0%E4%B8%96%E4%BB%A3%E4%BB%95%E4%BA%8B%E8%A1%93&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4875867751",
+   "asin": "4875867751",
+   "title": "Googleエバンジェリスト直伝　仕事が変わる Geminiの最適解",
+   "author": "丹羽国彦 (著), 山口彰宏 (著), NI-WORK (著) & 0 その他",
+   "publisher": "芸術新聞社",
+   "release_date": "2026-10-30",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "業務効率化"
+   ],
+   "genre_ok": true,
+   "price": 2200,
+   "price_note": "",
+   "pages": 176,
+   "amazon_rank": 2927,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 15.0,
+    "weight_g": 300
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Geminiの最適解",
+    "sold_count": 2,
+    "sold_prices": [
+     2099,
+     1950
+    ],
+    "sold_median": 2024.5,
+    "on_sale_count": 2,
+    "on_sale_min": 1950,
+    "on_sale_prices": [
+     2099,
+     1950
+    ],
+    "sold_items": [
+     {
+      "id": "m82024847684",
+      "name": "仕事が変わるGeminiの最適解",
+      "price": 2099
+     },
+     {
+      "id": "m21262206840",
+      "name": "【裁断済・極美品】仕事が変わる Geminiの最適解",
+      "price": 1950
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Gemini%E3%81%AE%E6%9C%80%E9%81%A9%E8%A7%A3&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Gemini%E3%81%AE%E6%9C%80%E9%81%A9%E8%A7%A3&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     60,
+     30
+    ]
+   },
+   "usefulness": 3,
+   "demand": 2,
+   "comment": "Gemini活用。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4875867751"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Gemini%E3%81%AE%E6%9C%80%E9%81%A9%E8%A7%A3&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Gemini%E3%81%AE%E6%9C%80%E9%81%A9%E8%A7%A3&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4295025933",
+   "asin": "4295025933",
+   "title": "Gemini Notebook推し技大全　自分の情報が武器になる！ 活用アイデア100選",
+   "author": "池田朋弘 (著), リブロワークス (著)",
+   "publisher": "インプレス",
+   "release_date": "2026-10-22",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "業務効率化"
+   ],
+   "genre_ok": true,
+   "price": 2310,
+   "price_note": "",
+   "pages": 272,
+   "amazon_rank": 8051,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 15.0,
+    "weight_g": 360
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Gemini Notebook推し技大全",
+    "sold_count": 15,
+    "sold_prices": [
+     1700,
+     1980,
+     1980,
+     1880,
+     1900,
+     1850,
+     2100,
+     1800,
+     1780,
+     2000,
+     1800,
+     1880,
+     1880,
+     1780,
+     1800
+    ],
+    "sold_median": 1880,
+    "on_sale_count": 5,
+    "on_sale_min": 1700,
+    "on_sale_prices": [
+     1700,
+     1920,
+     1980,
+     2000,
+     1999
+    ],
+    "sold_items": [
+     {
+      "id": "m49004525429",
+      "name": "【新品】Gemini Notebook 推し技大全 活用アイデア100選 新刊",
+      "price": 1700
+     },
+     {
+      "id": "m85207500284",
+      "name": "Gemini Notebook 推し技大全 池田朋弘",
+      "price": 1980
+     },
+     {
+      "id": "m53455184309",
+      "name": "Gemini Notebook 推し技大全 活用アイデア100選",
+      "price": 1880
+     },
+     {
+      "id": "m41210489234",
+      "name": "Gemini Notebook推し技大全 自分の情報が武器になる!",
+      "price": 1900
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Gemini%20Notebook%E6%8E%A8%E3%81%97%E6%8A%80%E5%A4%A7%E5%85%A8&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Gemini%20Notebook%E6%8E%A8%E3%81%97%E6%8A%80%E5%A4%A7%E5%85%A8&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     30,
+     10
+    ]
+   },
+   "usefulness": 3,
+   "demand": 2,
+   "comment": "NotebookLM/Gemini活用。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4295025933"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Gemini%20Notebook%E6%8E%A8%E3%81%97%E6%8A%80%E5%A4%A7%E5%85%A8&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Gemini%20Notebook%E6%8E%A8%E3%81%97%E6%8A%80%E5%A4%A7%E5%85%A8&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4815642435",
+   "asin": "4815642435",
+   "title": "Photoshop & Illustrator & Firefly 生成AIデザイン制作入門ガイド［第2版］",
+   "author": "タマケン (著)",
+   "publisher": "SBクリエイティブ",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "デザイン",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 2860,
+   "price_note": "",
+   "pages": 272,
+   "amazon_rank": 12047,
+   "size": {
+    "h": 257.0,
+    "w": 182.0,
+    "t": 20.7,
+    "weight_g": 850
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "Photoshop Illustrator Firefly 生成AIデザイン制作入門",
+    "sold_count": 1,
+    "sold_prices": [
+     1000
+    ],
+    "sold_median": 1000,
+    "on_sale_count": 2,
+    "on_sale_min": 1803,
+    "on_sale_prices": [
+     2014,
+     1803
+    ],
+    "sold_items": [
+     {
+      "id": "m90456973262",
+      "name": "Photoshop&Illustrator&Firefly生成AIデザイン制作",
+      "price": 1000
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=Photoshop%20Illustrator%20Firefly%20%E7%94%9F%E6%88%90AI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E5%88%B6%E4%BD%9C%E5%85%A5%E9%96%80&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=Photoshop%20Illustrator%20Firefly%20%E7%94%9F%E6%88%90AI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E5%88%B6%E4%BD%9C%E5%85%A5%E9%96%80&status=on_sale",
+    "note": "第1版との区別がつかない可能性あり",
+    "raw_hits": [
+     30,
+     30
+    ]
+   },
+   "usefulness": 2,
+   "demand": 3,
+   "comment": "デザイン系。B5変形。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4815642435"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=Photoshop%20Illustrator%20Firefly%20%E7%94%9F%E6%88%90AI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E5%88%B6%E4%BD%9C%E5%85%A5%E9%96%80&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=Photoshop%20Illustrator%20Firefly%20%E7%94%9F%E6%88%90AI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E5%88%B6%E4%BD%9C%E5%85%A5%E9%96%80&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "429612806X",
+   "asin": "429612806X",
+   "title": "BCGが読む経営の論点2027",
+   "author": "ボストン コンサルティング グループ (編集)",
+   "publisher": "日経BP 日本経済新聞出版",
+   "release_date": "2026-11-06",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "戦略"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 236,
+   "amazon_rank": 70,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 20.0,
+    "weight_g": 370
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "BCGが読む経営の論点2027",
+    "sold_count": 15,
+    "sold_prices": [
+     1820,
+     1980,
+     2000,
+     1800,
+     1980,
+     1880,
+     1750,
+     2000,
+     1780,
+     2000,
+     1600,
+     2000,
+     2000,
+     2000,
+     2100
+    ],
+    "sold_median": 1980,
+    "on_sale_count": 4,
+    "on_sale_min": 1950,
+    "on_sale_prices": [
+     1950,
+     2000,
+     2200,
+     2240
+    ],
+    "sold_items": [
+     {
+      "id": "m96449889026",
+      "name": "BCGが読む 経営の論点 2027",
+      "price": 1820
+     },
+     {
+      "id": "m80163759043",
+      "name": "BCGが読む経営の論点2027",
+      "price": 1980
+     },
+     {
+      "id": "m25868121785",
+      "name": "BCGが読む経営の論点2027",
+      "price": 2000
+     },
+     {
+      "id": "m12279771562",
+      "name": "BCGが読む経営の論点2027",
+      "price": 1800
+     },
+     {
+      "id": "m16347125811",
+      "name": "【新品未使用】BCGが読む経営の論点2027",
+      "price": 1880
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=BCG%E3%81%8C%E8%AA%AD%E3%82%80%E7%B5%8C%E5%96%B6%E3%81%AE%E8%AB%96%E7%82%B92027&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=BCG%E3%81%8C%E8%AA%AD%E3%82%80%E7%B5%8C%E5%96%B6%E3%81%AE%E8%AB%96%E7%82%B92027&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     30,
+     30
+    ]
+   },
+   "usefulness": 4,
+   "demand": 2,
+   "comment": "毎年出る年度版。翌年版が出ると急落するので早めに売るのが前提。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/429612806X"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=BCG%E3%81%8C%E8%AA%AD%E3%82%80%E7%B5%8C%E5%96%B6%E3%81%AE%E8%AB%96%E7%82%B92027&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=BCG%E3%81%8C%E8%AA%AD%E3%82%80%E7%B5%8C%E5%96%B6%E3%81%AE%E8%AB%96%E7%82%B92027&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296127624",
+   "asin": "4296127624",
+   "title": "A.T. カーニー　業界別 経営アジェンダ 2027",
+   "author": "A.T. カーニー (編集)",
+   "publisher": "日経BP 日本経済新聞出版",
+   "release_date": "2026-11-06",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "戦略"
+   ],
+   "genre_ok": true,
+   "price": 2640,
+   "price_note": "",
+   "pages": 424,
+   "amazon_rank": 91,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 25.0,
+    "weight_g": 490
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "業界別 経営アジェンダ 2027",
+    "sold_count": 5,
+    "sold_prices": [
+     2280,
+     2400,
+     2000,
+     2180,
+     2200
+    ],
+    "sold_median": 2200,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m17673574842",
+      "name": "A.T. カーニー　業界別 経営アジェンダ 2027",
+      "price": 2280
+     },
+     {
+      "id": "m91612796294",
+      "name": "A.T. カーニー 業界別 経営アジェンダ 2027",
+      "price": 2400
+     },
+     {
+      "id": "m11926701455",
+      "name": "A.T. カーニー 業界別 経営アジェンダ 2027",
+      "price": 2000
+     },
+     {
+      "id": "m94347118447",
+      "name": "新品 A.T. カーニー　業界別 経営アジェンダ 2027",
+      "price": 2180
+     },
+     {
+      "id": "m66626792925",
+      "name": "A.T. カーニー　業界別 経営アジェンダ 2027",
+      "price": 2200
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E6%A5%AD%E7%95%8C%E5%88%A5%20%E7%B5%8C%E5%96%B6%E3%82%A2%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%80%202027&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E6%A5%AD%E7%95%8C%E5%88%A5%20%E7%B5%8C%E5%96%B6%E3%82%A2%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%80%202027&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     30,
+     30
+    ]
+   },
+   "usefulness": 4,
+   "demand": 2,
+   "comment": "年度版。早めの売却推奨。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296127624"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%A5%AD%E7%95%8C%E5%88%A5%20%E7%B5%8C%E5%96%B6%E3%82%A2%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%80%202027&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%A5%AD%E7%95%8C%E5%88%A5%20%E7%B5%8C%E5%96%B6%E3%82%A2%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%80%202027&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296125486",
+   "asin": "4296125486",
+   "title": "知的生産のセンス",
+   "author": "楠木 建 (著), 山口 周 (著)",
+   "publisher": "日経BP 日本経済新聞出版",
+   "release_date": "2026-08-27",
+   "in_window": true,
+   "genres": [
+    "ビジネス",
+    "思考法"
+   ],
+   "genre_ok": true,
+   "price": 1980,
+   "price_note": "",
+   "pages": 384,
+   "amazon_rank": 96,
+   "size": {
+    "h": 188.0,
+    "w": 128.0,
+    "t": 17.0,
+    "weight_g": 350
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "知的生産のセンス",
+    "sold_count": 25,
+    "sold_prices": [
+     1500,
+     1950,
+     500,
+     1600,
+     1750,
+     1901,
+     1500,
+     1600,
+     1640,
+     1800,
+     1800,
+     1800,
+     1900,
+     1600,
+     1900,
+     1700,
+     1500,
+     1500,
+     1580,
+     1580,
+     1699,
+     1750,
+     900,
+     1700,
+     1650
+    ],
+    "sold_median": 1650,
+    "on_sale_count": 3,
+    "on_sale_min": 6577,
+    "on_sale_prices": [
+     6577,
+     8826,
+     7531
+    ],
+    "sold_items": [
+     {
+      "id": "m92803875943",
+      "name": "知的生産のセンス",
+      "price": 1500
+     },
+     {
+      "id": "m38251867322",
+      "name": "知的生産のセンス",
+      "price": 1950
+     },
+     {
+      "id": "m40144970830",
+      "name": "知的生産のセンス",
+      "price": 1600
+     },
+     {
+      "id": "m37133311216",
+      "name": "知的生産のセンス",
+      "price": 1750
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E7%9F%A5%E7%9A%84%E7%94%9F%E7%94%A3%E3%81%AE%E3%82%BB%E3%83%B3%E3%82%B9&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E7%9F%A5%E7%9A%84%E7%94%9F%E7%94%A3%E3%81%AE%E3%82%BB%E3%83%B3%E3%82%B9&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     30,
+     30
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "知的生産の方法論。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296125486"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E7%9F%A5%E7%9A%84%E7%94%9F%E7%94%A3%E3%81%AE%E3%82%BB%E3%83%B3%E3%82%B9&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E7%9F%A5%E7%9A%84%E7%94%9F%E7%94%A3%E3%81%AE%E3%82%BB%E3%83%B3%E3%82%B9&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4776214806",
+   "asin": "4776214806",
+   "title": "働きながら1億貯めるAI株式投資の全手順",
+   "author": "上岡正明 (著)",
+   "publisher": "アスコム",
+   "release_date": "2026-08-31",
+   "in_window": true,
+   "genres": [
+    "投資",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 288,
+   "amazon_rank": 119,
+   "size": {
+    "h": 210.0,
+    "w": 149.0,
+    "t": 18.0,
+    "weight_g": 400
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "働きながら1億貯めるAI株式投資の全手順",
+    "sold_count": 116,
+    "sold_prices": [
+     1900,
+     2000,
+     2080,
+     2280,
+     2000,
+     2180,
+     1900,
+     2000,
+     1500,
+     1800,
+     1950,
+     1900,
+     2000,
+     2000,
+     2200,
+     2200,
+     2100,
+     2200,
+     1999,
+     1900,
+     1980,
+     2000,
+     2300,
+     2200,
+     2200,
+     1800,
+     2380,
+     2200,
+     1900,
+     2100,
+     1780,
+     2299,
+     1800,
+     2000,
+     2000,
+     2250,
+     2000,
+     1900,
+     2000,
+     1800,
+     2200,
+     2200,
+     2200,
+     1990,
+     2150,
+     2000,
+     1800,
+     2000,
+     2150,
+     2100,
+     2200,
+     2100,
+     1899,
+     2200,
+     2000,
+     2220,
+     2200,
+     1900,
+     1980,
+     2400,
+     2333,
+     2200,
+     2350,
+     1900,
+     2150,
+     2099,
+     2100,
+     2100,
+     2000,
+     2150,
+     2200,
+     2100,
+     1800,
+     2200,
+     2100,
+     2200,
+     2050,
+     2199,
+     2300,
+     2199,
+     2200,
+     2199,
+     2200,
+     2200,
+     2100,
+     1800,
+     2100,
+     2100,
+     2350,
+     2290,
+     2300,
+     2200,
+     2000,
+     2200,
+     2200,
+     2200,
+     2200,
+     2200,
+     2190,
+     2000,
+     2300,
+     2199,
+     2000,
+     2150,
+     2580,
+     2000,
+     1800,
+     2390,
+     2100,
+     2200,
+     2199,
+     2250,
+     1999,
+     1750,
+     2100,
+     2200
+    ],
+    "sold_median": 2100.0,
+    "on_sale_count": 13,
+    "on_sale_min": 1800,
+    "on_sale_prices": [
+     2200,
+     2300,
+     2400,
+     1800,
+     2500,
+     2420,
+     2400,
+     2500,
+     2590,
+     2580,
+     2920,
+     3180,
+     9740
+    ],
+    "sold_items": [
+     {
+      "id": "m35001347936",
+      "name": "働きながら1億貯める AI株式投資の全手順",
+      "price": 1900
+     },
+     {
+      "id": "m36356385339",
+      "name": "【新発売】働きながら1億貯める AI株式投資の全手順",
+      "price": 2000
+     },
+     {
+      "id": "m32102566279",
+      "name": "働きながら1億貯めるAI株式投資の全手順",
+      "price": 2000
+     },
+     {
+      "id": "m16187439430",
+      "name": "【美品】働きながら1億貯めるAI株式投資の全手順",
+      "price": 2180
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E5%83%8D%E3%81%8D%E3%81%AA%E3%81%8C%E3%82%891%E5%84%84%E8%B2%AF%E3%82%81%E3%82%8BAI%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%E3%81%AE%E5%85%A8%E6%89%8B%E9%A0%86&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E5%83%8D%E3%81%8D%E3%81%AA%E3%81%8C%E3%82%891%E5%84%84%E8%B2%AF%E3%82%81%E3%82%8BAI%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%E3%81%AE%E5%85%A8%E6%89%8B%E9%A0%86&status=on_sale",
+    "note": "売り切れ検索が上限120件に達しているため実際はもっと多い",
+    "raw_hits": [
+     120,
+     13
+    ]
+   },
+   "usefulness": 2,
+   "demand": 3,
+   "comment": "投資本。出品が多く競合大。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4776214806"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%83%8D%E3%81%8D%E3%81%AA%E3%81%8C%E3%82%891%E5%84%84%E8%B2%AF%E3%82%81%E3%82%8BAI%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%E3%81%AE%E5%85%A8%E6%89%8B%E9%A0%86&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%83%8D%E3%81%8D%E3%81%AA%E3%81%8C%E3%82%891%E5%84%84%E8%B2%AF%E3%82%81%E3%82%8BAI%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%E3%81%AE%E5%85%A8%E6%89%8B%E9%A0%86&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4492973362",
+   "asin": "4492973362",
+   "title": "「会社四季報」業界地図 2027年版",
+   "author": "東洋経済新報社 (編集)",
+   "publisher": "東洋経済新報社",
+   "release_date": "2026-08-22",
+   "in_window": true,
+   "genres": [
+    "ビジネス",
+    "業界研究"
+   ],
+   "genre_ok": true,
+   "price": 2200,
+   "price_note": "",
+   "pages": 336,
+   "amazon_rank": 143,
+   "size": {
+    "h": 254.0,
+    "w": 183.0,
+    "t": 13.0,
+    "weight_g": 550
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "会社四季報 業界地図 2027",
+    "sold_count": 97,
+    "sold_prices": [
+     2050,
+     1600,
+     1600,
+     1800,
+     1900,
+     1800,
+     1850,
+     1500,
+     1999,
+     1950,
+     1599,
+     2050,
+     1800,
+     1900,
+     1999,
+     2080,
+     1900,
+     1500,
+     1900,
+     2100,
+     2050,
+     2000,
+     1800,
+     1600,
+     1950,
+     1800,
+     1800,
+     2000,
+     1900,
+     1900,
+     1990,
+     1900,
+     1700,
+     1800,
+     2100,
+     1900,
+     1950,
+     1599,
+     2100,
+     1800,
+     2000,
+     1850,
+     1600,
+     1950,
+     1800,
+     2000,
+     1800,
+     2000,
+     2080,
+     1900,
+     1850,
+     2050,
+     1999,
+     1950,
+     1900,
+     1750,
+     2000,
+     1800,
+     2099,
+     1900,
+     1700,
+     2000,
+     2130,
+     1890,
+     2001,
+     2050,
+     2000,
+     1980,
+     1900,
+     1950,
+     1790,
+     1800,
+     2000,
+     1949,
+     2050,
+     1980,
+     1980,
+     1750,
+     1777,
+     1750,
+     2000,
+     1700,
+     2000,
+     1900,
+     2900,
+     1799,
+     1890,
+     2100,
+     1950,
+     1900,
+     1600,
+     2150,
+     1890,
+     2100,
+     1900,
+     2000,
+     2150
+    ],
+    "sold_median": 1900,
+    "on_sale_count": 15,
+    "on_sale_min": 1500,
+    "on_sale_prices": [
+     1500,
+     1900,
+     1870,
+     1999,
+     1890,
+     1890,
+     1980,
+     2100,
+     1950,
+     2100,
+     2100,
+     2200,
+     2600,
+     2899,
+     9651
+    ],
+    "sold_items": [
+     {
+      "id": "m68654408656",
+      "name": "「会社四季報」業界地図 2027年版",
+      "price": 2050
+     },
+     {
+      "id": "m56176006054",
+      "name": "会社四季報 業界地図 2027年版",
+      "price": 1600
+     },
+     {
+      "id": "m27596057221",
+      "name": "「会社四季報」業界地図 2027年版",
+      "price": 1600
+     },
+     {
+      "id": "m10248151620",
+      "name": "「会社四季報」業界地図 2027年版",
+      "price": 1800
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E4%BC%9A%E7%A4%BE%E5%9B%9B%E5%AD%A3%E5%A0%B1%20%E6%A5%AD%E7%95%8C%E5%9C%B0%E5%9B%B3%202027&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E4%BC%9A%E7%A4%BE%E5%9B%9B%E5%AD%A3%E5%A0%B1%20%E6%A5%AD%E7%95%8C%E5%9C%B0%E5%9B%B3%202027&status=on_sale",
+    "note": "売り切れ検索が上限120件に達しているため実際はもっと多い。日経版・就職四季報・前年版・セットは除外",
+    "raw_hits": [
+     120,
+     78
+    ]
+   },
+   "usefulness": 3,
+   "demand": 2,
+   "comment": "年度版。就活期に需要。大判で封筒は要確認。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4492973362"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%BC%9A%E7%A4%BE%E5%9B%9B%E5%AD%A3%E5%A0%B1%20%E6%A5%AD%E7%95%8C%E5%9C%B0%E5%9B%B3%202027&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%BC%9A%E7%A4%BE%E5%9B%9B%E5%AD%A3%E5%A0%B1%20%E6%A5%AD%E7%95%8C%E5%9C%B0%E5%9B%B3%202027&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4478122326",
+   "asin": "4478122326",
+   "title": "ドーパミン断ち 最先端の脳科学が解明した自分を「うまく動かす」方法",
+   "author": "マイケル・ロング (著)",
+   "publisher": "ダイヤモンド社",
+   "release_date": "2026-10-28",
+   "in_window": true,
+   "genres": [
+    "ビジネス",
+    "自己啓発"
+   ],
+   "genre_ok": true,
+   "price": 1980,
+   "price_note": "",
+   "pages": 400,
+   "amazon_rank": 171,
+   "size": {
+    "h": 188.0,
+    "w": 130.0,
+    "t": 20.0,
+    "weight_g": 380
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "ドーパミン断ち",
+    "sold_count": 45,
+    "sold_prices": [
+     1400,
+     1450,
+     1900,
+     1799,
+     1780,
+     1500,
+     1800,
+     1800,
+     1800,
+     1700,
+     1680,
+     1750,
+     1630,
+     1780,
+     1750,
+     1777,
+     1700,
+     1780,
+     1800,
+     1780,
+     1700,
+     1650,
+     1800,
+     1800,
+     1800,
+     1790,
+     1788,
+     1730,
+     1780,
+     1650,
+     1650,
+     1799,
+     1780,
+     1780,
+     1780,
+     1700,
+     1680,
+     1480,
+     1780,
+     1680,
+     1680,
+     1680,
+     1730,
+     1700,
+     1780
+    ],
+    "sold_median": 1777,
+    "on_sale_count": 2,
+    "on_sale_min": 1600,
+    "on_sale_prices": [
+     1600,
+     1800
+    ],
+    "sold_items": [
+     {
+      "id": "m16040639402",
+      "name": "ドーパミン断ち",
+      "price": 1400
+     },
+     {
+      "id": "m70403731554",
+      "name": "ドーパミン断ち : 最先端の脳科学が解明した自分を「うまく動かす」方法",
+      "price": 1450
+     },
+     {
+      "id": "m11772375629",
+      "name": "ドーパミン断ち : 最先端の脳科学が解明した自分を「うまく動かす」方法",
+      "price": 1799
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%89%E3%83%BC%E3%83%91%E3%83%9F%E3%83%B3%E6%96%AD%E3%81%A1&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%89%E3%83%BC%E3%83%91%E3%83%9F%E3%83%B3%E6%96%AD%E3%81%A1&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     97,
+     5
+    ]
+   },
+   "usefulness": 2,
+   "demand": 3,
+   "comment": "自己管理系。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4478122326"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%89%E3%83%BC%E3%83%91%E3%83%9F%E3%83%B3%E6%96%AD%E3%81%A1&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%89%E3%83%BC%E3%83%91%E3%83%9F%E3%83%B3%E6%96%AD%E3%81%A1&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4802615590",
+   "asin": "4802615590",
+   "title": "「問い」と「論点」の決算分析 一次情報から有益な示唆を導く戦略と戦術",
+   "author": "村上 茂久 (著)",
+   "publisher": "ソシム",
+   "release_date": "2026-10-17",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "財務"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 392,
+   "amazon_rank": 630,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 25.0,
+    "weight_g": 500
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "問いと論点の決算分析",
+    "sold_count": 6,
+    "sold_prices": [
+     2000,
+     1800,
+     2250,
+     2150,
+     2200,
+     1900
+    ],
+    "sold_median": 2075.0,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m57127888726",
+      "name": "「問い」と「論点」の決算分析 一次情報から有益な示唆を導く戦略と戦術",
+      "price": 2000
+     },
+     {
+      "id": "m75109322217",
+      "name": "「問い」と「論点」の決算分析",
+      "price": 1800
+     },
+     {
+      "id": "m48116129733",
+      "name": "「問い」と「論点」の決算分析",
+      "price": 2250
+     },
+     {
+      "id": "m88952773741",
+      "name": "「問い」と「論点」の決算分析 村上茂久",
+      "price": 2150
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E5%95%8F%E3%81%84%E3%81%A8%E8%AB%96%E7%82%B9%E3%81%AE%E6%B1%BA%E7%AE%97%E5%88%86%E6%9E%90&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E5%95%8F%E3%81%84%E3%81%A8%E8%AB%96%E7%82%B9%E3%81%AE%E6%B1%BA%E7%AE%97%E5%88%86%E6%9E%90&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     33,
+     55
+    ]
+   },
+   "usefulness": 3,
+   "demand": 4,
+   "comment": "決算分析の方法論。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4802615590"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%95%8F%E3%81%84%E3%81%A8%E8%AB%96%E7%82%B9%E3%81%AE%E6%B1%BA%E7%AE%97%E5%88%86%E6%9E%90&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%95%8F%E3%81%84%E3%81%A8%E8%AB%96%E7%82%B9%E3%81%AE%E6%B1%BA%E7%AE%97%E5%88%86%E6%9E%90&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4794228619",
+   "asin": "4794228619",
+   "title": "成長する組織のマインドセット: イノベーションを生み出す組織文化のつくり方",
+   "author": "メアリー・C・マーフィー (著), 大場 伸枝 (翻訳)",
+   "publisher": "草思社",
+   "release_date": "2026-11-02",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "組織"
+   ],
+   "genre_ok": true,
+   "price": 2860,
+   "price_note": "",
+   "pages": 400,
+   "amazon_rank": 654,
+   "size": {
+    "h": 189.0,
+    "w": 134.0,
+    "t": 27.0,
+    "weight_g": 420
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "成長する組織のマインドセット",
+    "sold_count": 0,
+    "sold_prices": [],
+    "sold_median": null,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E6%88%90%E9%95%B7%E3%81%99%E3%82%8B%E7%B5%84%E7%B9%94%E3%81%AE%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%82%BB%E3%83%83%E3%83%88&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E6%88%90%E9%95%B7%E3%81%99%E3%82%8B%E7%B5%84%E7%B9%94%E3%81%AE%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%82%BB%E3%83%83%E3%83%88&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     58,
+     67
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "組織文化。売却実績は確認できず。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4794228619"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%88%90%E9%95%B7%E3%81%99%E3%82%8B%E7%B5%84%E7%B9%94%E3%81%AE%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%82%BB%E3%83%83%E3%83%88&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%88%90%E9%95%B7%E3%81%99%E3%82%8B%E7%B5%84%E7%B9%94%E3%81%AE%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%82%BB%E3%83%83%E3%83%88&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296220268",
+   "asin": "4296220268",
+   "title": "モノが棚に並ぶしくみを言語化する　マーケターが知らない小売の生態",
+   "author": "富永朋信 (著)",
+   "publisher": "日経BP",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "マーケティング",
+    "小売"
+   ],
+   "genre_ok": true,
+   "price": 2200,
+   "price_note": "",
+   "pages": 224,
+   "amazon_rank": 837,
+   "size": {
+    "h": 188.0,
+    "w": 128.0,
+    "t": 19.0,
+    "weight_g": 270
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "モノが棚に並ぶしくみを言語化する",
+    "sold_count": 4,
+    "sold_prices": [
+     1980,
+     2050,
+     2100,
+     2000
+    ],
+    "sold_median": 2025.0,
+    "on_sale_count": 4,
+    "on_sale_min": 1900,
+    "on_sale_prices": [
+     1900,
+     2150,
+     2000,
+     2200
+    ],
+    "sold_items": [
+     {
+      "id": "m83477225092",
+      "name": "モノが棚に並ぶしくみを言語化する",
+      "price": 1980
+     },
+     {
+      "id": "m71772221817",
+      "name": "モノが棚に並ぶしくみを言語化する　マーケターが知らない小売の生態",
+      "price": 2050
+     },
+     {
+      "id": "m91712619412",
+      "name": "モノが棚に並ぶしくみを言語化する",
+      "price": 2100
+     },
+     {
+      "id": "m65870372367",
+      "name": "モノが棚に並ぶしくみを言語化する",
+      "price": 2000
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%8E%E3%81%8C%E6%A3%9A%E3%81%AB%E4%B8%A6%E3%81%B6%E3%81%97%E3%81%8F%E3%81%BF%E3%82%92%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%8E%E3%81%8C%E6%A3%9A%E3%81%AB%E4%B8%A6%E3%81%B6%E3%81%97%E3%81%8F%E3%81%BF%E3%82%92%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     6,
+     6
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "小売・マーケ。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296220268"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%8E%E3%81%8C%E6%A3%9A%E3%81%AB%E4%B8%A6%E3%81%B6%E3%81%97%E3%81%8F%E3%81%BF%E3%82%92%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%A2%E3%83%8E%E3%81%8C%E6%A3%9A%E3%81%AB%E4%B8%A6%E3%81%B6%E3%81%97%E3%81%8F%E3%81%BF%E3%82%92%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296220462",
+   "asin": "4296220462",
+   "title": "具体と抽象の組織論 会社の成長と老化のメカニズム",
+   "author": "細谷 功 (著)",
+   "publisher": "日経BP",
+   "release_date": "2026-10-16",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "組織"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 328,
+   "amazon_rank": 1100,
+   "size": {
+    "h": 188.0,
+    "w": 128.0,
+    "t": 27.0,
+    "weight_g": 380
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "具体と抽象の組織論",
+    "sold_count": 11,
+    "sold_prices": [
+     2050,
+     2200,
+     2100,
+     2200,
+     2000,
+     2300,
+     2200,
+     2480,
+     2000,
+     1900,
+     1920
+    ],
+    "sold_median": 2100,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m21038840672",
+      "name": "具体と抽象の組織論 細谷功",
+      "price": 2050
+     },
+     {
+      "id": "m86713280661",
+      "name": "具体と抽象の組織論 細谷功",
+      "price": 2200
+     },
+     {
+      "id": "m84511586946",
+      "name": "具体と抽象の組織論",
+      "price": 2100
+     },
+     {
+      "id": "m64570639792",
+      "name": "具体と抽象の組織論",
+      "price": 2000
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E5%85%B7%E4%BD%93%E3%81%A8%E6%8A%BD%E8%B1%A1%E3%81%AE%E7%B5%84%E7%B9%94%E8%AB%96&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E5%85%B7%E4%BD%93%E3%81%A8%E6%8A%BD%E8%B1%A1%E3%81%AE%E7%B5%84%E7%B9%94%E8%AB%96&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     63,
+     19
+    ]
+   },
+   "usefulness": 4,
+   "demand": 4,
+   "comment": "細谷功の組織論。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296220462"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%85%B7%E4%BD%93%E3%81%A8%E6%8A%BD%E8%B1%A1%E3%81%AE%E7%B5%84%E7%B9%94%E8%AB%96&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%85%B7%E4%BD%93%E3%81%A8%E6%8A%BD%E8%B1%A1%E3%81%AE%E7%B5%84%E7%B9%94%E8%AB%96&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4534063059",
+   "asin": "4534063059",
+   "title": "社員の「感情」をマネジメントする 居心地の良さとパフォーマンスの科学",
+   "author": "原田 隆史 (著), 下田 直人 (著)",
+   "publisher": "日本実業出版社",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "マネジメント",
+    "人事"
+   ],
+   "genre_ok": true,
+   "price": 2640,
+   "price_note": "",
+   "pages": 272,
+   "amazon_rank": 1127,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 18.0,
+    "weight_g": 340
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "社員の感情をマネジメントする",
+    "sold_count": 6,
+    "sold_prices": [
+     1999,
+     1900,
+     2000,
+     2120,
+     2200,
+     2400
+    ],
+    "sold_median": 2060.0,
+    "on_sale_count": 0,
+    "on_sale_min": null,
+    "on_sale_prices": [],
+    "sold_items": [
+     {
+      "id": "m75692787236",
+      "name": "社員の「感情」をマネジメントする",
+      "price": 1999
+     },
+     {
+      "id": "m53221336556",
+      "name": "社員の「感情」をマネジメントする",
+      "price": 1900
+     },
+     {
+      "id": "m55941541936",
+      "name": "社員の「感情」をマネジメントする",
+      "price": 2000
+     },
+     {
+      "id": "m11078782261",
+      "name": "社員の「感情」をマネジメントする",
+      "price": 2120
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E7%A4%BE%E5%93%A1%E3%81%AE%E6%84%9F%E6%83%85%E3%82%92%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E7%A4%BE%E5%93%A1%E3%81%AE%E6%84%9F%E6%83%85%E3%82%92%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     47,
+     52
+    ]
+   },
+   "usefulness": 4,
+   "demand": 3,
+   "comment": "マネジメント実務。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4534063059"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E7%A4%BE%E5%93%A1%E3%81%AE%E6%84%9F%E6%83%85%E3%82%92%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E7%A4%BE%E5%93%A1%E3%81%AE%E6%84%9F%E6%83%85%E3%82%92%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296127837",
+   "asin": "4296127837",
+   "title": "これからの日本の論点２０２７　日経大予測",
+   "author": "日本経済新聞社 (編集)",
+   "publisher": "日経BP 日本経済新聞出版",
+   "release_date": "2026-10-25",
+   "in_window": true,
+   "genres": [
+    "経済",
+    "年度版"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 352,
+   "amazon_rank": 1363,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 25.0,
+    "weight_g": 420
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "これからの日本の論点2027 日経大予測",
+    "sold_count": 11,
+    "sold_prices": [
+     1799,
+     1880,
+     1800,
+     1800,
+     1900,
+     1800,
+     1850,
+     2000,
+     1800,
+     1849,
+     1880
+    ],
+    "sold_median": 1849,
+    "on_sale_count": 1,
+    "on_sale_min": 3016,
+    "on_sale_prices": [
+     3016
+    ],
+    "sold_items": [
+     {
+      "id": "m42721989331",
+      "name": "これからの日本の論点2027 : 日経大予測",
+      "price": 1799
+     },
+     {
+      "id": "m15519369352",
+      "name": "これからの日本の論点2027 : 日経大予測",
+      "price": 1880
+     },
+     {
+      "id": "m81292113177",
+      "name": "これからの日本の論点2027 : 日経大予測",
+      "price": 1800
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%81%AE%E6%97%A5%E6%9C%AC%E3%81%AE%E8%AB%96%E7%82%B92027%20%E6%97%A5%E7%B5%8C%E5%A4%A7%E4%BA%88%E6%B8%AC&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%81%AE%E6%97%A5%E6%9C%AC%E3%81%AE%E8%AB%96%E7%82%B92027%20%E6%97%A5%E7%B5%8C%E5%A4%A7%E4%BA%88%E6%B8%AC&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     26,
+     60
+    ]
+   },
+   "usefulness": 2,
+   "demand": 2,
+   "comment": "年度版の経済予測。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296127837"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%81%AE%E6%97%A5%E6%9C%AC%E3%81%AE%E8%AB%96%E7%82%B92027%20%E6%97%A5%E7%B5%8C%E5%A4%A7%E4%BA%88%E6%B8%AC&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%81%AE%E6%97%A5%E6%9C%AC%E3%81%AE%E8%AB%96%E7%82%B92027%20%E6%97%A5%E7%B5%8C%E5%A4%A7%E4%BA%88%E6%B8%AC&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4799333461",
+   "asin": "4799333461",
+   "title": "未来地図 FUTURE MAPPING",
+   "author": "神田昌典 (著)",
+   "publisher": "ディスカヴァー・トゥエンティワン",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "ビジネス",
+    "思考法"
+   ],
+   "genre_ok": true,
+   "price": 2420,
+   "price_note": "",
+   "pages": 288,
+   "amazon_rank": 818,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 16.0,
+    "weight_g": 380
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "未来地図 FUTURE MAPPING",
+    "sold_count": 25,
+    "sold_prices": [
+     1600,
+     2200,
+     1980,
+     1980,
+     1900,
+     1850,
+     1800,
+     1980,
+     2080,
+     1900,
+     2100,
+     2100,
+     2000,
+     2100,
+     2200,
+     1999,
+     2200,
+     2200,
+     2000,
+     2100,
+     2100,
+     2200,
+     2000,
+     2190,
+     1990
+    ],
+    "sold_median": 2000,
+    "on_sale_count": 2,
+    "on_sale_min": 2620,
+    "on_sale_prices": [
+     2620,
+     4500
+    ],
+    "sold_items": [
+     {
+      "id": "m28152756290",
+      "name": "未来地図 FUTURE MAPPING 神田昌典",
+      "price": 1600
+     },
+     {
+      "id": "m21896529735",
+      "name": "FUTURE MAPPING 未来地図 神田昌典",
+      "price": 2200
+     },
+     {
+      "id": "m59456612734",
+      "name": "【新品】未来地図 FUTURE MAPPING",
+      "price": 1980
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E6%9C%AA%E6%9D%A5%E5%9C%B0%E5%9B%B3%20FUTURE%20MAPPING&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E6%9C%AA%E6%9D%A5%E5%9C%B0%E5%9B%B3%20FUTURE%20MAPPING&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     30,
+     18
+    ]
+   },
+   "usefulness": 2,
+   "demand": 3,
+   "comment": "神田昌典。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4799333461"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%9C%AA%E6%9D%A5%E5%9C%B0%E5%9B%B3%20FUTURE%20MAPPING&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E6%9C%AA%E6%9D%A5%E5%9C%B0%E5%9B%B3%20FUTURE%20MAPPING&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4478122733",
+   "asin": "4478122733",
+   "title": "アップル自壊　世界最強企業がみずから底なし沼にはまるまで",
+   "author": "パトリック・マギー (著)",
+   "publisher": "ダイヤモンド社",
+   "release_date": "2026-10-28",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "ノンフィクション"
+   ],
+   "genre_ok": true,
+   "price": 2970,
+   "price_note": "",
+   "pages": 620,
+   "amazon_rank": 2219,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 20.0,
+    "weight_g": 720
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "アップル自壊",
+    "sold_count": 21,
+    "sold_prices": [
+     2200,
+     2280,
+     2180,
+     2080,
+     2280,
+     2121,
+     2300,
+     2300,
+     2250,
+     2000,
+     2280,
+     2300,
+     2200,
+     2555,
+     2250,
+     2190,
+     2250,
+     2330,
+     2300,
+     2380,
+     2250
+    ],
+    "sold_median": 2250,
+    "on_sale_count": 3,
+    "on_sale_min": 2450,
+    "on_sale_prices": [
+     2450,
+     2480,
+     2650
+    ],
+    "sold_items": [
+     {
+      "id": "m73247092507",
+      "name": "アップル自壊 : 世界最強企業がみずから底なし沼にはまるまで",
+      "price": 2200
+     },
+     {
+      "id": "m56833738680",
+      "name": "【透明カバー付き】アップル自壊",
+      "price": 2280
+     },
+     {
+      "id": "m54150054764",
+      "name": "アップル自壊世界最強企業がみずから底なし沼にはまるまで",
+      "price": 2180
+     },
+     {
+      "id": "m68124713954",
+      "name": "アップル自壊 : 世界最強企業がみずから底なし沼にはまるまで",
+      "price": 2080
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB%E8%87%AA%E5%A3%8A&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB%E8%87%AA%E5%A3%8A&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     26,
+     11
+    ]
+   },
+   "usefulness": 2,
+   "demand": 3,
+   "comment": "アップルのビジネスノンフィクション。620ページと厚め。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4478122733"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB%E8%87%AA%E5%A3%8A&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB%E8%87%AA%E5%A3%8A&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "486622309X",
+   "asin": "486622309X",
+   "title": "「AIクラッシュ」人工知能が世界経済を壊す",
+   "author": "ジム・リカーズ (著)",
+   "publisher": "ダイレクト出版",
+   "release_date": "2026-09-30",
+   "in_window": true,
+   "genres": [
+    "経済",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 3850,
+   "price_note": "",
+   "pages": 298,
+   "amazon_rank": 2097,
+   "size": {
+    "h": 188.0,
+    "w": 128.0,
+    "t": 25.0,
+    "weight_g": 360
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "AIクラッシュ 人工知能が世界経済を壊す",
+    "sold_count": 4,
+    "sold_prices": [
+     3150,
+     2800,
+     2900,
+     3000
+    ],
+    "sold_median": 2950.0,
+    "on_sale_count": 4,
+    "on_sale_min": 3250,
+    "on_sale_prices": [
+     3250,
+     3380,
+     3333,
+     14800
+    ],
+    "sold_items": [
+     {
+      "id": "m56714217366",
+      "name": "AIクラッシュ 人工知能が世界経済を壊す ジム・リカーズ",
+      "price": 3150
+     },
+     {
+      "id": "m91442882954",
+      "name": "AIクラッシュ 人工知能が世界経済を壊す ジム・リカーズ",
+      "price": 2800
+     },
+     {
+      "id": "m90675621745",
+      "name": "AIクラッシュ 人工知能が世界経済を壊す ジム・リカーズ",
+      "price": 2900
+     },
+     {
+      "id": "m95253559450",
+      "name": "AIクラッシュ 人工知能が世界経済を壊す ジム・リカーズ",
+      "price": 3000
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=AI%E3%82%AF%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%20%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%E3%81%8C%E4%B8%96%E7%95%8C%E7%B5%8C%E6%B8%88%E3%82%92%E5%A3%8A%E3%81%99&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=AI%E3%82%AF%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%20%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%E3%81%8C%E4%B8%96%E7%95%8C%E7%B5%8C%E6%B8%88%E3%82%92%E5%A3%8A%E3%81%99&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     52,
+     37
+    ]
+   },
+   "usefulness": 2,
+   "demand": 3,
+   "comment": "ハードカバーで定価高め。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/486622309X"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=AI%E3%82%AF%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%20%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%E3%81%8C%E4%B8%96%E7%95%8C%E7%B5%8C%E6%B8%88%E3%82%92%E5%A3%8A%E3%81%99&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=AI%E3%82%AF%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%20%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%E3%81%8C%E4%B8%96%E7%95%8C%E7%B5%8C%E6%B8%88%E3%82%92%E5%A3%8A%E3%81%99&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296118587",
+   "asin": "4296118587",
+   "title": "商人・預言者・指導者・王　リーダーは本当に歴史を動かすのか",
+   "author": "ジャレド・ダイアモンド (著)",
+   "publisher": "日経BP 日本経済新聞出版",
+   "release_date": "2026-10-23",
+   "in_window": true,
+   "genres": [
+    "リーダーシップ",
+    "教養"
+   ],
+   "genre_ok": true,
+   "price": 2970,
+   "price_note": "",
+   "pages": 384,
+   "amazon_rank": 354,
+   "size": {
+    "h": 188.0,
+    "w": 128.0,
+    "t": 25.0,
+    "weight_g": 390
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "商人・預言者・指導者・王",
+    "sold_count": 20,
+    "sold_prices": [
+     2350,
+     2400,
+     2600,
+     2700,
+     2390,
+     2700,
+     2500,
+     2600,
+     2500,
+     2540,
+     2400,
+     2700,
+     2600,
+     2000,
+     2700,
+     2870,
+     1800,
+     2400,
+     2800,
+     2300
+    ],
+    "sold_median": 2520.0,
+    "on_sale_count": 3,
+    "on_sale_min": 2500,
+    "on_sale_prices": [
+     2580,
+     2700,
+     2500
+    ],
+    "sold_items": [
+     {
+      "id": "m34223905338",
+      "name": "商人・預言者・指導者・王 ジャレド・ダイアモンド",
+      "price": 2350
+     },
+     {
+      "id": "m20041232064",
+      "name": "商人・預言者・指導者・王 ジャレド・ダイアモンド",
+      "price": 2400
+     },
+     {
+      "id": "m65378355485",
+      "name": "商人・預言者・指導者・王 ジャレド・ダイアモンド",
+      "price": 2600
+     },
+     {
+      "id": "m35050669677",
+      "name": "商人・預言者・指導者・王",
+      "price": 2390
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E5%95%86%E4%BA%BA%E3%83%BB%E9%A0%90%E8%A8%80%E8%80%85%E3%83%BB%E6%8C%87%E5%B0%8E%E8%80%85%E3%83%BB%E7%8E%8B&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E5%95%86%E4%BA%BA%E3%83%BB%E9%A0%90%E8%A8%80%E8%80%85%E3%83%BB%E6%8C%87%E5%B0%8E%E8%80%85%E3%83%BB%E7%8E%8B&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     21,
+     7
+    ]
+   },
+   "usefulness": 2,
+   "demand": 4,
+   "comment": "ジャレド・ダイアモンド。教養書として需要が長い。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296118587"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%95%86%E4%BA%BA%E3%83%BB%E9%A0%90%E8%A8%80%E8%80%85%E3%83%BB%E6%8C%87%E5%B0%8E%E8%80%85%E3%83%BB%E7%8E%8B&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%95%86%E4%BA%BA%E3%83%BB%E9%A0%90%E8%A8%80%E8%80%85%E3%83%BB%E6%8C%87%E5%B0%8E%E8%80%85%E3%83%BB%E7%8E%8B&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4910063498",
+   "asin": "4910063498",
+   "title": "パランティア：「哲学者」が率いる軍事AI企業の野望",
+   "author": "マイケル・スタインバーガー (著), 土方奈美 (翻訳), 後藤直義 (解説)",
+   "publisher": "NewsPicksパブリッシング",
+   "release_date": "2026-11-04",
+   "in_window": true,
+   "genres": [
+    "AI",
+    "企業研究"
+   ],
+   "genre_ok": true,
+   "price": 2750,
+   "price_note": "",
+   "pages": 432,
+   "amazon_rank": 579,
+   "size": {
+    "h": 188.0,
+    "w": 128.0,
+    "t": 29.0,
+    "weight_g": 360
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "パランティア 哲学者が率いる軍事AI企業の野望",
+    "sold_count": 9,
+    "sold_prices": [
+     2449,
+     2460,
+     2525,
+     2480,
+     2600,
+     2500,
+     2480,
+     2700,
+     2580
+    ],
+    "sold_median": 2500,
+    "on_sale_count": 2,
+    "on_sale_min": 2450,
+    "on_sale_prices": [
+     2450,
+     2600
+    ],
+    "sold_items": [
+     {
+      "id": "m95076530285",
+      "name": "パランティア : 「哲学者」が率いる軍事AI企業の野望",
+      "price": 2449
+     },
+     {
+      "id": "m15124980789",
+      "name": "新品同様 パランティア : 「哲学者」が率いる軍事AI企業の野望",
+      "price": 2460
+     },
+     {
+      "id": "m82016390698",
+      "name": "パランティア : 「哲学者」が率いる軍事AI企業の野望",
+      "price": 2525
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E3%83%91%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%20%E5%93%B2%E5%AD%A6%E8%80%85%E3%81%8C%E7%8E%87%E3%81%84%E3%82%8B%E8%BB%8D%E4%BA%8BAI%E4%BC%81%E6%A5%AD%E3%81%AE%E9%87%8E%E6%9C%9B&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E3%83%91%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%20%E5%93%B2%E5%AD%A6%E8%80%85%E3%81%8C%E7%8E%87%E3%81%84%E3%82%8B%E8%BB%8D%E4%BA%8BAI%E4%BC%81%E6%A5%AD%E3%81%AE%E9%87%8E%E6%9C%9B&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     15,
+     15
+    ]
+   },
+   "usefulness": 2,
+   "demand": 3,
+   "comment": "パランティアの企業ノンフィクション。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4910063498"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%91%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%20%E5%93%B2%E5%AD%A6%E8%80%85%E3%81%8C%E7%8E%87%E3%81%84%E3%82%8B%E8%BB%8D%E4%BA%8BAI%E4%BC%81%E6%A5%AD%E3%81%AE%E9%87%8E%E6%9C%9B&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E3%83%91%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%20%E5%93%B2%E5%AD%A6%E8%80%85%E3%81%8C%E7%8E%87%E3%81%84%E3%82%8B%E8%BB%8D%E4%BA%8BAI%E4%BC%81%E6%A5%AD%E3%81%AE%E9%87%8E%E6%9C%9B&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4502609811",
+   "asin": "4502609811",
+   "title": "事例ではじめる法務AI：AIに任せる範囲，人が担う責任",
+   "author": "GVA TECH株式会社 法務AI研究所 (編集), 山本 俊 (編集, 著)",
+   "publisher": "中央経済社",
+   "release_date": "2026-11-02",
+   "in_window": true,
+   "genres": [
+    "法務",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 2860,
+   "price_note": "",
+   "pages": 168,
+   "amazon_rank": 1922,
+   "size": {
+    "h": 211.0,
+    "w": 151.0,
+    "t": 12.0,
+    "weight_g": 250
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "事例ではじめる法務AI",
+    "sold_count": 4,
+    "sold_prices": [
+     2100,
+     2100,
+     2500,
+     2200
+    ],
+    "sold_median": 2150.0,
+    "on_sale_count": 2,
+    "on_sale_min": 2200,
+    "on_sale_prices": [
+     2200,
+     3800
+    ],
+    "sold_items": [
+     {
+      "id": "m50837742357",
+      "name": "【裁断済】事例ではじめる法務AI",
+      "price": 2100
+     },
+     {
+      "id": "m78706299457",
+      "name": "【裁断済】事例ではじめる法務AI",
+      "price": 2100
+     },
+     {
+      "id": "m13784878267",
+      "name": "事例ではじめる法務AI : AIに任せる範囲,人が担う責任",
+      "price": 2500
+     },
+     {
+      "id": "m58535086904",
+      "name": "事例ではじめる法務AI : AIに任せる範囲,人が担う責任",
+      "price": 2200
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E4%BA%8B%E4%BE%8B%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E6%B3%95%E5%8B%99AI&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E4%BA%8B%E4%BE%8B%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E6%B3%95%E5%8B%99AI&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     37,
+     50
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "法務×AI。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4502609811"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%BA%8B%E4%BE%8B%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E6%B3%95%E5%8B%99AI&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%BA%8B%E4%BE%8B%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E6%B3%95%E5%8B%99AI&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4296220152",
+   "asin": "4296220152",
+   "title": "AI時代の最強スキル「属人力」　代替されないマーケターの生存戦略",
+   "author": "田部 正樹 (著)",
+   "publisher": "日経BP",
+   "release_date": "2026-10-16",
+   "in_window": true,
+   "genres": [
+    "マーケティング",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 2200,
+   "price_note": "",
+   "pages": 304,
+   "amazon_rank": 3485,
+   "size": {
+    "h": 188.0,
+    "w": 128.0,
+    "t": 20.0,
+    "weight_g": 320
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "属人力 代替されないマーケター",
+    "sold_count": 10,
+    "sold_prices": [
+     1800,
+     1900,
+     1700,
+     1880,
+     1800,
+     1650,
+     1650,
+     1700,
+     1799,
+     1850
+    ],
+    "sold_median": 1799.5,
+    "on_sale_count": 1,
+    "on_sale_min": 2120,
+    "on_sale_prices": [
+     2120
+    ],
+    "sold_items": [
+     {
+      "id": "m14257827967",
+      "name": "AI時代の最強スキル「属人力」 : 代替されないマーケターの生存戦略",
+      "price": 1800
+     },
+     {
+      "id": "m67305842225",
+      "name": "AI時代の最強スキル「属人力」 : 代替されないマーケターの生存戦略",
+      "price": 1900
+     },
+     {
+      "id": "m59701223551",
+      "name": "AI時代の最強スキル「属人力」 代替されないマーケターの生存戦略 田部正樹",
+      "price": 1880
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E5%B1%9E%E4%BA%BA%E5%8A%9B%20%E4%BB%A3%E6%9B%BF%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%83%9E%E3%83%BC%E3%82%B1%E3%82%BF%E3%83%BC&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E5%B1%9E%E4%BA%BA%E5%8A%9B%20%E4%BB%A3%E6%9B%BF%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%83%9E%E3%83%BC%E3%82%B1%E3%82%BF%E3%83%BC&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     37,
+     47
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "マーケター向け。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4296220152"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%B1%9E%E4%BA%BA%E5%8A%9B%20%E4%BB%A3%E6%9B%BF%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%83%9E%E3%83%BC%E3%82%B1%E3%82%BF%E3%83%BC&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E5%B1%9E%E4%BA%BA%E5%8A%9B%20%E4%BB%A3%E6%9B%BF%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E3%83%9E%E3%83%BC%E3%82%B1%E3%82%BF%E3%83%BC&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4492315721",
+   "asin": "4492315721",
+   "title": "AI資本主義のビジネス戦略: 新時代の覇権を握る「FASTモデル」",
+   "author": "山口 真一 (著)",
+   "publisher": "東洋経済新報社",
+   "release_date": "2026-10-28",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 2640,
+   "price_note": "",
+   "pages": 280,
+   "amazon_rank": 9178,
+   "size": {
+    "h": 194.0,
+    "w": 134.0,
+    "t": 21.0,
+    "weight_g": 350
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "AI資本主義のビジネス戦略",
+    "sold_count": 3,
+    "sold_prices": [
+     2000,
+     2290,
+     2380
+    ],
+    "sold_median": 2290,
+    "on_sale_count": 1,
+    "on_sale_min": 2380,
+    "on_sale_prices": [
+     2380
+    ],
+    "sold_items": [
+     {
+      "id": "m38676031237",
+      "name": "AI資本主義のビジネス戦略 : 新時代の覇権を握る「FASTモデル」",
+      "price": 2000
+     },
+     {
+      "id": "m49425810062",
+      "name": "AI資本主義のビジネス戦略 山口真一",
+      "price": 2290
+     },
+     {
+      "id": "m22418278989",
+      "name": "AI資本主義のビジネス戦略",
+      "price": 2380
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=AI%E8%B3%87%E6%9C%AC%E4%B8%BB%E7%BE%A9%E3%81%AE%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E6%88%A6%E7%95%A5&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=AI%E8%B3%87%E6%9C%AC%E4%B8%BB%E7%BE%A9%E3%81%AE%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E6%88%A6%E7%95%A5&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     109,
+     67
+    ]
+   },
+   "usefulness": 3,
+   "demand": 3,
+   "comment": "AI時代のビジネス戦略。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4492315721"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=AI%E8%B3%87%E6%9C%AC%E4%B8%BB%E7%BE%A9%E3%81%AE%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E6%88%A6%E7%95%A5&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=AI%E8%B3%87%E6%9C%AC%E4%B8%BB%E7%BE%A9%E3%81%AE%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E6%88%A6%E7%95%A5&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4419073284",
+   "asin": "4419073284",
+   "title": "中小M&A実務の基本: 事前相談からDD、最終契約、リスクマネジメントまで",
+   "author": "山田 勝也 (編集), 関口 尊成 (編集)",
+   "publisher": "税務経理協会",
+   "release_date": "2026-10-27",
+   "in_window": true,
+   "genres": [
+    "経営",
+    "M&A"
+   ],
+   "genre_ok": true,
+   "price": null,
+   "price_note": "Amazon本体の新品在庫なし（マーケットプレイス 新品・中古 ¥3,080〜）。Amazon価格として扱わず確認不可",
+   "pages": 260,
+   "amazon_rank": 198,
+   "size": {
+    "h": 210.0,
+    "w": 150.0,
+    "t": 20.0,
+    "weight_g": 470
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "中小M&A実務の基本",
+    "sold_count": 5,
+    "sold_prices": [
+     4990,
+     6080,
+     4800,
+     5980,
+     4800
+    ],
+    "sold_median": 4990,
+    "on_sale_count": 8,
+    "on_sale_min": 2699,
+    "on_sale_prices": [
+     4500,
+     2699,
+     4300,
+     4490,
+     2800,
+     4299,
+     4500,
+     6666
+    ],
+    "sold_items": [
+     {
+      "id": "2JZ9DyevHJZCTZWQaYJ3XZ",
+      "name": "中小M&A実務の基本 2027年資格試験対応（ショップ）",
+      "price": 4990
+     },
+     {
+      "id": "m64045213507",
+      "name": "中小M&A実務の基本　事前相談からDD、最終契約、リスクマネジメントまで",
+      "price": 6080
+     },
+     {
+      "id": "m34189322218",
+      "name": "中小M&A実務の基本 事前相談からDD、最終契約、リスクマネジメントまで",
+      "price": 4800
+     },
+     {
+      "id": "m40847935610",
+      "name": "中小M&A実務の基本　事前相談からDD、最終契約、リスクマネジメントまで",
+      "price": 5980
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E4%B8%AD%E5%B0%8FM%26A%E5%AE%9F%E5%8B%99%E3%81%AE%E5%9F%BA%E6%9C%AC&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E4%B8%AD%E5%B0%8FM%26A%E5%AE%9F%E5%8B%99%E3%81%AE%E5%9F%BA%E6%9C%AC&status=on_sale",
+    "note": "副題が「最終契約まで」の旧版らしき売り切れ（2,500〜4,000円）は除外。Amazon本体に在庫がなく品薄で中古相場が定価より高い",
+    "raw_hits": [
+     46,
+     55
+    ]
+   },
+   "usefulness": 3,
+   "demand": 4,
+   "comment": "実務書で中古でも高値。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4419073284"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%B8%AD%E5%B0%8FM%26A%E5%AE%9F%E5%8B%99%E3%81%AE%E5%9F%BA%E6%9C%AC&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%B8%AD%E5%B0%8FM%26A%E5%AE%9F%E5%8B%99%E3%81%AE%E5%9F%BA%E6%9C%AC&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "4815643318",
+   "asin": "4815643318",
+   "title": "ディープラーニングG検定（ジェネラリスト）最強の合格テキスト［第3版］ ［徹底解説+良質問題+模試（PDF）］ (まっすぐ合格シリーズ)",
+   "author": "ヤン ジャクリン (著), 上野勉 (著)",
+   "publisher": "SBクリエイティブ",
+   "release_date": "2026-09-19",
+   "in_window": true,
+   "genres": [
+    "資格",
+    "AI"
+   ],
+   "genre_ok": true,
+   "price": 3080,
+   "price_note": "",
+   "pages": 608,
+   "amazon_rank": 421,
+   "size": {
+    "h": 210.0,
+    "w": 148.0,
+    "t": 38.7,
+    "weight_g": 690
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "G検定 最強の合格テキスト 第3版",
+    "sold_count": 18,
+    "sold_prices": [
+     2290,
+     2000,
+     2000,
+     2500,
+     2600,
+     2500,
+     1100,
+     2700,
+     2400,
+     2280,
+     2400,
+     2600,
+     2500,
+     2100,
+     2300,
+     2380,
+     2200,
+     2800
+    ],
+    "sold_median": 2390.0,
+    "on_sale_count": 4,
+    "on_sale_min": 2500,
+    "on_sale_prices": [
+     2700,
+     2500,
+     2900,
+     11113
+    ],
+    "sold_items": [
+     {
+      "id": "m19188907119",
+      "name": "ディープラーニングG検定 最強の合格テキスト 第3版",
+      "price": 2290
+     },
+     {
+      "id": "m11832285534",
+      "name": "ディープラーニングG検定 最強の合格テキスト 第3版",
+      "price": 2000
+     },
+     {
+      "id": "m34939513208",
+      "name": "G検定　最強の合格テキスト　第3版最新版",
+      "price": 2500
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=G%E6%A4%9C%E5%AE%9A%20%E6%9C%80%E5%BC%B7%E3%81%AE%E5%90%88%E6%A0%BC%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC3%E7%89%88&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=G%E6%A4%9C%E5%AE%9A%20%E6%9C%80%E5%BC%B7%E3%81%AE%E5%90%88%E6%A0%BC%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC3%E7%89%88&status=on_sale",
+    "note": "",
+    "raw_hits": [
+     120,
+     36
+    ]
+   },
+   "usefulness": 3,
+   "demand": 4,
+   "comment": "G検定テキスト。厚さ3.9cmでネコポス不可。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/4815643318"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=G%E6%A4%9C%E5%AE%9A%20%E6%9C%80%E5%BC%B7%E3%81%AE%E5%90%88%E6%A0%BC%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC3%E7%89%88&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=G%E6%A4%9C%E5%AE%9A%20%E6%9C%80%E5%BC%B7%E3%81%AE%E5%90%88%E6%A0%BC%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%20%E7%AC%AC3%E7%89%88&status=on_sale"
+    }
+   ]
+  },
+  {
+   "isbn": "429715921X",
+   "asin": "429715921X",
+   "title": "【改訂新版】作って理解するOS　x86系コンピュータを動かす理論と実装",
+   "author": "林 高勲 (著)",
+   "publisher": "技術評論社",
+   "release_date": "2026-10-26",
+   "in_window": true,
+   "genres": [
+    "開発",
+    "OS"
+   ],
+   "genre_ok": true,
+   "price": 4840,
+   "price_note": "",
+   "pages": 1072,
+   "amazon_rank": 902,
+   "size": {
+    "h": 230.0,
+    "w": 182.0,
+    "t": 38.0,
+    "weight_g": 1410
+   },
+   "mercari": {
+    "checked_at": "2026-11-10",
+    "search_keyword": "作って理解するOS 改訂新版",
+    "sold_count": 3,
+    "sold_prices": [
+     4000,
+     3700,
+     3700
+    ],
+    "sold_median": 3700,
+    "on_sale_count": 1,
+    "on_sale_min": 3500,
+    "on_sale_prices": [
+     3500
+    ],
+    "sold_items": [
+     {
+      "id": "m96086682918",
+      "name": "【改訂新版】作って理解するOS x86系コンピュータを動かす理論と実装",
+      "price": 4000
+     },
+     {
+      "id": "m14710909126",
+      "name": "【改訂新版】作って理解するOS",
+      "price": 3700
+     },
+     {
+      "id": "m97629699680",
+      "name": "【改訂新版】作って理解するOS",
+      "price": 3700
+     }
+    ],
+    "search_url_sold": "https://jp.mercari.com/search?keyword=%E4%BD%9C%E3%81%A3%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8BOS%20%E6%94%B9%E8%A8%82%E6%96%B0%E7%89%88&status=sold_out",
+    "search_url_on_sale": "https://jp.mercari.com/search?keyword=%E4%BD%9C%E3%81%A3%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8BOS%20%E6%94%B9%E8%A8%82%E6%96%B0%E7%89%88&status=on_sale",
+    "note": "旧版（改訂前）の売り切れは除外",
+    "raw_hits": [
+     35,
+     52
+    ]
+   },
+   "usefulness": 3,
+   "demand": 5,
+   "comment": "1072ページ・厚さ3.8cmでネコポス不可。",
+   "sources": [
+    {
+     "label": "Amazon.co.jp 商品ページ（価格・発売日・寸法・重量・売れ筋順位）",
+     "url": "https://www.amazon.co.jp/dp/429715921X"
+    },
+    {
+     "label": "メルカリ 売り切れ検索（売れた価格）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%BD%9C%E3%81%A3%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8BOS%20%E6%94%B9%E8%A8%82%E6%96%B0%E7%89%88&status=sold_out"
+    },
+    {
+     "label": "メルカリ 出品中検索（競合）",
+     "url": "https://jp.mercari.com/search?keyword=%E4%BD%9C%E3%81%A3%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8BOS%20%E6%94%B9%E8%A8%82%E6%96%B0%E7%89%88&status=on_sale"
+    }
+   ]
+  }
+ ],
+ "excluded": []
+}

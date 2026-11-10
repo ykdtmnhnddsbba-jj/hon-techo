@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>本の手帖</title>
+<style>
+:root{
+  --bg:#12131a;--panel:#1b1d27;--panel2:#242736;--line:#2e3144;--text:#ecedf3;--sub:#9da1b5;
+  --accent:#ffb347;--accent2:#5eead4;--warn:#fbbf24;--ng:#f87171;--blue:#38bdf8;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;line-height:1.6}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--accent2)}
+header{position:sticky;top:0;z-index:20;background:rgba(18,19,26,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1600px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:18px;letter-spacing:.04em}
+.logo b{color:var(--accent)}
+nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+nav button{background:none;border:0;padding:8px 14px;border-radius:999px;color:var(--sub);cursor:pointer;font-weight:600}
+nav button.on{background:var(--panel2);color:var(--text)}
+.chip{font-size:12px;padding:4px 10px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);color:var(--sub);cursor:pointer}
+.chip.ok{color:var(--accent2);border-color:#2a5b55}
+.chip.bad{color:var(--warn);border-color:#6b5a1c}
+main{max-width:1600px;margin:0 auto;padding:18px 16px 80px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.toolbar select,.toolbar input[type=text],.field input,.field select,.field textarea{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.btn{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:600;text-decoration:none;color:var(--text);display:inline-block}
+.btn:hover{border-color:var(--sub)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#220}
+.btn.danger{color:#ff9aa8}
+.btn.sm{padding:4px 10px;font-size:13px}
+label.chk{display:flex;gap:6px;align-items:center;color:var(--sub);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(var(--cols,1),minmax(0,1fr));gap:12px}
+@media(max-width:1000px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex}
+.card:hover{border-color:#4a4f6e}
+.card.dim{opacity:.55}
+.cover{position:relative;width:96px;flex:none;aspect-ratio:2/3;align-self:flex-start;background:var(--panel2) center/cover no-repeat;margin:12px 0 12px 12px;border-radius:8px}
+.cover .rk{position:absolute;top:-6px;left:-6px;background:var(--accent);color:#220;font-weight:800;border-radius:8px;padding:1px 9px;font-size:15px}
+.cover .noimg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-size:11px;color:var(--sub)}
+.cbody{flex:1;min-width:0;padding:10px 14px 12px;display:flex;flex-direction:column;gap:6px}
+.ctitle{font-size:15.5px;font-weight:700;line-height:1.35}
+.meta{font-size:12.5px;color:var(--sub)}
+.pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;background:var(--panel2);color:var(--sub);margin:0 4px 4px 0;border:1px solid var(--line)}
+.pill.ok{color:var(--accent2);border-color:#2a5b55;background:#16312f}
+.pill.warn{color:var(--warn);border-color:#6b5a1c;background:#33290d}
+.pill.ng{color:var(--ng);border-color:#7a3a3a;background:#331a1a}
+.pill.blue{color:var(--blue);border-color:#1f4a63;background:#10283a}
+.nums{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+@media(max-width:1100px){.nums{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:600px){.nums{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.num{background:var(--panel2);border-radius:9px;padding:5px 9px;min-width:0}
+.num .l{font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.num .v{font-size:15px;font-weight:700;white-space:nowrap}
+.num .s{font-size:10.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.num.key{background:#3a2f0b;border:1px solid #8a6f1c}
+.num.key .v{color:var(--warn);font-size:17px}
+.num.good .v{color:var(--accent2)}
+.acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.qb{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:4px 12px;cursor:pointer;font-size:13px;color:var(--sub);white-space:nowrap;text-decoration:none}
+.qb:hover{border-color:var(--sub);color:var(--text)}
+.qb.on.w{color:var(--accent2);border-color:#2a5b55;background:#16312f}
+.qb.on.b{color:var(--accent);border-color:#8a6f1c;background:#3a2f0b}
+.why{font-size:12px;color:var(--sub)}
+.why b{color:var(--text);font-weight:600}
+.empty{padding:50px 10px;text-align:center;color:var(--sub)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:16px}
+.panel h2{margin:0 0 10px;font-size:17px}
+.panel h3{margin:14px 0 6px;font-size:14px;color:var(--sub)}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.field label{font-size:13px;color:var(--sub)}
+.hint{font-size:12.5px;color:var(--sub)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:720px){.two,.three{grid-template-columns:1fr}}
+.stick{position:sticky;top:var(--hh,56px);z-index:15;background:var(--bg);padding:12px 0 4px;margin:-12px 0 8px;border-bottom:1px solid var(--line)}
+.budget{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.btrack{flex:1;min-width:200px;height:12px;background:var(--panel2);border-radius:99px;overflow:hidden;position:relative}
+.bfill{height:100%;background:var(--accent);border-radius:99px}
+.bfill.over{background:var(--ng)}
+.btext{font-size:14px;white-space:nowrap}
+.btext b{font-size:17px;color:var(--warn)}
+.subtabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.subtabs button{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 16px;cursor:pointer;font-weight:700;color:var(--sub)}
+.subtabs button.on{background:var(--accent);border-color:var(--accent);color:#220}
+.subtabs .cnt{display:inline-block;min-width:20px;text-align:center;margin-left:4px;padding:0 6px;border-radius:99px;background:rgba(0,0,0,.25);font-size:12px}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px}
+table.t th,table.t td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+table.t th{color:var(--sub);font-weight:600;font-size:12px;position:sticky;top:0;background:var(--panel)}
+table.t td.l,table.t th.l{text-align:left;white-space:normal}
+.tw{overflow:auto}
+.rec{display:grid;grid-template-columns:minmax(0,2.2fr) repeat(6,minmax(0,1fr)) auto;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line)}
+.rec:last-child{border-bottom:0}
+.rec input,.rec select{width:100%;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:13px}
+.rec .lab{font-size:10.5px;color:var(--sub)}
+.rec.head{font-size:11.5px;color:var(--sub);padding-top:4px;padding-bottom:4px}
+@media(max-width:1000px){.rec{grid-template-columns:1fr 1fr 1fr}.rec.head{display:none}.rec .tt{grid-column:1/-1}}
+.kpi{background:var(--panel2);border-radius:12px;padding:12px 14px}
+.kpi .l{font-size:12px;color:var(--sub)}
+.kpi .v{font-size:22px;font-weight:800}
+.kpi .v.pos{color:var(--accent2)}.kpi .v.neg{color:var(--warn)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#000;border:1px solid var(--line);padding:10px 18px;border-radius:999px;z-index:99;font-size:14px}
+.ov0{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:24px 12px;overflow:auto}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:18px;max-width:760px;width:100%;padding:18px}
+.modal h2{margin:0 0 6px;font-size:19px}
+pre.code{background:var(--panel2);border-radius:10px;padding:10px;white-space:pre-wrap;font-size:12.5px}
+footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--sub);font-size:12px}
+.spark{display:flex;gap:2px;align-items:flex-end;height:18px}
+.spark i{display:block;width:4px;background:#4a4f6e;border-radius:1px}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <div class="logo">本の<b>手帖</b></div>
+  <nav id="nav"></nav>
+  <span id="syncChip" class="chip"></span>
+</div></header>
+<main id="main"></main>
+<footer>
+  候補データは Claude が調査日時点で Amazon.co.jp（価格・発売日・寸法）とメルカリ（売り切れ・出品中の検索結果）を確認したものです。メルカリの数値は検索結果1ページ目（最大120件）の範囲で、売れた時期は確認していません。
+</footer>
+<div id="modalRoot"></div>
+
+<script>
+'use strict';
+/* =============== utils =============== */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nowIso=()=>new Date().toISOString();
+const yen=n=>n==null||isNaN(n)?'—':(n<0?'−':'')+'¥'+Math.abs(Math.round(n)).toLocaleString('ja-JP');
+const pct=n=>n==null||isNaN(n)?'—':Math.round(n*100)+'%';
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const ymOf=s=>String(s||'').slice(0,7);
+function lsGet(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):def}catch(e){return def}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
+function toast(msg,ms=2600){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),ms)}
+function median(a){if(!a||!a.length)return null;const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:Math.round((s[m-1]+s[m])/2)}
+
+/* =============== state =============== */
+const LS_DB='hondb.v1',LS_SET='hondb.settings.v1',LS_UI='hondb.ui.v1';
+const DEFAULT_CLIENT_ID='568813131190-9pb3hf0f3g3rbiglkq4nbk88g4eltk9p.apps.googleusercontent.com';
+// 計算の前提（設定タブで変更可）。封筒の内寸はメーカー非公表のため推定値
+const DEF_CFG={budget:10000,fee_rate:0.10,shipping:210,packaging:74,
+  env_outer_w:220,env_outer_h:315,env_in_w:205,env_in_h:300,cushion:5,max_thick:30,max_weight:1000,warn_margin:10};
+function emptyDb(){return{schema_version:1,updated_at:null,picks:{},purchases:{}}}
+let db=Object.assign(emptyDb(),lsGet(LS_DB,{}));
+let settings=Object.assign({google_client_id:DEFAULT_CLIENT_ID,drive_linked:false,cfg:{}},lsGet(LS_SET,{}));
+if(!settings.google_client_id)settings.google_client_id=DEFAULT_CLIENT_ID;
+const cfg=()=>Object.assign({},DEF_CFG,settings.cfg||{});
+const ui=Object.assign({tab:'rank',month:null,onlyPass:true,sort:'burden',recF:'all',candSub:'rank'},lsGet(LS_UI,{}));
+let months=[],data=null,dataErr='';
+
+function saveLocal(){db.updated_at=nowIso();lsSet(LS_DB,db)}
+function save(){saveLocal();scheduleSync()}
+function saveSettings(){lsSet(LS_SET,settings)}
+function saveUi(){lsSet(LS_UI,{tab:ui.tab,month:ui.month,onlyPass:ui.onlyPass,sort:ui.sort,recF:ui.recF,candSub:ui.candSub})}
+
+/* =============== 計算（ランキングの根拠） =============== */
+// ネコポス判定：封筒は袋なので「本の幅＋厚さ ≤ 封筒内寸の幅」「本の高さ＋厚さ ≤ 内寸の高さ」で入る。
+// 梱包後の厚さ＝本の厚さ＋クッション分。3cm超はネコポス不可。
+function fitCheck(size,c=cfg()){
+  if(!size||!size.h||!size.w||!size.t)return{fit:'unknown',label:'サイズ要確認',why:'寸法が確認できませんでした'};
+  const h=Math.max(size.h,size.w),w=Math.min(size.h,size.w),t=size.t;   // mm
+  const packed=t+c.cushion;
+  const mw=c.env_in_w-(w+t),mh=c.env_in_h-(h+t),mt=c.max_thick-packed;
+  const why=`梱包後の厚さ 約${packed.toFixed(0)}mm（上限${c.max_thick}）／幅の余裕 ${mw.toFixed(0)}mm／高さの余裕 ${mh.toFixed(0)}mm`;
+  if(size.weight_g&&size.weight_g>c.max_weight)return{fit:'ng',label:'ネコポス不可',why:`重さ${size.weight_g}g（上限1kg）`};
+  if(mt<0)return{fit:'ng',label:'ネコポス不可',why:why+' → 厚さオーバー'};
+  if(mw<-c.warn_margin||mh<-c.warn_margin)return{fit:'ng',label:'封筒に入らない',why};
+  if(mw<0||mh<0||mt<2)return{fit:'warn',label:'ネコポス要注意',why:why+' → ギリギリ。実物で確認を'};
+  return{fit:'ok',label:'ネコポスOK',why};
+}
+function evalBook(b,c=cfg()){
+  const m=b.mercari||{};
+  const sold=(m.sold_prices||[]).filter(x=>x>0);
+  const n=sold.length;
+  const med=median(sold),smin=n?Math.min(...sold):null,smax=n?Math.max(...sold):null;
+  const omin=m.on_sale_min||null;
+  let expected=null;
+  if(n>=3){expected=med;if(omin&&omin<expected)expected=Math.max(omin,smin)}
+  else if(n){expected=omin?Math.min(smin,omin):smin}   // 実績1〜2件は控えめに（最安値）
+  const fee=expected==null?null:Math.floor(expected*c.fee_rate);
+  const net=expected==null?null:expected-fee-c.shipping-c.packaging;
+  const price=b.price;
+  const burden=net==null||!price?null:price-net;
+  const retention=expected==null||!price?null:expected/price;
+  const f=fitCheck(b.size,c);
+  const reasons=[];
+  if(!b.in_window)reasons.push('発売日が対象期間外');
+  if(!n)reasons.push('メルカリ売却実績を確認できず');
+  if(f.fit==='ng')reasons.push(f.label);
+  if(f.fit==='unknown')reasons.push('サイズ要確認');
+  if(!price)reasons.push('Amazon価格を確認できず');
+  else if(price>c.budget)reasons.push('補助上限超え');
+  if(!b.genre_ok)reasons.push('IT・ビジネス書ではない');
+  return{n,med,smin,smax,omin,ocount:m.on_sale_count||0,expected,fee,net,burden,retention,fit:f,pass:!reasons.length,reasons};
+}
+// 総合スコア（並び替え「おすすめ順」用）。実質負担を最重視
+function scoreOf(b,e){
+  if(e.burden==null)return -1;
+  const sBurden=Math.max(0,Math.min(1,1-e.burden/3000));        // 実質負担0円→1、3000円以上→0
+  const sRet=Math.max(0,Math.min(1,e.retention||0));
+  const sSold=Math.min(1,Math.log10(1+e.n)/2);                  // 99件で満点
+  const sUse=((b.usefulness||3)-1)/4,sDem=((b.demand||3)-1)/4;
+  const sComp=e.n?Math.max(0,1-e.ocount/Math.max(5,e.n)):0;      // 出品数が売却数より少ないほど良い
+  return Math.round(100*(sBurden*.45+sRet*.15+sSold*.15+sUse*.1+sDem*.1+sComp*.05));
+}
+
+/* =============== データ読み込み =============== */
+async function loadIndex(){
+  try{
+    const r=await fetch('data/index.json?'+Date.now());if(!r.ok)throw new Error('data/index.json '+r.status);
+    const j=await r.json();months=j.months||[];
+    if(!ui.month||!months.find(x=>x.month===ui.month))ui.month=months[0]&&months[0].month;
+    await loadMonth(ui.month);
+  }catch(e){dataErr='候補データを読み込めませんでした（'+e.message+'）';render()}
+}
+async function loadMonth(m){
+  const it=months.find(x=>x.month===m);if(!it){data=null;render();return}
+  try{const r=await fetch(it.file+'?'+Date.now());if(!r.ok)throw new Error(it.file+' '+r.status);data=await r.json();dataErr=''}
+  catch(e){data=null;dataErr='候補データを読み込めませんでした（'+e.message+'）'}
+  render();
+}
+function books(){return(data&&data.books)||[]}
+function bookByIsbn(isbn){return books().find(b=>b.isbn===isbn)}
+
+/* =============== 記録（upsert 1か所） =============== */
+function setPick(isbn,on){db.picks[isbn]={want:!!on,updated_at:nowIso(),deleted:!on};save()}
+function upsertPurchase(id,patch){
+  const p=db.purchases[id]||{id,created_at:nowIso()};
+  Object.assign(p,patch,{updated_at:nowIso()});
+  db.purchases[id]=p;save();return p;
+}
+function newPurchaseFromBook(b){
+  const id='p'+Date.now().toString(36);
+  return upsertPurchase(id,{isbn:b.isbn,asin:b.asin||b.isbn,title:b.title,price_paid:b.price||0,bought_at:today(),status:'reading',
+    expected_sell:evalBook(b).expected||null,list_price:null,sold_price:null,sold_at:null,memo:'',source_month:data&&data.month});
+}
+function purchases(){return Object.values(db.purchases).filter(p=>!p.deleted).sort((a,b)=>(b.bought_at||'').localeCompare(a.bought_at||'')||(b.created_at||'').localeCompare(a.created_at||''))}
+function boughtIsbns(){return new Set(purchases().map(p=>p.isbn).filter(Boolean))}
+function recNet(p,c=cfg()){
+  if(p.status!=='sold'||!p.sold_price)return null;
+  const fee=p.fee!=null&&p.fee!==''?+p.fee:Math.floor(p.sold_price*c.fee_rate);
+  const ship=p.shipping!=null&&p.shipping!==''?+p.shipping:c.shipping;
+  const pack=p.packaging!=null&&p.packaging!==''?+p.packaging:c.packaging;
+  return p.sold_price-fee-ship-pack;
+}
+function monthSpend(ym){return purchases().filter(p=>ymOf(p.bought_at)===ym).reduce((s,p)=>s+(+p.price_paid||0),0)}
+
+/* =============== render =============== */
+const TABS=[['rank','📚 候補ランキング'],['rec','🧾 購入・売却記録'],['pl','💴 収支'],['memo','🔎 調査メモ'],['settings','⚙ 設定']];
+function render(){
+  $('#nav').innerHTML=TABS.map(([k,l])=>`<button class="${ui.tab===k?'on':''}" data-t="${k}">${l}</button>`).join('');
+  $('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>{ui.tab=b.dataset.t;saveUi();render();window.scrollTo(0,0)});
+  const m=$('#main');
+  if(ui.tab==='rank')m.innerHTML=viewRank();
+  else if(ui.tab==='rec')m.innerHTML=viewRec();
+  else if(ui.tab==='pl')m.innerHTML=viewPl();
+  else if(ui.tab==='memo')m.innerHTML=viewMemo();
+  else m.innerHTML=viewSettings();
+  bind();
+  document.documentElement.style.setProperty('--hh',($('header').offsetHeight||56)+'px');
+}
+function budgetBar(){
+  const c=cfg(),ym=today().slice(0,7),sp=monthSpend(ym),rest=c.budget-sp,w=Math.min(100,sp/c.budget*100);
+  return `<div class="budget"><span class="btext">${+ym.slice(5)}月の購入 <b>${yen(sp)}</b> / ${yen(c.budget)}</span>
+   <div class="btrack"><div class="bfill ${rest<0?'over':''}" style="width:${w}%"></div></div>
+   <span class="btext">残り枠 <b style="color:${rest<0?'var(--ng)':'var(--accent2)'}">${yen(rest)}</b></span></div>`;
+}
+function cover(b,rank){
+  const a=b.asin||b.isbn;
+  return `<div class="cover" style="background-image:url('https://images-na.ssl-images-amazon.com/images/P/${esc(a)}.09.MZZZZZZZ.jpg')">${rank?`<span class="rk">${rank}</span>`:''}</div>`;
+}
+function fitPill(f){const cls={ok:'ok',warn:'warn',ng:'ng',unknown:'warn'}[f.fit];return `<span class="pill ${cls}" title="${esc(f.why)}">📮 ${esc(f.label)}</span>`}
+function numBox(l,v,s,cls=''){return `<div class="num ${cls}"><div class="l">${l}</div><div class="v">${v}</div>${s?`<div class="s">${s}</div>`:''}</div>`}
+function stars(n){n=n||0;return '★'.repeat(n)+'☆'.repeat(5-n)}
+function bookCard(b,e,rank,rest){
+  const picked=db.picks[b.isbn]&&db.picks[b.isbn].want, bought=boughtIsbns().has(b.isbn);
+  const over=b.price&&rest!=null&&b.price>rest&&!bought;
+  const m=b.mercari||{};
+  return `<div class="card ${over?'dim':''}" data-isbn="${esc(b.isbn)}">
+    ${cover(b,rank)}
+    <div class="cbody">
+      <div class="ctitle">${esc(b.title)}</div>
+      <div class="meta">${esc(b.author||'')}／${esc(b.publisher||'')}／発売 ${esc(b.release_date||'—')}／${b.pages?b.pages+'ページ':''}
+        ${b.amazon_rank?`／Amazon本 ${Number(b.amazon_rank).toLocaleString()}位`:''}</div>
+      <div>${(b.genres||[]).map(g=>`<span class="pill blue">${esc(g)}</span>`).join('')}${fitPill(e.fit)}
+        ${e.n&&e.n<3?'<span class="pill warn">売却件数少</span>':''}${over?'<span class="pill ng">残り枠オーバー</span>':''}
+        ${!e.pass?e.reasons.map(r=>`<span class="pill ng">${esc(r)}</span>`).join(''):''}</div>
+      <div class="nums">
+        ${numBox('Amazon価格',yen(b.price),b.price?'新品・税込':(b.price_note?'在庫なし':'確認不可'))}
+        ${numBox('メルカリ売却相場',e.n?yen(e.med):'確認不可',e.n?`${e.n}件 ${yen(e.smin)}〜${yen(e.smax)}`:'売り切れ0件')}
+        ${numBox('出品中（競合）',e.ocount+'件',e.omin?'最安 '+yen(e.omin):'')}
+        ${numBox('想定売却価格',e.expected!=null?yen(e.expected):'—',e.retention!=null?'維持率 '+pct(e.retention):'')}
+        ${numBox('手数料＋送料',e.fee!=null?yen(e.fee+cfg().shipping+cfg().packaging):'—',e.fee!=null?`手数料${yen(e.fee)}+送料${yen(cfg().shipping)}+資材${yen(cfg().packaging)}`:'')}
+        ${numBox('想定手取り',e.net!=null?yen(e.net):'—','','good')}
+        ${numBox('実質負担',e.burden!=null?yen(e.burden):'—','購入価格−手取り','key')}
+      </div>
+      ${b.comment?`<div class="why">💡 ${esc(b.comment)}</div>`:''}
+      <div class="why">実務での有用性 <b>${stars(b.usefulness)}</b>　需要の続きやすさ <b>${stars(b.demand)}</b>　<span title="${esc(e.fit.why)}">📏 ${b.size&&b.size.h?`${b.size.h}×${b.size.w}×${b.size.t}mm`:'寸法不明'}${b.size&&b.size.weight_g?' '+b.size.weight_g+'g':''}</span></div>
+      <div class="acts">
+        <button class="qb w ${picked?'on':''}" data-act="pick">☆ 気になる</button>
+        <button class="qb b ${bought?'on':''}" data-act="buy">${bought?'✔ 購入済み':'🛒 購入した'}</button>
+        <a class="qb" target="_blank" rel="noopener" href="https://www.amazon.co.jp/dp/${esc(b.asin||b.isbn)}">Amazon</a>
+        ${m.search_url_sold?`<a class="qb" target="_blank" rel="noopener" href="${esc(m.search_url_sold)}">メルカリ売り切れ</a>`:''}
+        ${m.search_url_on_sale?`<a class="qb" target="_blank" rel="noopener" href="${esc(m.search_url_on_sale)}">メルカリ出品中</a>`:''}
+        <button class="qb" data-act="detail">根拠・ソース</button>
+      </div>
+    </div></div>`;
+}
+function rankedList(){
+  const arr=books().map(b=>{const e=evalBook(b);return{b,e,score:scoreOf(b,e)}});
+  const S={burden:(x,y)=>(x.e.burden??1e9)-(y.e.burden??1e9)||y.score-x.score,
+    score:(x,y)=>y.score-x.score,
+    sell:(x,y)=>(y.e.expected??-1)-(x.e.expected??-1),
+    sold:(x,y)=>y.e.n-x.e.n,
+    ret:(x,y)=>(y.e.retention??-1)-(x.e.retention??-1),
+    date:(x,y)=>String(y.b.release_date).localeCompare(String(x.b.release_date))};
+  arr.sort(S[ui.sort]||S.burden);
+  return arr;
+}
+function viewRank(){
+  if(dataErr)return `<div class="panel">${esc(dataErr)}</div>`;
+  if(!data)return `<div class="empty"><span class="spin"></span>読み込み中…</div>`;
+  const all=rankedList();
+  const picks=all.filter(x=>db.picks[x.b.isbn]&&db.picks[x.b.isbn].want);
+  let list=ui.candSub==='want'?picks:all;
+  if(ui.candSub==='rank'&&ui.onlyPass)list=list.filter(x=>x.e.pass);
+  const rest=cfg().budget-monthSpend(today().slice(0,7));
+  const passN=all.filter(x=>x.e.pass).length;
+  let rk=0;
+  return `<div class="stick">${budgetBar()}
+    <div class="subtabs">
+      <button class="${ui.candSub==='rank'?'on':''}" data-sub="rank">ランキング<span class="cnt">${ui.onlyPass?passN:all.length}</span></button>
+      <button class="${ui.candSub==='want'?'on':''}" data-sub="want">☆ 気になる<span class="cnt">${picks.length}</span></button>
+    </div>
+    <div class="toolbar">
+      <select id="mSel">${months.map(x=>`<option value="${esc(x.month)}" ${x.month===ui.month?'selected':''}>${esc(x.label||x.month)}</option>`).join('')}</select>
+      <select id="sortSel">
+        ${[['burden','実質負担が小さい順（推奨）'],['score','総合スコア順'],['sell','想定売却価格が高い順'],['sold','売却件数が多い順'],['ret','価格維持率が高い順'],['date','発売日が新しい順']].map(([k,l])=>`<option value="${k}" ${ui.sort===k?'selected':''}>${l}</option>`).join('')}
+      </select>
+      ${ui.candSub==='rank'?`<label class="chk"><input type="checkbox" id="onlyPass" ${ui.onlyPass?'checked':''}> 必須条件を満たす本だけ（${passN}/${all.length}冊）</label>`:''}
+      <span class="hint">調査日 ${esc(data.researched_at||'')}・対象 ${esc(data.window&&data.window.from)}〜${esc(data.window&&data.window.to)}発売</span>
+    </div></div>
+    <div class="grid">${list.length?list.map(x=>bookCard(x.b,x.e,ui.candSub==='rank'&&x.e.pass&&ui.sort==='burden'?++rk:(ui.candSub==='rank'&&x.e.pass?++rk:0),rest)).join(''):`<div class="empty">${ui.candSub==='want'?'「☆ 気になる」を押した本がここに並びます':'条件に合う本がありません'}</div>`}</div>`;
+}
+function detailModal(b){
+  const e=evalBook(b),m=b.mercari||{},c=cfg();
+  const src=(b.sources||[]).map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label||s.url)}</a></li>`).join('');
+  const items=(m.sold_items||[]).map(it=>`<li><a href="https://jp.mercari.com/item/${esc(it.id)}" target="_blank" rel="noopener">${esc(it.name)}</a> ${yen(it.price)}</li>`).join('');
+  $('#modalRoot').innerHTML=`<div class="ov0"><div class="modal">
+    <h2>${esc(b.title)}</h2><div class="meta">${esc(b.author)}／${esc(b.publisher)}／ISBN ${esc(b.isbn)}</div>
+    <h3>計算</h3>
+    <table class="t"><tbody>
+     <tr><td class="l">Amazon価格（新品・税込）</td><td>${yen(b.price)}</td></tr>
+     <tr><td class="l">メルカリで売れた価格（${e.n}件）</td><td>中央値 ${yen(e.med)}（${yen(e.smin)}〜${yen(e.smax)}）</td></tr>
+     <tr><td class="l">いま出品中（競合）</td><td>${e.ocount}件${e.omin?'・最安 '+yen(e.omin):''}</td></tr>
+     <tr><td class="l">想定売却価格</td><td>${yen(e.expected)}<div class="hint">売れた価格の中央値。中央値より安い出品があればその最安値に合わせる（売れた最安値より下げない）。売却実績が1〜2件のときは控えめに最安値を使う</div></td></tr>
+     <tr><td class="l">手数料（${Math.round(c.fee_rate*100)}%）</td><td>${yen(e.fee)}</td></tr>
+     <tr><td class="l">送料（ネコポス）＋梱包資材</td><td>${yen(c.shipping)}＋${yen(c.packaging)}</td></tr>
+     <tr><td class="l">想定手取り</td><td>${yen(e.net)}</td></tr>
+     <tr><td class="l"><b>実質負担</b></td><td><b>${yen(e.burden)}</b></td></tr>
+     <tr><td class="l">ネコポス判定</td><td class="l">${esc(e.fit.label)}：${esc(e.fit.why)}</td></tr>
+    </tbody></table>
+    ${b.price_note?`<p class="hint">💴 ${esc(b.price_note)}</p>`:''}${m.note?`<p class="hint">📝 ${esc(m.note)}</p>`:''}
+    <h3>確認したメルカリの売り切れ（一部）</h3><ul class="hint">${items||'<li>なし</li>'}</ul>
+    <h3>情報ソース</h3><ul class="hint">${src}</ul>
+    <div class="row"><button class="btn" id="mClose">閉じる</button></div>
+  </div></div>`;
+  $('#mClose').onclick=()=>$('#modalRoot').innerHTML='';
+  $('.ov0').onclick=ev=>{if(ev.target.classList.contains('ov0'))$('#modalRoot').innerHTML=''};
+}
+
+/* ---- 購入・売却記録 ---- */
+const ST={reading:'📖 読書中',listed:'🏷 出品中',sold:'💰 売却済み',keep:'📚 手元に残す'};
+function viewRec(){
+  const ps=purchases().filter(p=>ui.recF==='all'||p.status===ui.recF);
+  const cnt=k=>purchases().filter(p=>k==='all'||p.status===k).length;
+  return `<div class="stick">${budgetBar()}
+    <div class="subtabs">${[['all','すべて'],...Object.entries(ST)].map(([k,l])=>`<button class="${ui.recF===k?'on':''}" data-rf="${k}">${l}<span class="cnt">${cnt(k)}</span></button>`).join('')}</div>
+    <div class="toolbar"><button class="btn" id="addManual">＋ 候補にない本を記録</button><span class="hint">ランキングの「🛒 購入した」でも追加できます。入力するとその場で保存されます。</span></div></div>
+    <div class="panel" style="padding:0">
+      <div class="rec head"><div>書名</div><div>購入日</div><div>購入価格</div><div>状態</div><div>出品価格</div><div>売れた価格</div><div>売れた日</div><div></div></div>
+      ${ps.length?ps.map(recRow).join(''):'<div class="empty">まだ記録がありません</div>'}
+    </div>`;
+}
+function recRow(p){
+  const net=recNet(p),diff=net==null?null:(+p.price_paid||0)-net;
+  return `<div class="rec" data-id="${esc(p.id)}">
+    <div class="tt"><div style="font-weight:700;font-size:14px">${esc(p.title)}</div>
+      <div class="lab">${net!=null?`手取り ${yen(net)}／実質負担 <b style="color:var(--warn)">${yen(diff)}</b>`:(p.expected_sell?`想定売却 ${yen(p.expected_sell)}`:'')}</div>
+      <input data-f="memo" placeholder="メモ（状態・書き込みなど）" value="${esc(p.memo||'')}" style="margin-top:4px"></div>
+    <div><div class="lab">購入日</div><input type="date" data-f="bought_at" value="${esc(p.bought_at||'')}"></div>
+    <div><div class="lab">購入価格</div><input type="number" data-f="price_paid" value="${esc(p.price_paid??'')}"></div>
+    <div><div class="lab">状態</div><select data-f="status">${Object.entries(ST).map(([k,l])=>`<option value="${k}" ${p.status===k?'selected':''}>${l}</option>`).join('')}</select></div>
+    <div><div class="lab">出品価格</div><input type="number" data-f="list_price" value="${esc(p.list_price??'')}"></div>
+    <div><div class="lab">売れた価格</div><input type="number" data-f="sold_price" value="${esc(p.sold_price??'')}"></div>
+    <div><div class="lab">売れた日</div><input type="date" data-f="sold_at" value="${esc(p.sold_at||'')}"></div>
+    <div><button class="qb" data-act="del" title="削除">🗑</button></div>
+  </div>`;
+}
+
+/* ---- 収支 ---- */
+function plRows(){
+  const c=cfg(),by={};
+  purchases().forEach(p=>{
+    const ym=ymOf(p.bought_at)||'不明';const r=by[ym]=by[ym]||{ym,books:0,spend:0,sold:0,net:0,soldCost:0,open:0};
+    r.books++;r.spend+=+p.price_paid||0;
+    const n=recNet(p);if(n!=null){r.sold++;r.net+=n;r.soldCost+=+p.price_paid||0}else if(p.status!=='keep')r.open++;
+  });
+  return Object.values(by).sort((a,b)=>b.ym.localeCompare(a.ym)).map(r=>Object.assign(r,{self:Math.max(0,r.spend-c.budget),company:Math.min(r.spend,c.budget)}));
+}
+function viewPl(){
+  const rows=plRows(),c=cfg();
+  const T=rows.reduce((s,r)=>({books:s.books+r.books,spend:s.spend+r.spend,net:s.net+r.net,sold:s.sold+r.sold,soldCost:s.soldCost+r.soldCost,self:s.self+r.self,company:s.company+r.company,open:s.open+r.open}),{books:0,spend:0,net:0,sold:0,soldCost:0,self:0,company:0,open:0});
+  const rec=T.soldCost?T.net/T.soldCost:null;
+  return `<div class="panel"><h2>累計</h2>
+    <div class="three" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+      <div class="kpi"><div class="l">購入した本</div><div class="v">${T.books}冊</div></div>
+      <div class="kpi"><div class="l">購入額（会社補助 ${yen(T.company)}）</div><div class="v">${yen(T.spend)}</div></div>
+      <div class="kpi"><div class="l">補助枠を超えた自己負担</div><div class="v ${T.self?'neg':''}">${yen(T.self)}</div></div>
+      <div class="kpi"><div class="l">売却の手取り合計（${T.sold}冊）</div><div class="v pos">${yen(T.net)}</div></div>
+      <div class="kpi"><div class="l">売れた本の実質負担（購入額−手取り）</div><div class="v neg">${yen(T.soldCost-T.net)}</div></div>
+      <div class="kpi"><div class="l">回収率（手取り÷購入額・売れた本）</div><div class="v">${pct(rec)}</div></div>
+    </div><p class="hint">手取り＝売れた価格−手数料${Math.round(c.fee_rate*100)}%−送料${yen(c.shipping)}−梱包資材${yen(c.packaging)}（記録ごとに上書きしたい場合はJSONで fee / shipping / packaging を入れられます）。未売却 ${T.open}冊。</p></div>
+    <div class="panel"><h2>月別</h2><div class="tw"><table class="t"><thead><tr><th class="l">購入月</th><th>冊数</th><th>購入額</th><th>補助枠内</th><th>自己負担</th><th>売れた冊数</th><th>手取り</th><th>売れた本の実質負担</th><th>未売却</th></tr></thead><tbody>
+    ${rows.length?rows.map(r=>`<tr><td class="l">${esc(r.ym)}</td><td>${r.books}</td><td>${yen(r.spend)}</td><td>${yen(r.company)}</td><td>${yen(r.self)}</td><td>${r.sold}</td><td>${yen(r.net)}</td><td>${yen(r.soldCost-r.net)}</td><td>${r.open}</td></tr>`).join(''):'<tr><td class="l" colspan="9">記録がありません</td></tr>'}
+    </tbody></table></div></div>`;
+}
+
+/* ---- 調査メモ ---- */
+const RESEARCH_PROMPT='本の手帖：今月の調査して';
+function viewMemo(){
+  const c=cfg();const d=data||{};
+  const ex=(d.excluded||[]).map(x=>`<tr><td class="l">${esc(x.title)}</td><td class="l">${esc(x.reason)}</td></tr>`).join('');
+  return `<div class="panel"><h2>🔎 新しい調査を頼む</h2>
+     <p class="hint">Claude の「売れ筋の本を探す」プロジェクトのチャットでこう頼むと、Claude がその日時点の Amazon・メルカリ（内蔵ブラウザで売り切れを実際に確認）を調べ、このサイトの候補を更新します（1回 30〜60分ほど）。</p>
+     <pre class="code">${esc(RESEARCH_PROMPT)}</pre>
+     <div class="row"><button class="btn pri" id="copyPrompt">依頼文をコピーして Claude を開く</button></div></div>
+   <div class="panel"><h2>この月の調査（${esc(d.label||d.month||'')}）</h2>
+     <p class="hint">調査日時：${esc(d.researched_at||'—')}／対象：${esc(d.window&&d.window.from)}〜${esc(d.window&&d.window.to)}発売／${books().length}冊を評価</p>
+     ${(d.notes||[]).map(n=>`<p class="hint">・${esc(n)}</p>`).join('')}
+     <h3>判定ルール</h3>
+     <p class="hint">・<b>必須条件</b>：対象期間内に発売／IT・ビジネス書／メルカリで売り切れ（売れた実績）を1件以上確認／ネコポスで送れる（「要注意」は表示するが実物確認を推奨）／Amazon価格が補助上限以内。<br>
+     ・<b>想定売却価格</b>：売れた価格の中央値。中央値より安い出品中の商品があれば、その最安値に合わせる（ただし売れた最安値より下げない）。売却実績が1〜2件しかない本は、控えめに最安値を使う。<br>
+     ・<b>実質負担</b>＝Amazon価格−（想定売却価格−手数料${Math.round(c.fee_rate*100)}%−ネコポス送料${yen(c.shipping)}−梱包資材${yen(c.packaging)}）。ランキングはこれが小さい順。<br>
+     ・<b>ネコポス</b>：封筒は外寸${c.env_outer_w}×${c.env_outer_h}mm（＋フタ50mm）。<b>内寸はメーカー非公表</b>のため、クッション分を引いて約${c.env_in_w}×${c.env_in_h}mm と仮定。袋なので「本の幅＋厚さ」「本の高さ＋厚さ」が内寸以内ならOK。梱包後の厚さ＝本の厚さ＋${c.cushion}mm が${c.max_thick}mm以下。仮定値は設定タブで変えられます（実物を一度測ると精度が上がります）。<br>
+     ・<b>有用性・需要</b>（★）は Claude の評価です。</p>
+     ${ex?`<h3>評価したが候補から外した本</h3><div class="tw"><table class="t"><tbody>${ex}</tbody></table></div>`:''}
+   </div>`;
+}
+
+/* ---- 設定 ---- */
+function viewSettings(){
+  const c=cfg();
+  const f=(k,l,step='1')=>`<div class="field"><label>${l}</label><input type="number" step="${step}" data-cfg="${k}" value="${esc(c[k])}"></div>`;
+  return `<div class="two">
+   <div class="panel"><h2>☁ Google Drive 同期</h2>
+     <p class="hint">購入・売却記録と「気になる」をDriveの <code>hon-techo-db.json</code> に保存し、PCとスマホで共有します（アニメ手帖などと同じGoogle連携）。</p>
+     <div class="field"><label>Google OAuth クライアントID（他の手帖と同じものを埋め込み済み）</label><input id="gcid" value="${esc(settings.google_client_id)}"></div>
+     <div class="row"><button class="btn pri" id="gConnect">Driveと同期</button></div>
+     <h3>バックアップ</h3>
+     <div class="row"><button class="btn" id="exp">JSON書き出し</button><label class="btn">JSON読み込み<input type="file" id="imp" accept=".json" hidden></label></div>
+   </div>
+   <div class="panel"><h2>🧮 計算の前提</h2>
+     <div class="two" style="gap:0 12px">
+      ${f('budget','月の補助上限（円）')}${f('fee_rate','メルカリ手数料率（0.10＝10%）','0.01')}
+      ${f('shipping','ネコポス送料（円）')}${f('packaging','梱包資材 1枚（円）')}
+      ${f('env_in_w','封筒の内寸・幅（mm）')}${f('env_in_h','封筒の内寸・高さ（mm）')}
+      ${f('cushion','クッションで増える厚さ（mm）')}${f('max_thick','ネコポス厚さ上限（mm）')}
+     </div>
+     <div class="row"><button class="btn" id="cfgReset">初期値に戻す</button></div>
+     <p class="hint">封筒：紺屋商事 クッション宅配封筒 ネコポス・ゆうパケット最大（クラフトプチ）220×315＋50mm。内寸・クッション厚は非公表のため推定。資材費はヨドバシ価格 ¥740/10枚から。</p>
+   </div></div>`;
+}
+
+/* =============== bind =============== */
+function bind(){
+  const m=$('#main');
+  const ms=$('#mSel');if(ms)ms.onchange=()=>{ui.month=ms.value;saveUi();loadMonth(ui.month)};
+  const ss=$('#sortSel');if(ss)ss.onchange=()=>{ui.sort=ss.value;saveUi();render()};
+  const op=$('#onlyPass');if(op)op.onchange=()=>{ui.onlyPass=op.checked;saveUi();render()};
+  m.querySelectorAll('[data-sub]').forEach(b=>b.onclick=()=>{ui.candSub=b.dataset.sub;saveUi();render()});
+  m.querySelectorAll('[data-rf]').forEach(b=>b.onclick=()=>{ui.recF=b.dataset.rf;saveUi();render()});
+  m.querySelectorAll('.card[data-isbn]').forEach(card=>{
+    const b=bookByIsbn(card.dataset.isbn);
+    card.querySelectorAll('[data-act]').forEach(btn=>btn.onclick=()=>{
+      const a=btn.dataset.act;
+      if(a==='pick'){const on=!(db.picks[b.isbn]&&db.picks[b.isbn].want);setPick(b.isbn,on);btn.classList.toggle('on',on);toast(on?'☆ 気になるに追加':'気になるから外しました')}
+      else if(a==='buy'){
+        if(boughtIsbns().has(b.isbn)){ui.tab='rec';saveUi();render();return}
+        newPurchaseFromBook(b);toast('購入記録に追加しました（記録タブで編集できます）');render();
+      }
+      else if(a==='detail')detailModal(b);
+    });
+  });
+  m.querySelectorAll('.rec[data-id]').forEach(row=>{
+    const id=row.dataset.id;
+    row.querySelectorAll('[data-f]').forEach(inp=>inp.onchange=()=>{
+      const k=inp.dataset.f;let v=inp.value;
+      if(['price_paid','list_price','sold_price'].includes(k))v=v===''?null:+v;
+      const patch={[k]:v};
+      if(k==='sold_price'&&v&&db.purchases[id].status!=='sold'){patch.status='sold';if(!db.purchases[id].sold_at)patch.sold_at=today()}
+      if(k==='list_price'&&v&&db.purchases[id].status==='reading')patch.status='listed';
+      upsertPurchase(id,patch);
+      if(patch.status||k==='sold_price'||k==='price_paid'||k==='status'){const keep=document.activeElement===inp;render();if(keep){}}
+    });
+    const del=row.querySelector('[data-act="del"]');
+    if(del)del.onclick=()=>{if(!confirm('この記録を削除しますか？'))return;upsertPurchase(id,{deleted:true});render()};
+  });
+  const am=$('#addManual');if(am)am.onclick=()=>{
+    const t=prompt('書名');if(!t)return;const pr=+prompt('購入価格（円）','')||0;
+    upsertPurchase('p'+Date.now().toString(36),{title:t,price_paid:pr,bought_at:today(),status:'reading',memo:''});render();
+  };
+  const cp=$('#copyPrompt');if(cp)cp.onclick=async()=>{try{await navigator.clipboard.writeText(RESEARCH_PROMPT);toast('コピーしました')}catch(e){toast('コピーできませんでした。手で選択してください')}window.open('https://claude.ai/','_blank','noopener')};
+  m.querySelectorAll('[data-cfg]').forEach(inp=>inp.onchange=()=>{settings.cfg=settings.cfg||{};const v=parseFloat(inp.value);if(!isNaN(v))settings.cfg[inp.dataset.cfg]=v;saveSettings();toast('保存しました')});
+  const cr=$('#cfgReset');if(cr)cr.onclick=()=>{settings.cfg={};saveSettings();render()};
+  const gc=$('#gConnect');if(gc)gc.onclick=async()=>{settings.google_client_id=$('#gcid').value.trim()||DEFAULT_CLIENT_ID;saveSettings();if(await driveSync(true))toast('Driveと同期しました')};
+  const ex=$('#exp');if(ex)ex.onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(exportObj(),null,1)],{type:'application/json'}));a.download='hon-techo-db.json';a.click()};
+  const im=$('#imp');if(im)im.onchange=async()=>{const f=im.files[0];if(!f)return;try{const j=JSON.parse(await f.text());db=mergeDb(db,j);save();toast('読み込みました');render()}catch(e){toast('読み込めませんでした: '+e.message)}};
+}
+
+/* =============== 保存・マージ =============== */
+function exportObj(){
+  return{_readme:{about:'本の手帖（会社の書籍補助で買ったIT・ビジネス書をメルカリで売る記録）の個人データ。',
+      picks:'ISBN → {want:気になる, updated_at}',
+      purchases:'id → {isbn,title,price_paid:購入価格(円),bought_at:購入日,status:reading=読書中/listed=出品中/sold=売却済み/keep=手元に残す,list_price:出品価格,sold_price:売れた価格,sold_at:売れた日,fee/shipping/packaging:実額で上書きする場合のみ,memo,updated_at,deleted:削除済み}',
+      net:'手取り=sold_price−手数料(既定10%)−送料(既定210円)−梱包資材(既定74円)'},
+    schema_version:1,updated_at:db.updated_at,picks:db.picks,purchases:db.purchases};
+}
+function mergeMap(a={},b={}){const o={...a};for(const[k,v]of Object.entries(b||{})){if(!v)continue;const cur=o[k];if(!cur||(v.updated_at||'')>(cur.updated_at||''))o[k]=v}return o}
+function mergeDb(a,b){return Object.assign(emptyDb(),a,{picks:mergeMap(a.picks,b.picks),purchases:mergeMap(a.purchases,b.purchases)})}
+
+/* =============== Google Drive sync =============== */
+let gToken=null,gExp=0,driveFileId=null,syncTimer=null,syncing=false;
+const G_SCOPE='https://www.googleapis.com/auth/drive.file';
+const G_REDIR=location.origin+location.pathname.replace(/index\.html$/,'');
+const G_TOKKEY='hon_gauth_tok:'+G_REDIR;
+const DRIVE_NAME='hon-techo-db.json';
+const gSt={
+  get(k){try{const v=localStorage.getItem(k);if(v!=null)return v}catch(e){}try{return sessionStorage.getItem(k)}catch(e){return null}},
+  set(k,v){try{localStorage.setItem(k,v)}catch(e){}try{sessionStorage.setItem(k,v)}catch(e){}},
+  del(k){try{localStorage.removeItem(k)}catch(e){}try{sessionStorage.removeItem(k)}catch(e){}}
+};
+let gAuthMsg='';
+(function(){
+  try{
+    if(/access_token=|error=/.test(location.hash)){
+      const p=new URLSearchParams(location.hash.slice(1));
+      const saved=gSt.get('hon_gauth_state');
+      if(p.get('state')&&saved&&p.get('state')===saved){
+        if(p.get('access_token'))gSt.set(G_TOKKEY,JSON.stringify({t:p.get('access_token'),e:Date.now()+(+p.get('expires_in')||3600)*1000}));
+        else if(p.get('error')&&!/login_required|interaction_required|consent_required|account_selection_required/.test(p.get('error')))gAuthMsg='Google認証が完了しませんでした ('+p.get('error')+')';
+      }else gAuthMsg='Google認証の戻り情報を確認できませんでした。もう一度「☁ 要再接続」を押してください';
+      gSt.del('hon_gauth_state');
+      history.replaceState(null,'',location.pathname+location.search);
+    }
+    const s=JSON.parse(gSt.get(G_TOKKEY)||'null');
+    if(s&&s.e>Date.now()){gToken=s.t;gExp=s.e}else if(s)gSt.del(G_TOKKEY);
+  }catch(e){}
+})();
+function gRedirect(prompt){
+  const st=Math.random().toString(36).slice(2)+Date.now().toString(36);
+  gSt.set('hon_gauth_state',st);
+  const q=new URLSearchParams({client_id:settings.google_client_id.trim(),redirect_uri:G_REDIR,response_type:'token',scope:G_SCOPE,state:st,include_granted_scopes:'true'});
+  if(prompt)q.set('prompt',prompt);
+  location.href='https://accounts.google.com/o/oauth2/v2/auth?'+q.toString();
+  return new Promise(()=>{});
+}
+async function driveAuth(interactive){if(interactive)return gRedirect('');throw new Error('再接続が必要です')}
+function gStartup(){
+  if(gAuthMsg){const m=gAuthMsg;gAuthMsg='';setTimeout(()=>toast(m,6000),400)}
+  if(gToken){driveSync(false);return}
+  if(!settings.drive_linked){setSync('off');return}
+  const last=+gSt.get('hon_gauth_silent')||0;
+  if(Date.now()-last<300000){setSync('need');return}
+  gSt.set('hon_gauth_silent',String(Date.now()));
+  gRedirect('none');
+}
+window.addEventListener('pageshow',e=>{if(e.persisted){syncing=false;setSync('need')}});
+const gFetch=(url,opt={})=>fetch(url,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+gToken}});
+async function driveSync(interactive){
+  if(syncing)return;syncing=true;setSync('busy');let changed=false;
+  try{
+    if(!gToken||Date.now()>gExp-60000)await driveAuth(interactive);
+    let id=driveFileId;
+    if(!id){
+      const q=encodeURIComponent(`name='${DRIVE_NAME}' and trashed=false`);
+      const r=await gFetch(`https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id)&orderBy=${encodeURIComponent('modifiedTime desc')}&pageSize=1`);
+      if(!r.ok)throw new Error('Drive検索に失敗 ('+r.status+')');
+      const j=await r.json();id=j.files&&j.files[0]&&j.files[0].id;
+    }
+    if(id){
+      const r=await gFetch(`https://www.googleapis.com/drive/v3/files/${id}?alt=media`);
+      if(r.ok){const sig=JSON.stringify([db.picks,db.purchases]);const remote=await r.json();db=mergeDb(db,remote||{});saveLocal();if(JSON.stringify([db.picks,db.purchases])!==sig)changed=true}
+    }
+    const body=JSON.stringify(exportObj(),null,1);
+    if(id){
+      const r=await gFetch(`https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,{method:'PATCH',headers:{'Content-Type':'application/json'},body});
+      if(!r.ok)throw new Error('Drive保存に失敗 ('+r.status+')');
+    }else{
+      const b='hondb'+Date.now();
+      const meta=JSON.stringify({name:DRIVE_NAME,mimeType:'application/json'});
+      const mp=`--${b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${meta}\r\n--${b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${body}\r\n--${b}--`;
+      const r=await gFetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+b},body:mp});
+      if(!r.ok)throw new Error('Drive作成に失敗 ('+r.status+')');
+      id=(await r.json()).id;
+    }
+    driveFileId=id;settings.drive_linked=true;saveSettings();setSync('ok');
+    if(changed&&ui.tab!=='settings')render();
+    return true;
+  }catch(e){setSync(interactive?'bad':'need');if(interactive)toast(e.message,5000);console.warn(e);return false}
+  finally{syncing=false}
+}
+function scheduleSync(){
+  if(!settings.drive_linked)return;
+  setSync('dirty');clearTimeout(syncTimer);
+  syncTimer=setTimeout(()=>{if(gToken&&Date.now()<gExp-60000)driveSync(false);else setSync('need')},2500);
+}
+function setSync(s){
+  const c=$('#syncChip');
+  const map={off:['☁ Drive未連携',''],need:['☁ 要再接続（クリック）','bad'],ok:['☁ 同期済み','ok'],dirty:['☁ 未同期…','bad'],busy:['☁ 同期中…',''],bad:['☁ 同期エラー（クリック）','bad']};
+  const [t,cls]=map[s]||map.off;c.textContent=t;c.className='chip '+cls;
+}
+$('#syncChip').onclick=()=>driveSync(true);
+
+/* =============== start =============== */
+setSync(settings.drive_linked?'need':'off');
+render();
+loadIndex();
+gStartup();
+</script>
+</body>
+</html>
