@@ -93,16 +93,16 @@ table.t th,table.t td{padding:7px 8px;border-bottom:1px solid var(--line);text-a
 table.t th{color:var(--sub);font-weight:600;font-size:12px;position:sticky;top:0;background:var(--panel)}
 table.t td.l,table.t th.l{text-align:left;white-space:normal}
 .tw{overflow:auto}
-.rec{display:grid;grid-template-columns:minmax(0,2.2fr) repeat(6,minmax(0,1fr)) auto;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line)}
-.rec:last-child{border-bottom:0}
-.rec input,.rec select{width:100%;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:13px}
-.rec .lab{font-size:10.5px;color:var(--sub)}
-.rec.head{font-size:11.5px;color:var(--sub);padding-top:4px;padding-bottom:4px}
-@media(max-width:1000px){.rec{grid-template-columns:1fr 1fr 1fr}.rec.head{display:none}.rec .tt{grid-column:1/-1}}
-.kpi{background:var(--panel2);border-radius:12px;padding:12px 14px}
-.kpi .l{font-size:12px;color:var(--sub)}
-.kpi .v{font-size:22px;font-weight:800}
-.kpi .v.pos{color:var(--accent2)}.kpi .v.neg{color:var(--warn)}
+.mon{padding:14px 16px}
+.mh{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.mh h2{margin:0;font-size:18px}
+.brow{display:grid;grid-template-columns:44px minmax(0,1fr) 150px 120px auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.bcov{width:44px;aspect-ratio:2/3;border-radius:5px;background:var(--panel2) center/cover no-repeat}
+.brow .ctitle{font-size:14.5px}
+.brow input{width:100%;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:13px}
+.bt input{margin-top:4px}
+.brow .lab{font-size:10.5px;color:var(--sub)}
+@media(max-width:800px){.brow{grid-template-columns:44px 1fr 1fr}.brow .bt{grid-column:2/-1}.brow>div:nth-child(3){grid-column:2}}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#000;border:1px solid var(--line);padding:10px 18px;border-radius:999px;z-index:99;font-size:14px}
 .ov0{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:24px 12px;overflow:auto}
 .modal{background:var(--panel);border:1px solid var(--line);border-radius:18px;max-width:760px;width:100%;padding:18px}
@@ -151,13 +151,13 @@ let db=Object.assign(emptyDb(),lsGet(LS_DB,{}));
 let settings=Object.assign({google_client_id:DEFAULT_CLIENT_ID,drive_linked:false,cfg:{}},lsGet(LS_SET,{}));
 if(!settings.google_client_id)settings.google_client_id=DEFAULT_CLIENT_ID;
 const cfg=()=>Object.assign({},DEF_CFG,settings.cfg||{});
-const ui=Object.assign({tab:'rank',month:null,onlyPass:true,sort:'burden',recF:'all',candSub:'rank'},lsGet(LS_UI,{}));
+const ui=Object.assign({tab:'rank',month:null,onlyPass:true,sort:'burden',candSub:'rank'},lsGet(LS_UI,{}));
 let months=[],data=null,dataErr='';
 
 function saveLocal(){db.updated_at=nowIso();lsSet(LS_DB,db)}
 function save(){saveLocal();scheduleSync()}
 function saveSettings(){lsSet(LS_SET,settings)}
-function saveUi(){lsSet(LS_UI,{tab:ui.tab,month:ui.month,onlyPass:ui.onlyPass,sort:ui.sort,recF:ui.recF,candSub:ui.candSub})}
+function saveUi(){lsSet(LS_UI,{tab:ui.tab,month:ui.month,onlyPass:ui.onlyPass,sort:ui.sort,candSub:ui.candSub})}
 
 /* =============== 計算（ランキングの根拠） =============== */
 // ネコポス判定：封筒は袋なので「本の幅＋厚さ ≤ 封筒内寸の幅」「本の高さ＋厚さ ≤ 内寸の高さ」で入る。
@@ -237,29 +237,22 @@ function upsertPurchase(id,patch){
 }
 function newPurchaseFromBook(b){
   const id='p'+Date.now().toString(36);
-  return upsertPurchase(id,{isbn:b.isbn,asin:b.asin||b.isbn,title:b.title,price_paid:b.price||0,bought_at:today(),status:'reading',
-    expected_sell:evalBook(b).expected||null,list_price:null,sold_price:null,sold_at:null,memo:'',source_month:data&&data.month});
+  const e=evalBook(b);
+  return upsertPurchase(id,{isbn:b.isbn,asin:b.asin||b.isbn,title:b.title,price_paid:b.price||0,bought_at:today(),
+    expected_sell:e.expected??null,expected_burden:e.burden??null,memo:'',source_month:data&&data.month});
 }
 function purchases(){return Object.values(db.purchases).filter(p=>!p.deleted).sort((a,b)=>(b.bought_at||'').localeCompare(a.bought_at||'')||(b.created_at||'').localeCompare(a.created_at||''))}
 function boughtIsbns(){return new Set(purchases().map(p=>p.isbn).filter(Boolean))}
-function recNet(p,c=cfg()){
-  if(p.status!=='sold'||!p.sold_price)return null;
-  const fee=p.fee!=null&&p.fee!==''?+p.fee:Math.floor(p.sold_price*c.fee_rate);
-  const ship=p.shipping!=null&&p.shipping!==''?+p.shipping:c.shipping;
-  const pack=p.packaging!=null&&p.packaging!==''?+p.packaging:c.packaging;
-  return p.sold_price-fee-ship-pack;
-}
 function monthSpend(ym){return purchases().filter(p=>ymOf(p.bought_at)===ym).reduce((s,p)=>s+(+p.price_paid||0),0)}
 
 /* =============== render =============== */
-const TABS=[['rank','📚 候補ランキング'],['rec','🧾 購入・売却記録'],['pl','💴 収支'],['memo','🔎 調査メモ'],['settings','⚙ 設定']];
+const TABS=[['rank','📚 候補ランキング'],['rec','🛒 買った本'],['memo','🔎 調査メモ'],['settings','⚙ 設定']];
 function render(){
   $('#nav').innerHTML=TABS.map(([k,l])=>`<button class="${ui.tab===k?'on':''}" data-t="${k}">${l}</button>`).join('');
   $('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>{ui.tab=b.dataset.t;saveUi();render();window.scrollTo(0,0)});
   const m=$('#main');
   if(ui.tab==='rank')m.innerHTML=viewRank();
-  else if(ui.tab==='rec')m.innerHTML=viewRec();
-  else if(ui.tab==='pl')m.innerHTML=viewPl();
+  else if(ui.tab==='rec')m.innerHTML=viewBought();
   else if(ui.tab==='memo')m.innerHTML=viewMemo();
   else m.innerHTML=viewSettings();
   bind();
@@ -375,61 +368,39 @@ function detailModal(b){
   $('.ov0').onclick=ev=>{if(ev.target.classList.contains('ov0'))$('#modalRoot').innerHTML=''};
 }
 
-/* ---- 購入・売却記録 ---- */
-const ST={reading:'📖 読書中',listed:'🏷 出品中',sold:'💰 売却済み',keep:'📚 手元に残す'};
-function viewRec(){
-  const ps=purchases().filter(p=>ui.recF==='all'||p.status===ui.recF);
-  const cnt=k=>purchases().filter(p=>k==='all'||p.status===k).length;
+/* ---- 買った本（月ごと） ---- */
+function ymLabel(ym){return /^\d{4}-\d{2}$/.test(ym)?`${+ym.slice(0,4)}年${+ym.slice(5)}月`:'購入日なし'}
+function viewBought(){
+  const c=cfg(),by={};
+  purchases().forEach(p=>{const ym=ymOf(p.bought_at)||'—';(by[ym]=by[ym]||[]).push(p)});
+  const months=Object.keys(by).sort((x,y)=>y.localeCompare(x));
+  const all=purchases(),total=all.reduce((s,p)=>s+(+p.price_paid||0),0);
   return `<div class="stick">${budgetBar()}
-    <div class="subtabs">${[['all','すべて'],...Object.entries(ST)].map(([k,l])=>`<button class="${ui.recF===k?'on':''}" data-rf="${k}">${l}<span class="cnt">${cnt(k)}</span></button>`).join('')}</div>
-    <div class="toolbar"><button class="btn" id="addManual">＋ 候補にない本を記録</button><span class="hint">ランキングの「🛒 購入した」でも追加できます。入力するとその場で保存されます。</span></div></div>
-    <div class="panel" style="padding:0">
-      <div class="rec head"><div>書名</div><div>購入日</div><div>購入価格</div><div>状態</div><div>出品価格</div><div>売れた価格</div><div>売れた日</div><div></div></div>
-      ${ps.length?ps.map(recRow).join(''):'<div class="empty">まだ記録がありません</div>'}
-    </div>`;
+    <div class="toolbar"><button class="btn" id="addManual">＋ 候補にない本を追加</button>
+      <span class="hint">ランキングの「🛒 購入した」で追加されます。購入日・価格はその場で直せます。累計 ${all.length}冊・${yen(total)}</span></div></div>
+    ${months.length?months.map(ym=>{
+      const ps=by[ym],sp=ps.reduce((s,p)=>s+(+p.price_paid||0),0),rest=c.budget-sp,w=Math.min(100,sp/c.budget*100);
+      const bur=ps.reduce((s,p)=>s+(p.expected_burden!=null?+p.expected_burden:0),0),hasBur=ps.some(p=>p.expected_burden!=null);
+      return `<div class="panel mon">
+        <div class="mh"><h2>${ymLabel(ym)}</h2><span class="pill">${ps.length}冊</span>
+          <span class="btext">購入 <b>${yen(sp)}</b> / ${yen(c.budget)}</span>
+          <div class="btrack"><div class="bfill ${rest<0?'over':''}" style="width:${w}%"></div></div>
+          <span class="btext">${rest<0?`枠オーバー <b style="color:var(--ng)">${yen(-rest)}</b>`:`残り <b style="color:var(--accent2)">${yen(rest)}</b>`}</span>
+          ${hasBur?`<span class="hint">想定実質負担 計 ${yen(bur)}</span>`:''}</div>
+        ${ps.map(boughtRow).join('')}
+      </div>`}).join(''):'<div class="empty">まだ買った本がありません。ランキングの「🛒 購入した」で追加できます。</div>'}`;
 }
-function recRow(p){
-  const net=recNet(p),diff=net==null?null:(+p.price_paid||0)-net;
-  return `<div class="rec" data-id="${esc(p.id)}">
-    <div class="tt"><div style="font-weight:700;font-size:14px">${esc(p.title)}</div>
-      <div class="lab">${net!=null?`手取り ${yen(net)}／実質負担 <b style="color:var(--warn)">${yen(diff)}</b>`:(p.expected_sell?`想定売却 ${yen(p.expected_sell)}`:'')}</div>
-      <input data-f="memo" placeholder="メモ（状態・書き込みなど）" value="${esc(p.memo||'')}" style="margin-top:4px"></div>
+function boughtRow(p){
+  const a=p.asin||p.isbn;
+  return `<div class="brow" data-id="${esc(p.id)}">
+    ${a?`<div class="bcov" style="background-image:url('https://images-na.ssl-images-amazon.com/images/P/${esc(a)}.09.MZZZZZZZ.jpg')"></div>`:'<div class="bcov"></div>'}
+    <div class="bt"><div class="ctitle">${esc(p.title)}</div>
+      <div class="meta">${p.expected_burden!=null?`想定売却 ${yen(p.expected_sell)}／想定実質負担 ${yen(p.expected_burden)}（購入時点）`:''}</div>
+      <input data-f="memo" placeholder="メモ" value="${esc(p.memo||'')}"></div>
     <div><div class="lab">購入日</div><input type="date" data-f="bought_at" value="${esc(p.bought_at||'')}"></div>
     <div><div class="lab">購入価格</div><input type="number" data-f="price_paid" value="${esc(p.price_paid??'')}"></div>
-    <div><div class="lab">状態</div><select data-f="status">${Object.entries(ST).map(([k,l])=>`<option value="${k}" ${p.status===k?'selected':''}>${l}</option>`).join('')}</select></div>
-    <div><div class="lab">出品価格</div><input type="number" data-f="list_price" value="${esc(p.list_price??'')}"></div>
-    <div><div class="lab">売れた価格</div><input type="number" data-f="sold_price" value="${esc(p.sold_price??'')}"></div>
-    <div><div class="lab">売れた日</div><input type="date" data-f="sold_at" value="${esc(p.sold_at||'')}"></div>
-    <div><button class="qb" data-act="del" title="削除">🗑</button></div>
+    <div class="row">${a?`<a class="qb" target="_blank" rel="noopener" href="https://www.amazon.co.jp/dp/${esc(a)}">Amazon</a>`:''}<button class="qb" data-act="del" title="削除">🗑</button></div>
   </div>`;
-}
-
-/* ---- 収支 ---- */
-function plRows(){
-  const c=cfg(),by={};
-  purchases().forEach(p=>{
-    const ym=ymOf(p.bought_at)||'不明';const r=by[ym]=by[ym]||{ym,books:0,spend:0,sold:0,net:0,soldCost:0,open:0};
-    r.books++;r.spend+=+p.price_paid||0;
-    const n=recNet(p);if(n!=null){r.sold++;r.net+=n;r.soldCost+=+p.price_paid||0}else if(p.status!=='keep')r.open++;
-  });
-  return Object.values(by).sort((a,b)=>b.ym.localeCompare(a.ym)).map(r=>Object.assign(r,{self:Math.max(0,r.spend-c.budget),company:Math.min(r.spend,c.budget)}));
-}
-function viewPl(){
-  const rows=plRows(),c=cfg();
-  const T=rows.reduce((s,r)=>({books:s.books+r.books,spend:s.spend+r.spend,net:s.net+r.net,sold:s.sold+r.sold,soldCost:s.soldCost+r.soldCost,self:s.self+r.self,company:s.company+r.company,open:s.open+r.open}),{books:0,spend:0,net:0,sold:0,soldCost:0,self:0,company:0,open:0});
-  const rec=T.soldCost?T.net/T.soldCost:null;
-  return `<div class="panel"><h2>累計</h2>
-    <div class="three" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
-      <div class="kpi"><div class="l">購入した本</div><div class="v">${T.books}冊</div></div>
-      <div class="kpi"><div class="l">購入額（会社補助 ${yen(T.company)}）</div><div class="v">${yen(T.spend)}</div></div>
-      <div class="kpi"><div class="l">補助枠を超えた自己負担</div><div class="v ${T.self?'neg':''}">${yen(T.self)}</div></div>
-      <div class="kpi"><div class="l">売却の手取り合計（${T.sold}冊）</div><div class="v pos">${yen(T.net)}</div></div>
-      <div class="kpi"><div class="l">売れた本の実質負担（購入額−手取り）</div><div class="v neg">${yen(T.soldCost-T.net)}</div></div>
-      <div class="kpi"><div class="l">回収率（手取り÷購入額・売れた本）</div><div class="v">${pct(rec)}</div></div>
-    </div><p class="hint">手取り＝売れた価格−手数料${Math.round(c.fee_rate*100)}%−送料${yen(c.shipping)}−梱包資材${yen(c.packaging)}（記録ごとに上書きしたい場合はJSONで fee / shipping / packaging を入れられます）。未売却 ${T.open}冊。</p></div>
-    <div class="panel"><h2>月別</h2><div class="tw"><table class="t"><thead><tr><th class="l">購入月</th><th>冊数</th><th>購入額</th><th>補助枠内</th><th>自己負担</th><th>売れた冊数</th><th>手取り</th><th>売れた本の実質負担</th><th>未売却</th></tr></thead><tbody>
-    ${rows.length?rows.map(r=>`<tr><td class="l">${esc(r.ym)}</td><td>${r.books}</td><td>${yen(r.spend)}</td><td>${yen(r.company)}</td><td>${yen(r.self)}</td><td>${r.sold}</td><td>${yen(r.net)}</td><td>${yen(r.soldCost-r.net)}</td><td>${r.open}</td></tr>`).join(''):'<tr><td class="l" colspan="9">記録がありません</td></tr>'}
-    </tbody></table></div></div>`;
 }
 
 /* ---- 調査メモ ---- */
@@ -485,7 +456,6 @@ function bind(){
   const ss=$('#sortSel');if(ss)ss.onchange=()=>{ui.sort=ss.value;saveUi();render()};
   const op=$('#onlyPass');if(op)op.onchange=()=>{ui.onlyPass=op.checked;saveUi();render()};
   m.querySelectorAll('[data-sub]').forEach(b=>b.onclick=()=>{ui.candSub=b.dataset.sub;saveUi();render()});
-  m.querySelectorAll('[data-rf]').forEach(b=>b.onclick=()=>{ui.recF=b.dataset.rf;saveUi();render()});
   m.querySelectorAll('.card[data-isbn]').forEach(card=>{
     const b=bookByIsbn(card.dataset.isbn);
     card.querySelectorAll('[data-act]').forEach(btn=>btn.onclick=()=>{
@@ -493,28 +463,25 @@ function bind(){
       if(a==='pick'){const on=!(db.picks[b.isbn]&&db.picks[b.isbn].want);setPick(b.isbn,on);btn.classList.toggle('on',on);toast(on?'☆ 気になるに追加':'気になるから外しました')}
       else if(a==='buy'){
         if(boughtIsbns().has(b.isbn)){ui.tab='rec';saveUi();render();return}
-        newPurchaseFromBook(b);toast('購入記録に追加しました（記録タブで編集できます）');render();
+        newPurchaseFromBook(b);toast('「買った本」に追加しました');render();
       }
       else if(a==='detail')detailModal(b);
     });
   });
-  m.querySelectorAll('.rec[data-id]').forEach(row=>{
+  m.querySelectorAll('.brow[data-id]').forEach(row=>{
     const id=row.dataset.id;
     row.querySelectorAll('[data-f]').forEach(inp=>inp.onchange=()=>{
       const k=inp.dataset.f;let v=inp.value;
-      if(['price_paid','list_price','sold_price'].includes(k))v=v===''?null:+v;
-      const patch={[k]:v};
-      if(k==='sold_price'&&v&&db.purchases[id].status!=='sold'){patch.status='sold';if(!db.purchases[id].sold_at)patch.sold_at=today()}
-      if(k==='list_price'&&v&&db.purchases[id].status==='reading')patch.status='listed';
-      upsertPurchase(id,patch);
-      if(patch.status||k==='sold_price'||k==='price_paid'||k==='status'){const keep=document.activeElement===inp;render();if(keep){}}
+      if(k==='price_paid')v=v===''?null:+v;
+      upsertPurchase(id,{[k]:v});
+      if(k!=='memo')render();
     });
     const del=row.querySelector('[data-act="del"]');
-    if(del)del.onclick=()=>{if(!confirm('この記録を削除しますか？'))return;upsertPurchase(id,{deleted:true});render()};
+    if(del)del.onclick=()=>{if(!confirm('この本を一覧から削除しますか？'))return;upsertPurchase(id,{deleted:true});render()};
   });
   const am=$('#addManual');if(am)am.onclick=()=>{
     const t=prompt('書名');if(!t)return;const pr=+prompt('購入価格（円）','')||0;
-    upsertPurchase('p'+Date.now().toString(36),{title:t,price_paid:pr,bought_at:today(),status:'reading',memo:''});render();
+    upsertPurchase('p'+Date.now().toString(36),{title:t,price_paid:pr,bought_at:today(),memo:''});render();
   };
   const cp=$('#copyPrompt');if(cp)cp.onclick=async()=>{try{await navigator.clipboard.writeText(RESEARCH_PROMPT);toast('コピーしました')}catch(e){toast('コピーできませんでした。手で選択してください')}window.open('https://claude.ai/','_blank','noopener')};
   m.querySelectorAll('[data-cfg]').forEach(inp=>inp.onchange=()=>{settings.cfg=settings.cfg||{};const v=parseFloat(inp.value);if(!isNaN(v))settings.cfg[inp.dataset.cfg]=v;saveSettings();toast('保存しました')});
@@ -526,10 +493,9 @@ function bind(){
 
 /* =============== 保存・マージ =============== */
 function exportObj(){
-  return{_readme:{about:'本の手帖（会社の書籍補助で買ったIT・ビジネス書をメルカリで売る記録）の個人データ。',
+  return{_readme:{about:'本の手帖（会社の書籍補助で買ったIT・ビジネス書）の個人データ。',
       picks:'ISBN → {want:気になる, updated_at}',
-      purchases:'id → {isbn,title,price_paid:購入価格(円),bought_at:購入日,status:reading=読書中/listed=出品中/sold=売却済み/keep=手元に残す,list_price:出品価格,sold_price:売れた価格,sold_at:売れた日,fee/shipping/packaging:実額で上書きする場合のみ,memo,updated_at,deleted:削除済み}',
-      net:'手取り=sold_price−手数料(既定10%)−送料(既定210円)−梱包資材(既定74円)'},
+      purchases:'id → {isbn,title,price_paid:購入価格(円),bought_at:購入日,expected_sell/expected_burden:購入時点の想定売却価格・想定実質負担,memo,updated_at,deleted:削除済み}'},
     schema_version:1,updated_at:db.updated_at,picks:db.picks,purchases:db.purchases};
 }
 function mergeMap(a={},b={}){const o={...a};for(const[k,v]of Object.entries(b||{})){if(!v)continue;const cur=o[k];if(!cur||(v.updated_at||'')>(cur.updated_at||''))o[k]=v}return o}
