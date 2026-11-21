@@ -48,6 +48,7 @@ label.chk{display:flex;gap:6px;align-items:center;color:var(--sub);font-size:14p
 .pill.ok{color:var(--accent2);border-color:#2a5b55;background:#16312f}
 .pill.warn{color:var(--warn);border-color:#6b5a1c;background:#33290d}
 .pill.ng{color:var(--ng);border-color:#7a3a3a;background:#331a1a}
+.pill.lib a{color:inherit}
 .pill.blue{color:var(--blue);border-color:#1f4a63;background:#10283a}
 .nums{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
 @media(max-width:1100px){.nums{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -125,6 +126,7 @@ footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--sub);font-
 </footer>
 <div id="modalRoot"></div>
 
+<script src="../portal/lib/techo-google.js"></script>
 <script>
 'use strict';
 /* =============== utils =============== */
@@ -226,6 +228,84 @@ async function loadMonth(m){
   render();
 }
 function books(){return(data&&data.books)||[]}
+
+/* =============== 図書館（図書館手帖と連携） ===============
+   図書館手帖（booklog-library-check）は同じドメインなので、
+   ①公開データ data.json（ブクログの本棚の本）をそのまま読む
+   ②図書館手帖で保存したカーリルAPIキー（localStorage 'calilAppKey'）で、候補の本をその場で問い合わせる
+   結果は localStorage 'hondb.lib.v1' に3日間とっておく（個人データではないので Drive には同期しない） */
+const LIB_KEY='hondb.lib.v1',LIB_TTL=3*86400e3,LIB_SITE='../booklog-library-check/';
+let LIB_SYS=[{id:'Gifu_Ikeda',name:'池田町'},{id:'Gifu_Godo',name:'神戸町'}];
+let LIB=lsGet(LIB_KEY,{});let libBusy=false;
+/* ISBN-10 は ISBN-13 にそろえる（候補データは10桁、図書館手帖のデータは13桁のため） */
+function isbn13(i){
+  i=String(i||'').replace(/[^0-9X]/gi,'').toUpperCase();
+  if(/^97[89]\d{10}$/.test(i))return i;
+  if(!/^\d{9}[\dX]$/.test(i))return '';
+  const b='978'+i.slice(0,9);let sum=0;for(let k=0;k<12;k++)sum+=(+b[k])*(k%2?3:1);
+  return b+((10-sum%10)%10);
+}
+const sysName=id=>(LIB_SYS.find(x=>x.id===id)||{}).name||id;
+function libSummary(avail){
+  const a=(avail||[]).filter(x=>x&&x.system);
+  if(!a.length||a.some(x=>/error/i.test(x.status||'')))return{st:'err',label:'図書館: 確認できず'};
+  const has=[],busy=[];let url='';
+  a.forEach(x=>(x.libs||[]).forEach(l=>{
+    if(/貸出可|蔵書あり|館内のみ/.test(l.state)){has.push(sysName(x.system));url=url||x.reserveurl}
+    else if(l.state){busy.push(sysName(x.system));url=url||x.reserveurl}
+  }));
+  if(has.length)return{st:'ok',label:'📚 図書館にある（'+[...new Set(has)].join('・')+'）',url};
+  if(busy.length)return{st:'busy',label:'📚 貸出中など（'+[...new Set(busy)].join('・')+'）',url};
+  return{st:'none',label:'図書館になし'};
+}
+function libPill(isbn){
+  isbn=isbn13(isbn);const e=LIB[isbn];if(!e)return'';
+  const s=libSummary(e.avail),cls={ok:'ok',busy:'warn',none:'',err:'warn'}[s.st];
+  const href=s.url||('https://calil.jp/book/'+encodeURIComponent(isbn));
+  return `<span class="pill lib ${cls}" title="${esc((e.src==='shelf'?'図書館手帖のデータ':'カーリルで確認')+' '+String(e.at||'').slice(0,10))}"><a href="${esc(href)}" target="_blank" rel="noopener">${esc(s.label)}</a></span>`;
+}
+async function loadShelfLib(){
+  try{
+    const r=await fetch(LIB_SITE+'data.json',{cache:'no-cache'});if(!r.ok)return;
+    const d=await r.json();let n=0;
+    if(Array.isArray(d.systems)&&d.systems.length)LIB_SYS=d.systems.map(x=>({id:x.id,name:String(x.name||x.id).replace(/(町立)?図書館$/,'')}));
+    (d.books||[]).forEach(b=>{b.isbn=isbn13(b.isbn);if(!b.isbn||!Array.isArray(b.avail)||!b.avail.length)return;
+      const at=b.checkedAt||d.generated||'';const cur=LIB[b.isbn];
+      if(!cur||String(cur.at||'')<String(at)){LIB[b.isbn]={avail:b.avail,at,src:'shelf'};n++}});
+    if(n){lsSet(LIB_KEY,LIB);render()}
+  }catch(e){/* 図書館手帖のデータが無くても本の手帖は動く */}
+}
+function jsonp(url,timeout=25000){
+  return new Promise((resolve,reject)=>{
+    const cb='calil_cb_'+Math.random().toString(36).slice(2);const sc=document.createElement('script');let done=false;
+    const timer=setTimeout(()=>fin(new Error('カーリルから応答がありませんでした')),timeout);
+    function fin(err,d){if(done)return;done=true;clearTimeout(timer);delete window[cb];sc.remove();err?reject(err):resolve(d)}
+    window[cb]=d=>fin(null,d);sc.onerror=()=>fin(new Error('カーリルに接続できませんでした（APIキーを確認してください）'));
+    const u=new URL(url);u.searchParams.set('callback',cb);sc.src=u.toString();document.head.append(sc);
+  });
+}
+async function libCheck(){
+  if(libBusy)return;
+  let key='';try{key=localStorage.getItem('calilAppKey')||''}catch(e){}
+  if(!key){toast('カーリルのAPIキーが未設定です。図書館手帖の「APIキーを設定」で保存すると、ここでも使えます',6000);return}
+  const isbns=[...new Set(books().map(b=>isbn13(b.isbn)).filter(Boolean))].filter(i=>!LIB[i]||Date.now()-Date.parse(LIB[i].at||0)>LIB_TTL);
+  if(!isbns.length){toast('この月の本はすべて確認済みです（3日以内）');return}
+  libBusy=true;const btn=$('#libBtn');if(btn)btn.disabled=true;
+  try{
+    for(let i=0;i<isbns.length;i+=30){
+      const chunk=isbns.slice(i,i+30);if(btn)btn.textContent='確認中… '+Math.min(i+30,isbns.length)+'/'+isbns.length;
+      const q=new URL('https://api.calil.jp/check');q.searchParams.set('appkey',key);q.searchParams.set('isbn',chunk.join(','));q.searchParams.set('systemid',LIB_SYS.map(x=>x.id).join(','));q.searchParams.set('format','json');
+      let j=await jsonp(q.toString());
+      for(let k=0;j.continue&&k<40;k++){await new Promise(r=>setTimeout(r,2200));const p=new URL('https://api.calil.jp/check');p.searchParams.set('appkey',key);p.searchParams.set('session',j.session);p.searchParams.set('format','json');j=await jsonp(p.toString())}
+      const at=nowIso();
+      chunk.forEach(isbn=>{const e=(j.books||{})[isbn];if(!e)return;
+        LIB[isbn]={avail:Object.entries(e).map(([system,d])=>({system,status:d.status||'',reserveurl:d.reserveurl||'',libs:Object.entries(d.libkey||{}).map(([name,state])=>({name,state}))})),at,src:'calil'}});
+      lsSet(LIB_KEY,LIB);
+    }
+    toast('図書館の所蔵を確認しました');
+  }catch(e){toast(e.message,5000)}
+  finally{libBusy=false;render()}
+}
 function bookByIsbn(isbn){return books().find(b=>b.isbn===isbn)}
 
 /* =============== 記録（upsert 1か所） =============== */
@@ -283,7 +363,7 @@ function bookCard(b,e,rank,rest){
         ${b.amazon_rank?`／Amazon本 ${Number(b.amazon_rank).toLocaleString()}位`:''}</div>
       <div>${(b.genres||[]).map(g=>`<span class="pill blue">${esc(g)}</span>`).join('')}${fitPill(e.fit)}
         ${e.n&&e.n<3?'<span class="pill warn">売却件数少</span>':''}${over?'<span class="pill ng">残り枠オーバー</span>':''}
-        ${!e.pass?e.reasons.map(r=>`<span class="pill ng">${esc(r)}</span>`).join(''):''}</div>
+        ${!e.pass?e.reasons.map(r=>`<span class="pill ng">${esc(r)}</span>`).join(''):''}${libPill(b.isbn)}</div>
       <div class="nums">
         ${numBox('Amazon価格',yen(b.price),b.price?'新品・税込':(b.price_note?'在庫なし':'確認不可'))}
         ${numBox('メルカリ売却相場',e.n?yen(e.med):'確認不可',e.n?`${e.n}件 ${yen(e.smin)}〜${yen(e.smax)}`:'売り切れ0件')}
@@ -337,6 +417,7 @@ function viewRank(){
         ${[['burden','実質負担が小さい順（推奨）'],['score','総合スコア順'],['sell','想定売却価格が高い順'],['sold','売却件数が多い順'],['ret','価格維持率が高い順'],['date','発売日が新しい順']].map(([k,l])=>`<option value="${k}" ${ui.sort===k?'selected':''}>${l}</option>`).join('')}
       </select>
       ${ui.candSub==='rank'?`<label class="chk"><input type="checkbox" id="onlyPass" ${ui.onlyPass?'checked':''}> 必須条件を満たす本だけ（${passN}/${all.length}冊）</label>`:''}
+      <button class="btn" id="libBtn" title="図書館手帖のカーリルAPIキーを使って、この月の本が池田町・神戸町の図書館にあるか確認します">📚 図書館で確認</button>
       <span class="hint">調査日 ${esc(data.researched_at||'')}・対象 ${esc(data.window&&data.window.from)}〜${esc(data.window&&data.window.to)}発売</span>
     </div></div>
     <div class="grid">${list.length?list.map(x=>bookCard(x.b,x.e,ui.candSub==='rank'&&x.e.pass&&ui.sort==='burden'?++rk:(ui.candSub==='rank'&&x.e.pass?++rk:0),rest)).join(''):`<div class="empty">${ui.candSub==='want'?'「☆ 気になる」を押した本がここに並びます':'条件に合う本がありません'}</div>`}</div>`;
@@ -454,6 +535,7 @@ function bind(){
   const m=$('#main');
   const ms=$('#mSel');if(ms)ms.onchange=()=>{ui.month=ms.value;saveUi();loadMonth(ui.month)};
   const ss=$('#sortSel');if(ss)ss.onchange=()=>{ui.sort=ss.value;saveUi();render()};
+  const lb=$('#libBtn');if(lb)lb.onclick=libCheck;
   const op=$('#onlyPass');if(op)op.onchange=()=>{ui.onlyPass=op.checked;saveUi();render()};
   m.querySelectorAll('[data-sub]').forEach(b=>b.onclick=()=>{ui.candSub=b.dataset.sub;saveUi();render()});
   m.querySelectorAll('.card[data-isbn]').forEach(card=>{
@@ -505,89 +587,48 @@ function mergeDb(a,b){return Object.assign(emptyDb(),a,{picks:mergeMap(a.picks,b
 let gToken=null,gExp=0,driveFileId=null,syncTimer=null,syncing=false;
 const G_SCOPE='https://www.googleapis.com/auth/drive.file';
 const G_REDIR=location.origin+location.pathname.replace(/index\.html$/,'');
-const G_TOKKEY='hon_gauth_tok:'+G_REDIR;
+/* ログインと Drive の読み書きは手帖共通の ../portal/lib/techo-google.js（ポータルのリポジトリ）。
+   トークンは全部の手帖で共通なので、どれか1つの手帖でログインすれば他の手帖もそのまま同期できる */
 const DRIVE_NAME='hon-techo-db.json';
-const gSt={
-  get(k){try{const v=localStorage.getItem(k);if(v!=null)return v}catch(e){}try{return sessionStorage.getItem(k)}catch(e){return null}},
-  set(k,v){try{localStorage.setItem(k,v)}catch(e){}try{sessionStorage.setItem(k,v)}catch(e){}},
-  del(k){try{localStorage.removeItem(k)}catch(e){}try{sessionStorage.removeItem(k)}catch(e){}}
-};
-let gAuthMsg='';
-(function(){
-  try{
-    if(/access_token=|error=/.test(location.hash)){
-      const p=new URLSearchParams(location.hash.slice(1));
-      const saved=gSt.get('hon_gauth_state');
-      if(p.get('state')&&saved&&p.get('state')===saved){
-        if(p.get('access_token'))gSt.set(G_TOKKEY,JSON.stringify({t:p.get('access_token'),e:Date.now()+(+p.get('expires_in')||3600)*1000}));
-        else if(p.get('error')&&!/login_required|interaction_required|consent_required|account_selection_required/.test(p.get('error')))gAuthMsg='Google認証が完了しませんでした ('+p.get('error')+')';
-      }else gAuthMsg='Google認証の戻り情報を確認できませんでした。もう一度「☁ 要再接続」を押してください';
-      gSt.del('hon_gauth_state');
-      history.replaceState(null,'',location.pathname+location.search);
-    }
-    const s=JSON.parse(gSt.get(G_TOKKEY)||'null');
-    if(s&&s.e>Date.now()){gToken=s.t;gExp=s.e}else if(s)gSt.del(G_TOKKEY);
-  }catch(e){}
-})();
-function gRedirect(prompt){
-  const st=Math.random().toString(36).slice(2)+Date.now().toString(36);
-  gSt.set('hon_gauth_state',st);
-  const q=new URLSearchParams({client_id:settings.google_client_id.trim(),redirect_uri:G_REDIR,response_type:'token',scope:G_SCOPE,state:st,include_granted_scopes:'true'});
-  if(prompt)q.set('prompt',prompt);
-  location.href='https://accounts.google.com/o/oauth2/v2/auth?'+q.toString();
-  return new Promise(()=>{});
+const GA=window.TechoGoogle?TechoGoogle.create({site:'hon',clientId:()=>settings.google_client_id}):null;
+let gAuthMsg=GA?GA.message():'共通ファイル（portal/lib/techo-google.js）を読み込めませんでした。Drive同期は使えません';
+function gLoad(scope){const t=GA&&GA.token(scope);gToken=t?t.t:null;gExp=t?t.e:0;return !!t}
+gLoad();
+function gRedirect(prompt,scope){if(!GA)throw new Error(gAuthMsg||'共通ファイルを読み込めませんでした');return GA.redirect(prompt,scope||G_SCOPE)}
+async function driveAuth(interactive){
+  if(gLoad())return;                                   // ほかの手帖でログイン済みなら、そのトークンを使う
+  if(!String(settings.google_client_id||'').trim())throw new Error('Google クライアントIDが未設定です（設定タブ）');
+  if(interactive)return gRedirect('');
+  throw new Error('再接続が必要です');
 }
-async function driveAuth(interactive){if(interactive)return gRedirect('');throw new Error('再接続が必要です')}
+/* 起動時：トークンがあれば同期、無ければ1回だけ無言で再認証を試す（ループ防止つき） */
 function gStartup(){
   if(gAuthMsg){const m=gAuthMsg;gAuthMsg='';setTimeout(()=>toast(m,6000),400)}
+  if(!settings.google_client_id||!GA)return;
   if(gToken){driveSync(false);return}
-  if(!settings.drive_linked){setSync('off');return}
-  const last=+gSt.get('hon_gauth_silent')||0;
-  if(Date.now()-last<300000){setSync('need');return}
-  gSt.set('hon_gauth_silent',String(Date.now()));
+  if(!settings.drive_linked)return;
+  if(!GA.silentOk()){setSync('need');return}
   gRedirect('none');
 }
 window.addEventListener('pageshow',e=>{if(e.persisted){syncing=false;setSync('need')}});
-const gFetch=(url,opt={})=>fetch(url,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+gToken}});
+const gFetch=(url,opt={})=>GA.fetch(url,opt);
 async function driveSync(interactive){
   if(syncing)return;syncing=true;setSync('busy');let changed=false;
   try{
     if(!gToken||Date.now()>gExp-60000)await driveAuth(interactive);
-    let id=driveFileId;
-    if(!id){
-      const q=encodeURIComponent(`name='${DRIVE_NAME}' and trashed=false`);
-      const r=await gFetch(`https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id)&orderBy=${encodeURIComponent('modifiedTime desc')}&pageSize=1`);
-      if(!r.ok)throw new Error('Drive検索に失敗 ('+r.status+')');
-      const j=await r.json();id=j.files&&j.files[0]&&j.files[0].id;
-    }
-    if(id){
-      const r=await gFetch(`https://www.googleapis.com/drive/v3/files/${id}?alt=media`);
-      // 読み込めないまま書き込むと他の端末の変更を消してしまうので、必ず中断する
-      if(!r.ok){if(r.status===404)driveFileId=null;throw new Error('Driveの読み込みに失敗 ('+r.status+')。保存は中止しました')}
-      if(r.ok){const sig=JSON.stringify([db.picks,db.purchases]);const remote=await r.json();db=mergeDb(db,remote||{});saveLocal();if(JSON.stringify([db.picks,db.purchases])!==sig)changed=true}
-    }
-    const body=JSON.stringify(exportObj(),null,1);
-    if(id){
-      const r=await gFetch(`https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,{method:'PATCH',headers:{'Content-Type':'application/json'},body});
-      if(!r.ok)throw new Error('Drive保存に失敗 ('+r.status+')');
-    }else{
-      const b='hondb'+Date.now();
-      const meta=JSON.stringify({name:DRIVE_NAME,mimeType:'application/json'});
-      const mp=`--${b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${meta}\r\n--${b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${body}\r\n--${b}--`;
-      const r=await gFetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+b},body:mp});
-      if(!r.ok)throw new Error('Drive作成に失敗 ('+r.status+')');
-      id=(await r.json()).id;
-    }
+    const id=await GA.syncFile(DRIVE_NAME,driveFileId,async remote=>{
+      const sig=JSON.stringify([db.picks,db.purchases]);db=mergeDb(db,remote||{});saveLocal();if(JSON.stringify([db.picks,db.purchases])!==sig)changed=true
+    },()=>JSON.stringify(exportObj(),null,1));
     driveFileId=id;settings.drive_linked=true;saveSettings();setSync('ok');
     if(changed&&ui.tab!=='settings')render();
     return true;
-  }catch(e){setSync(interactive?'bad':'need');if(interactive)toast(e.message,5000);console.warn(e);return false}
+  }catch(e){if(e&&e.forget)driveFileId=null;setSync(interactive?'bad':'need');if(interactive)toast(e.message,5000);console.warn(e);return false}
   finally{syncing=false}
 }
 function scheduleSync(){
   if(!settings.drive_linked)return;
   setSync('dirty');clearTimeout(syncTimer);
-  syncTimer=setTimeout(()=>{if(gToken&&Date.now()<gExp-60000)driveSync(false);else setSync('need')},2500);
+  syncTimer=setTimeout(()=>{if(gLoad()&&Date.now()<gExp-60000)driveSync(false);else setSync('need')},2500);
 }
 function setSync(s){
   const c=$('#syncChip');
@@ -600,6 +641,7 @@ $('#syncChip').onclick=()=>driveSync(true);
 setSync(settings.drive_linked?'need':'off');
 render();
 loadIndex();
+loadShelfLib();
 gStartup();
 </script>
 </body>
