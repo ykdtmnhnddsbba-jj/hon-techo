@@ -4,7 +4,7 @@
 
 ## 0. 前提
 - リポジトリ: `ykdtmnhnddsbba-jj/hon-techo`（GitHub Pages: https://ykdtmnhnddsbba-jj.github.io/hon-techo/ ）
-- ユーザーのフォルダ: `G:\マイドライブ\App\売れ筋の本を探す`（ソースのコピーと HANDOFF.md を置く）
+- ユーザーのフォルダ: `G:\マイドライブ\App\apps\books\売れ筋の本を探す`（ソースのコピーと HANDOFF.md を置く）
 - 対象期間: 調査日から過去3か月（例: 調査日 2026-11-10 → 2026-08-10〜2026-11-10 発売）
 - 使うブラウザ: Claude デスクトップアプリの**内蔵ブラウザ**（Amazon・メルカリともログイン不要）
 
