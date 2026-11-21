@@ -125,6 +125,7 @@ footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--sub);font-
 </footer>
 <div id="modalRoot"></div>
 
+<script src="../portal/lib/techo-google.js"></script>
 <script>
 'use strict';
 /* =============== utils =============== */
@@ -505,89 +506,48 @@ function mergeDb(a,b){return Object.assign(emptyDb(),a,{picks:mergeMap(a.picks,b
 let gToken=null,gExp=0,driveFileId=null,syncTimer=null,syncing=false;
 const G_SCOPE='https://www.googleapis.com/auth/drive.file';
 const G_REDIR=location.origin+location.pathname.replace(/index\.html$/,'');
-const G_TOKKEY='hon_gauth_tok:'+G_REDIR;
+/* ログインと Drive の読み書きは手帖共通の ../portal/lib/techo-google.js（ポータルのリポジトリ）。
+   トークンは全部の手帖で共通なので、どれか1つの手帖でログインすれば他の手帖もそのまま同期できる */
 const DRIVE_NAME='hon-techo-db.json';
-const gSt={
-  get(k){try{const v=localStorage.getItem(k);if(v!=null)return v}catch(e){}try{return sessionStorage.getItem(k)}catch(e){return null}},
-  set(k,v){try{localStorage.setItem(k,v)}catch(e){}try{sessionStorage.setItem(k,v)}catch(e){}},
-  del(k){try{localStorage.removeItem(k)}catch(e){}try{sessionStorage.removeItem(k)}catch(e){}}
-};
-let gAuthMsg='';
-(function(){
-  try{
-    if(/access_token=|error=/.test(location.hash)){
-      const p=new URLSearchParams(location.hash.slice(1));
-      const saved=gSt.get('hon_gauth_state');
-      if(p.get('state')&&saved&&p.get('state')===saved){
-        if(p.get('access_token'))gSt.set(G_TOKKEY,JSON.stringify({t:p.get('access_token'),e:Date.now()+(+p.get('expires_in')||3600)*1000}));
-        else if(p.get('error')&&!/login_required|interaction_required|consent_required|account_selection_required/.test(p.get('error')))gAuthMsg='Google認証が完了しませんでした ('+p.get('error')+')';
-      }else gAuthMsg='Google認証の戻り情報を確認できませんでした。もう一度「☁ 要再接続」を押してください';
-      gSt.del('hon_gauth_state');
-      history.replaceState(null,'',location.pathname+location.search);
-    }
-    const s=JSON.parse(gSt.get(G_TOKKEY)||'null');
-    if(s&&s.e>Date.now()){gToken=s.t;gExp=s.e}else if(s)gSt.del(G_TOKKEY);
-  }catch(e){}
-})();
-function gRedirect(prompt){
-  const st=Math.random().toString(36).slice(2)+Date.now().toString(36);
-  gSt.set('hon_gauth_state',st);
-  const q=new URLSearchParams({client_id:settings.google_client_id.trim(),redirect_uri:G_REDIR,response_type:'token',scope:G_SCOPE,state:st,include_granted_scopes:'true'});
-  if(prompt)q.set('prompt',prompt);
-  location.href='https://accounts.google.com/o/oauth2/v2/auth?'+q.toString();
-  return new Promise(()=>{});
+const GA=window.TechoGoogle?TechoGoogle.create({site:'hon',clientId:()=>settings.google_client_id}):null;
+let gAuthMsg=GA?GA.message():'共通ファイル（portal/lib/techo-google.js）を読み込めませんでした。Drive同期は使えません';
+function gLoad(scope){const t=GA&&GA.token(scope);gToken=t?t.t:null;gExp=t?t.e:0;return !!t}
+gLoad();
+function gRedirect(prompt,scope){if(!GA)throw new Error(gAuthMsg||'共通ファイルを読み込めませんでした');return GA.redirect(prompt,scope||G_SCOPE)}
+async function driveAuth(interactive){
+  if(gLoad())return;                                   // ほかの手帖でログイン済みなら、そのトークンを使う
+  if(!String(settings.google_client_id||'').trim())throw new Error('Google クライアントIDが未設定です（設定タブ）');
+  if(interactive)return gRedirect('');
+  throw new Error('再接続が必要です');
 }
-async function driveAuth(interactive){if(interactive)return gRedirect('');throw new Error('再接続が必要です')}
+/* 起動時：トークンがあれば同期、無ければ1回だけ無言で再認証を試す（ループ防止つき） */
 function gStartup(){
   if(gAuthMsg){const m=gAuthMsg;gAuthMsg='';setTimeout(()=>toast(m,6000),400)}
+  if(!settings.google_client_id||!GA)return;
   if(gToken){driveSync(false);return}
-  if(!settings.drive_linked){setSync('off');return}
-  const last=+gSt.get('hon_gauth_silent')||0;
-  if(Date.now()-last<300000){setSync('need');return}
-  gSt.set('hon_gauth_silent',String(Date.now()));
+  if(!settings.drive_linked)return;
+  if(!GA.silentOk()){setSync('need');return}
   gRedirect('none');
 }
 window.addEventListener('pageshow',e=>{if(e.persisted){syncing=false;setSync('need')}});
-const gFetch=(url,opt={})=>fetch(url,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+gToken}});
+const gFetch=(url,opt={})=>GA.fetch(url,opt);
 async function driveSync(interactive){
   if(syncing)return;syncing=true;setSync('busy');let changed=false;
   try{
     if(!gToken||Date.now()>gExp-60000)await driveAuth(interactive);
-    let id=driveFileId;
-    if(!id){
-      const q=encodeURIComponent(`name='${DRIVE_NAME}' and trashed=false`);
-      const r=await gFetch(`https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id)&orderBy=${encodeURIComponent('modifiedTime desc')}&pageSize=1`);
-      if(!r.ok)throw new Error('Drive検索に失敗 ('+r.status+')');
-      const j=await r.json();id=j.files&&j.files[0]&&j.files[0].id;
-    }
-    if(id){
-      const r=await gFetch(`https://www.googleapis.com/drive/v3/files/${id}?alt=media`);
-      // 読み込めないまま書き込むと他の端末の変更を消してしまうので、必ず中断する
-      if(!r.ok){if(r.status===404)driveFileId=null;throw new Error('Driveの読み込みに失敗 ('+r.status+')。保存は中止しました')}
-      if(r.ok){const sig=JSON.stringify([db.picks,db.purchases]);const remote=await r.json();db=mergeDb(db,remote||{});saveLocal();if(JSON.stringify([db.picks,db.purchases])!==sig)changed=true}
-    }
-    const body=JSON.stringify(exportObj(),null,1);
-    if(id){
-      const r=await gFetch(`https://www.googleapis.com/upload/drive/v3/files/${id}?uploadType=media`,{method:'PATCH',headers:{'Content-Type':'application/json'},body});
-      if(!r.ok)throw new Error('Drive保存に失敗 ('+r.status+')');
-    }else{
-      const b='hondb'+Date.now();
-      const meta=JSON.stringify({name:DRIVE_NAME,mimeType:'application/json'});
-      const mp=`--${b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${meta}\r\n--${b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${body}\r\n--${b}--`;
-      const r=await gFetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+b},body:mp});
-      if(!r.ok)throw new Error('Drive作成に失敗 ('+r.status+')');
-      id=(await r.json()).id;
-    }
+    const id=await GA.syncFile(DRIVE_NAME,driveFileId,async remote=>{
+      const sig=JSON.stringify([db.picks,db.purchases]);db=mergeDb(db,remote||{});saveLocal();if(JSON.stringify([db.picks,db.purchases])!==sig)changed=true
+    },()=>JSON.stringify(exportObj(),null,1));
     driveFileId=id;settings.drive_linked=true;saveSettings();setSync('ok');
     if(changed&&ui.tab!=='settings')render();
     return true;
-  }catch(e){setSync(interactive?'bad':'need');if(interactive)toast(e.message,5000);console.warn(e);return false}
+  }catch(e){if(e&&e.forget)driveFileId=null;setSync(interactive?'bad':'need');if(interactive)toast(e.message,5000);console.warn(e);return false}
   finally{syncing=false}
 }
 function scheduleSync(){
   if(!settings.drive_linked)return;
   setSync('dirty');clearTimeout(syncTimer);
-  syncTimer=setTimeout(()=>{if(gToken&&Date.now()<gExp-60000)driveSync(false);else setSync('need')},2500);
+  syncTimer=setTimeout(()=>{if(gLoad()&&Date.now()<gExp-60000)driveSync(false);else setSync('need')},2500);
 }
 function setSync(s){
   const c=$('#syncChip');
